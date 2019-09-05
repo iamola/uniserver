@@ -538,34 +538,6 @@ begin
 
 //==Set config file paths for selected PHP version
 
-//--PHP 53  selected
-If UENV_PHP_SELECT ='php53' then
-  begin
-   USF_PHP_INI      := USF_PHP_INI_TEST_53; // config php_test.ini
-   USF_PHP_INI_DEV  := USF_PHP_INI_DEV_53;  // config php_development.ini
-   USF_PHP_INI_PROD := USF_PHP_INI_PROD_53; // php_production.ini
-  end;
-//--End PHP 53  selected
-
-//--PHP 54  selected
-If UENV_PHP_SELECT ='php54' then
-  begin
-   USF_PHP_INI      := USF_PHP_INI_TEST_54; // config php_test.ini
-   USF_PHP_INI_DEV  := USF_PHP_INI_DEV_54;  // config php_development.ini
-   USF_PHP_INI_PROD := USF_PHP_INI_PROD_54; //  php_production.ini
-  end;
-//--End PHP 54  selected
-
-
- //--PHP 55  selected
-If UENV_PHP_SELECT ='php55' then
-  begin
-   USF_PHP_INI      := USF_PHP_INI_TEST_55; // config php_test.ini
-   USF_PHP_INI_DEV  := USF_PHP_INI_DEV_55;  // config php_development.ini
-   USF_PHP_INI_PROD := USF_PHP_INI_PROD_55; // php_production.ini
-  end;
-//--End PHP 55  selected
-
 //--PHP 56  selected
 If UENV_PHP_SELECT ='php56' then
  begin

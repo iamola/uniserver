@@ -129,7 +129,7 @@ var
 begin
 
   //--Set paths
-  // UENV_PHP_SELECT - PHP version selected php52, php53, php54, php55, php56 or php 70
+  // UENV_PHP_SELECT - PHP version selected php56, php 70, php71, php 72 or php 73
   USF_PHP_EXE      :=  UniConPath + '\core\'+ UENV_PHP_SELECT +'\php.exe';     // PHP command executable
   USF_PHP_INI_CLI  :=  UniConPath + '\core\'+ UENV_PHP_SELECT +'\php-cli.ini'; // PHP command line config
 

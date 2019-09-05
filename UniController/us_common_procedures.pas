@@ -115,11 +115,11 @@ uses
 
   Used by us_main_init
   Also used by elements that change the path:
-   TMain.MMSS_php53Click    - PHP select buttons
-   TMain.MMSS_php54Click    - change the
-   TMain.MMSS_php55Click    - environment paths
-   TMain.MMSS_php56Click
-   TMain.MMSS_php70Click
+   TMain.MMSS_php56Click    - PHP select buttons
+   TMain.MMSS_php70Click    - change the
+   TMain.MMSS_php71Click    - environment paths
+   TMain.MMSS_php71Click
+   TMain.MMSS_php73Click
 
   ORIGINAL_ENV_PATH - Original environment path when controller started
 
@@ -810,7 +810,8 @@ procedure us_start_mysql_program;
 Var
  AProcess: TProcess;
  saftey_loop: Integer;
-
+ US_MYSQL_VER: string;
+ IniVer:TINIFile;                      // Handle for configuration file
 begin
  if not MysqlRunning() then
   begin
@@ -865,6 +866,24 @@ begin
      end;
     Until MysqlRunning();
 
+    //=== If the MySQL version is 8 then the Console window does not close
+    //===    Use the mysqlhide.exe shim to close it.
+    //=== Get the Version of MySQL From the configuration file us_opt.ini
+    //=== USF_MYMAR_TXT_INI - User server configuration
+
+    IniVer := TINIFile.Create(USF_MYMAR_TXT_INI); // create object
+    //[USER]
+    US_MYSQL_VER   := IniVer.ReadString('USER','version','5'); //MySQL or MariaDB
+    IniVer.Free;     // Free method of object
+    //=== End Version Check from configuration file us_opt.ini
+
+    If StrToInt(US_MYSQL_VER) >= 8 Then
+     begin
+       AProcess := TProcess.Create(nil);                                              // Create new process
+       AProcess.Executable := US_MYSQL_BIN + '\mysqlhide.exe';                        // Executable to run
+       AProcess.Execute;                                                              // Run command
+       AProcess.Free;
+     end;
   end;
 end;
 {--- End us_start_mysql_program --------------------------------------------}
@@ -1179,17 +1198,34 @@ var
   AProcess    : TProcess;    // Process handle
   saftey_loop : Integer;     // Loop counter
   failed      : Boolean;     // Failed to set password
-
+  IniVer      : TINIFile;     //Check the MySQL Version
+  mysqlVer    : string;
 begin
   failed := False;                          // Assume not failed
+
+  // Read the Version of MySQL Since the password change depends on it.
+  IniVer    := TINIFile.Create(USF_MYMAR_TXT_INI); // create object
+  mysqlVer  := IniVer.ReadString('USER','version','5'); //MySQL or MariaDB
+  IniVer.Free;     // Free method of object
+
   //1==Create new mysql-init.txt
   Assign(FileVar1,USF_MYSQL_TEMP_SQL);      // Assign file
   ReWrite(FileVar1);                        // Create file for writting
-  Writeln(FileVar1, 'UPDATE mysql.user SET Password = PASSWORD('''+new_password+''') WHERE User = ''root'';');
-  Writeln(FileVar1, 'UPDATE mysql.user SET Password = PASSWORD('''+new_password+''') WHERE User = ''pma'';');
+
+  If StrtoInt(mysqlVer)>=8 Then
+   begin
+    Writeln(FileVar1, 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
+    Writeln(FileVar1, 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
+   end
+  Else
+   begin
+    Writeln(FileVar1, 'UPDATE mysql.user SET Password = PASSWORD('''+new_password+''') WHERE User = ''root'';');
+    Writeln(FileVar1, 'UPDATE mysql.user SET Password = PASSWORD('''+new_password+''') WHERE User = ''pma'';');
+   end;
+
   Writeln(FileVar1, 'FLUSH PRIVILEGES;');
   CloseFile(FileVar1);                     // Close file
-  sleep(100);                              // Wait for file to be createed
+  sleep(100);                              // Wait for file to be created
 
   //2==Start MySQL server with sql file mysql-init.txt
   //   File is run during start-up and passwords changed.
@@ -1243,7 +1279,7 @@ begin
 
   //4)==Delete temp file mysql-init.txt
   If FileExists(USF_MYSQL_TEMP_SQL) Then
-    DeleteFile(Pchar(USF_MYSQL_TEMP_SQL));
+    //DeleteFile(Pchar(USF_MYSQL_TEMP_SQL));
 
   //5)==Update parameters
   If Failed then //Failed to change root password
@@ -1294,27 +1330,45 @@ mysql_restore_root_password:
 =============================================================================}
 procedure mysql_restore_root_password;
 var
-  FileVar1    : TextFile;  // Text File handle
-  AProcess    : TProcess;  // Process handle
-  str1:string;
-  str2:string;
-  str3:string;
-  str4:string;
-  str5:string;
-  str6:string;
+  FileVar1 : TextFile;  // Text File handle
+  AProcess : TProcess;  // Process handle
+  str1     : string;
+  str2     : string;
+  str3     : string;
+  str4     : string;
+  str5     : string;
+  str6     : string;
+  str7     : string;
+  str8     : string;
+  IniVer   : TINIFile;     //Check the MySQL Version
+  mysqlVer : string;
+  passStr  : string;
 begin
+
+  // Read the Version of MySQL Since the password change depends on it.
+  IniVer    := TINIFile.Create(USF_MYMAR_TXT_INI); // create object
+  mysqlVer  := IniVer.ReadString('USER','version','5'); //MySQL or MariaDB
+  IniVer.Free;     // Free method of object
 
   //1==Kill server
   us_kill_mysql_program;                    // Check server running. If running kill it
 
   //2===Set sql strings to write to file. This is based on the results obtained from list of privileges
   //    Specific privileges are named a set not the root password is calculated using Password(''root'') 
-  str1 := 'use mysql;'; 
-  str2 := 'INSERT IGNORE INTO user SET user = ''root'', host = ''127.0.0.1'', password = Password(''root''), select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
-  str3 := 'REPLACE INTO user SET       user = ''root'', host = ''127.0.0.1'', password = Password(''root''), select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
-  str4 := 'INSERT IGNORE INTO user SET user = ''pma'', host = ''127.0.0.1'', password = Password(''root''), select_priv = ''n'', insert_priv = ''n'', update_priv = ''n'', delete_priv = ''n'', create_priv = ''n'', drop_priv = ''n'', reload_priv = ''n'', shutdown_priv = ''n'', process_priv = ''n'', file_priv = ''n'', grant_priv = ''n'', references_priv = ''n'', index_priv = ''n'', alter_priv = ''n'', show_db_priv = ''n'', super_priv = ''n'', create_tmp_table_priv = ''n'', lock_tables_priv = ''n'', execute_priv = ''n'', repl_slave_priv = ''n'', repl_client_priv = ''n'', create_view_priv = ''n'', show_view_priv = ''n'', create_routine_priv = ''n'', alter_routine_priv = ''n'', create_user_priv = ''n'', Event_priv = ''n'', Trigger_priv = ''n'', Create_tablespace_priv = ''n'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
-  str5 := 'REPLACE INTO user SET       user = ''pma'', host = ''127.0.0.1'', password = Password(''root''), select_priv = ''n'', insert_priv = ''n'', update_priv = ''n'', delete_priv = ''n'', create_priv = ''n'', drop_priv = ''n'', reload_priv = ''n'', shutdown_priv = ''n'', process_priv = ''n'', file_priv = ''n'', grant_priv = ''n'', references_priv = ''n'', index_priv = ''n'', alter_priv = ''n'', show_db_priv = ''n'', super_priv = ''n'', create_tmp_table_priv = ''n'', lock_tables_priv = ''n'', execute_priv = ''n'', repl_slave_priv = ''n'', repl_client_priv = ''n'', create_view_priv = ''n'', show_view_priv = ''n'', create_routine_priv = ''n'', alter_routine_priv = ''n'', create_user_priv = ''n'', Event_priv = ''n'', Trigger_priv = ''n'', Create_tablespace_priv = ''n'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
-  str6 := 'FLUSH PRIVILEGES;';
+
+  If StrtoInt(mysqlVer)>=8 Then
+     passStr := 'host = ''localhost'''
+  Else
+     passStr := 'Password = PASSWORD(''root''), host = ''127.0.0.1''';
+
+  str1 := 'use mysql;';
+  str2 := 'INSERT IGNORE INTO user SET user = ''root'', ' + passStr + ', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
+  str3 := 'REPLACE INTO user SET       user = ''root'', ' + passStr + ', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
+  str4 := 'INSERT IGNORE INTO user SET user = ''pma'', ' + passStr + ', select_priv = ''n'', insert_priv = ''n'', update_priv = ''n'', delete_priv = ''n'', create_priv = ''n'', drop_priv = ''n'', reload_priv = ''n'', shutdown_priv = ''n'', process_priv = ''n'', file_priv = ''n'', grant_priv = ''n'', references_priv = ''n'', index_priv = ''n'', alter_priv = ''n'', show_db_priv = ''n'', super_priv = ''n'', create_tmp_table_priv = ''n'', lock_tables_priv = ''n'', execute_priv = ''n'', repl_slave_priv = ''n'', repl_client_priv = ''n'', create_view_priv = ''n'', show_view_priv = ''n'', create_routine_priv = ''n'', alter_routine_priv = ''n'', create_user_priv = ''n'', Event_priv = ''n'', Trigger_priv = ''n'', Create_tablespace_priv = ''n'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
+  str5 := 'REPLACE INTO user SET       user = ''pma'', ' + passStr + ', select_priv = ''n'', insert_priv = ''n'', update_priv = ''n'', delete_priv = ''n'', create_priv = ''n'', drop_priv = ''n'', reload_priv = ''n'', shutdown_priv = ''n'', process_priv = ''n'', file_priv = ''n'', grant_priv = ''n'', references_priv = ''n'', index_priv = ''n'', alter_priv = ''n'', show_db_priv = ''n'', super_priv = ''n'', create_tmp_table_priv = ''n'', lock_tables_priv = ''n'', execute_priv = ''n'', repl_slave_priv = ''n'', repl_client_priv = ''n'', create_view_priv = ''n'', show_view_priv = ''n'', create_routine_priv = ''n'', alter_routine_priv = ''n'', create_user_priv = ''n'', Event_priv = ''n'', Trigger_priv = ''n'', Create_tablespace_priv = ''n'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
+  str6 := 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH mysql_native_password BY ''root'';';
+  str7 := 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH mysql_native_password BY ''root'';';
+  str8 := 'FLUSH PRIVILEGES;';
 
   //2==Write above strings to file mysql-init.txt this is used to restore password and privileges
    Assign(FileVar1,USF_MYSQL_TEMP_SQL);      // Assign file
@@ -1324,7 +1378,12 @@ begin
    Writeln(FileVar1, str3);
    Writeln(FileVar1, str4);
    Writeln(FileVar1, str5);
-   Writeln(FileVar1, str6);
+   If StrtoInt(mysqlVer)>=8 Then
+   begin
+    Writeln(FileVar1, str6);
+    Writeln(FileVar1, str7);
+   end;
+   Writeln(FileVar1, str8);
 
    CloseFile(FileVar1);                     // Close file
    sleep(100);                              // Wait for file to be createed
@@ -2029,7 +2088,9 @@ begin
 
  If PortableBrowser Then // Portable browser installed
   begin
-    us_start_palemoon;  // Ensure browser is running. If running no action taken. 
+    //us_start_palemoon;  // Ensure browser is running. If running no action taken. 
+    //SudeepJD - Commeted the above line, The TProcess will start up Palemoon directly
+    //  so a check that it is already running is not required, since it will start up anyways.
 
     //--Run command string.
     AProcess := TProcess.Create(nil);                         // Create new process
@@ -2041,7 +2102,9 @@ begin
   end
  Else   // Use default browser
   begin
-    us_start_default_browser; // Ensure browser is running. If running no action taken.
+    //us_start_default_browser; // Ensure browser is running. If running no action taken.
+    //SudeepJD - Commented the above line since ideally a ShellExecute should start anyway, starting
+    // with a default page, does not seem to be required.
     ShellExecute(0, 'open', PCHAR(URL), Nil,  Nil,  SW_SHOWNORMAL); //Display in default
   end;
 end;

@@ -19,7 +19,7 @@ uses
 {global vars}
 
 const
-  UNICONTROLLER_VERSION = 'V2.2.1';
+  UNICONTROLLER_VERSION = 'V2.3.0';
   APC_DLL               = 'php_apc.dll';
   EACCELERATOR_DLL      = 'eaccelerator.dll';
   XCACHE_DLL            = 'php_xcache.dll';
@@ -51,7 +51,7 @@ Var
    UENV_US_ROOTF_SSL   :String;  // US_ROOTF_SSL   Apache server root folder ssl environment var
 
    UENV_MYSQL_TCP_PORT :string;  // MYSQL_TCP_PORT MySQL port environment var
-   UENV_PHP_SELECT     :string;  // PHP_SELECT     PHP Selected php53, php54, php55, php56, php70, php71, php72, php73 environment var
+   UENV_PHP_SELECT     :string;  // PHP_SELECT     PHP Selected php56, php70, php71, php72, php73 environment var
    UENV_PHP_INI_SELECT :string;  // PHP_INI_SELECT PHP configuration file php_test.ini php_development.ini php_production.ini environment var
 
   //==== End User Config and Enironment variables
@@ -174,20 +174,12 @@ Var
  US_PAC            :String;  // Proxy PAC folder
  US_PALE_MOON      :String;  // Pale Moon Folder
 
- US_PHP52          :String;  // PHP 52 root folder
- US_PHP53          :String;  // PHP 53 root folder
- US_PHP54          :String;  // PHP 54 root folder
- US_PHP55          :String;  // PHP 55 root folder
  US_PHP56          :String;  // PHP 56 root folder
  US_PHP70          :String;  // PHP 70 root folder
  US_PHP71          :String;  // PHP 71 root folder
  US_PHP72          :String;  // PHP 71 root folder
  US_PHP73          :String;  // PHP 73 root folder
 
- US_PHP52_EXT      :String;  // PHP 52 extensions folder
- US_PHP53_EXT      :String;  // PHP 53 extensions folder
- US_PHP54_EXT      :String;  // PHP 54 extensions folder
- US_PHP55_EXT      :String;  // PHP 55 extensions folder
  US_PHP56_EXT      :String;  // PHP 56 extensions folder
  US_PHP70_EXT      :String;  // PHP 70 extensions folder
  US_PHP71_EXT      :String;  // PHP 71 extensions folder
@@ -250,26 +242,6 @@ Var
  USF_MYMAR_TXT_INI        : String;  // MySQL configuration text file
 
  //-- PHP
-
- USF_PHP_INI_TEST_52  :String;   // PHP 5.2.* configuration
- USF_PHP_INI_PROD_52  :String;   // PHP 5.2.* configuration production
- USF_PHP_INI_DEV_52   :String;   // PHP 5.2.* configuration development
- USF_PHP_INI_CLI_52   :String;   // PHP 5.2.* command line config
-
- USF_PHP_INI_TEST_53  :String;   // PHP 5.3.* configuration
- USF_PHP_INI_PROD_53  :String;   // PHP 5.3.* configuration production
- USF_PHP_INI_DEV_53   :String;   // PHP 5.3.* configuration development
- USF_PHP_INI_CLI_53   :String;   // PHP 5.3.* command line config
-
- USF_PHP_INI_TEST_54  :String;   // PHP 5.4.* configuration
- USF_PHP_INI_PROD_54  :String;   // PHP 5.4.* configuration production
- USF_PHP_INI_DEV_54   :String;   // PHP 5.4.* configuration development
- USF_PHP_INI_CLI_54   :String;   // PHP 5.4.* command line config
-
- USF_PHP_INI_TEST_55  :String;   // PHP 5.5.* configuration
- USF_PHP_INI_PROD_55  :String;   // PHP 5.5.* configuration production
- USF_PHP_INI_DEV_55   :String;   // PHP 5.5.* configuration development
- USF_PHP_INI_CLI_55   :String;   // PHP 5.5.* command line config
 
  USF_PHP_INI_TEST_56  :String;   // PHP 5.6.* configuration
  USF_PHP_INI_PROD_56  :String;   // PHP 5.6.* configuration production
@@ -427,25 +399,17 @@ begin
   US_PAC             := UniConPath +  '\home\us_pac';       // Proxy PAC folder
   US_PALE_MOON       := UniConPath +  '\core\palemoon';     // Pale Moon Folder
 
-  US_PHP52           := UniConPath +  '\core\php52';        // PHP 52 root folder
-  US_PHP53           := UniConPath +  '\core\php53';        // PHP 53 root folder
-  US_PHP54           := UniConPath +  '\core\php54';        // PHP 54 root folder
-  US_PHP55           := UniConPath +  '\core\php55';        // PHP 55 root folder
   US_PHP56           := UniConPath +  '\core\php56';        // PHP 56 root folder
   US_PHP70           := UniConPath +  '\core\php70';        // PHP 70 root folder
   US_PHP71           := UniConPath +  '\core\php71';        // PHP 71 root folder
   US_PHP72           := UniConPath +  '\core\php72';        // PHP 72 root folder
   US_PHP73           := UniConPath +  '\core\php73';        // PHP 73 root folder
 
-  US_PHP52_EXT       := UniConPath +  '\core\php52\extensions'; // PHP 52 extensions folder
-  US_PHP53_EXT       := UniConPath +  '\core\php53\extensions'; // PHP 53 extensions folder
-  US_PHP54_EXT       := UniConPath +  '\core\php54\extensions'; // PHP 54 extensions folder
-  US_PHP55_EXT       := UniConPath +  '\core\php55\extensions'; // PHP 55 extensions folder
   US_PHP56_EXT       := UniConPath +  '\core\php56\extensions'; // PHP 56 extensions folder
   US_PHP70_EXT       := UniConPath +  '\core\php70\extensions'; // PHP 70 extensions folder
   US_PHP71_EXT       := UniConPath +  '\core\php71\extensions'; // PHP 71 extensions folder
   US_PHP72_EXT       := UniConPath +  '\core\php72\extensions'; // PHP 72 extensions folder
-  US_PHP73_EXT       := UniConPath +  '\core\php73\extensions'; // PHP 71 extensions folder
+  US_PHP73_EXT       := UniConPath +  '\core\php73\extensions'; // PHP 73 extensions folder
 
   US_PERL            := UniConPath +  '\core\perl';         // Perl main folder
   US_PERL_BIN        := UniConPath +  '\core\perl\bin';     // Perl binary folder
@@ -496,26 +460,6 @@ begin
   USF_MYMAR_TXT_INI        := US_MYSQL     + '\us_opt.ini';                // MySQL configuration text file
 
   //-- PHP
-
-  USF_PHP_INI_TEST_52  := US_PHP52 + '\php_test.ini';        // PHP 5.2.* configuration
-  USF_PHP_INI_PROD_52  := US_PHP52 + '\php_production.ini';  // PHP 5.2.* configuration production
-  USF_PHP_INI_DEV_52   := US_PHP52 + '\php_development.ini'; // PHP 5.2.* configuration development
-  USF_PHP_INI_CLI_52   := US_PHP52 + '\php-cli.ini';         // PHP 5.2.* command line config
-
-  USF_PHP_INI_TEST_53  := US_PHP53 + '\php_test.ini';        // PHP 5.3.* configuration
-  USF_PHP_INI_PROD_53  := US_PHP53 + '\php_production.ini';  // PHP 5.3.* configuration production
-  USF_PHP_INI_DEV_53   := US_PHP53 + '\php_development.ini'; // PHP 5.3.* configuration development
-  USF_PHP_INI_CLI_53   := US_PHP53 + '\php-cli.ini';         // PHP 5.3.* command line config
-
-  USF_PHP_INI_TEST_54  := US_PHP54 + '\php_test.ini';        // PHP 5.4.* configuration
-  USF_PHP_INI_PROD_54  := US_PHP54 + '\php_production.ini';  // PHP 5.4.* configuration production
-  USF_PHP_INI_DEV_54   := US_PHP54 + '\php_development.ini'; // PHP 5.4.* configuration development
-  USF_PHP_INI_CLI_54   := US_PHP54 + '\php-cli.ini';         // PHP 5.4.* command line config
-
-  USF_PHP_INI_TEST_55  := US_PHP55 + '\php_test.ini';        // PHP 5.5.* configuration
-  USF_PHP_INI_PROD_55  := US_PHP55 + '\php_production.ini';  // PHP 5.5.* configuration production
-  USF_PHP_INI_DEV_55   := US_PHP55 + '\php_development.ini'; // PHP 5.5.* configuration development
-  USF_PHP_INI_CLI_55   := US_PHP55 + '\php-cli.ini';         // PHP 5.5.* command line config
 
   USF_PHP_INI_TEST_56  := US_PHP56 + '\php_test.ini';        // PHP 5.6.* configuration
   USF_PHP_INI_PROD_56  := US_PHP56 + '\php_production.ini';  // PHP 5.6.* configuration production
@@ -768,13 +712,9 @@ begin
 
    UENV_PHP_SELECT := Ini2.ReadString('USER','PHP_SELECT','php73');          // Get user selected PHP version
 
-   //If folders php52, php53, php54, php55, php56, php70, php71, php72, php73 do not exist or
+   //If folders php56, php70, php71, php72, php73 do not exist or
    //incorrect PHP_SELECT value override user config. Set var PHP_SELECT to None.
    php_valid := False; // Assume PHP not installed
-   If (DirectoryExists(US_PHP52) And (UENV_PHP_SELECT ='php52')) Then php_valid := True;
-   If (DirectoryExists(US_PHP53) And (UENV_PHP_SELECT ='php53')) Then php_valid := True;
-   If (DirectoryExists(US_PHP54) And (UENV_PHP_SELECT ='php54')) Then php_valid := True;
-   If (DirectoryExists(US_PHP55) And (UENV_PHP_SELECT ='php55')) Then php_valid := True;
    If (DirectoryExists(US_PHP56) And (UENV_PHP_SELECT ='php56')) Then php_valid := True;
    If (DirectoryExists(US_PHP70) And (UENV_PHP_SELECT ='php70')) Then php_valid := True;
    If (DirectoryExists(US_PHP71) And (UENV_PHP_SELECT ='php71')) Then php_valid := True;

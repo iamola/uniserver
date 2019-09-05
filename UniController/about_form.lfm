@@ -1,17 +1,17 @@
 object About: TAbout
   Left = 761
-  Height = 247
+  Height = 269
   Top = 135
   Width = 364
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'About'
-  ClientHeight = 247
+  ClientHeight = 269
   ClientWidth = 364
   OnCreate = FormCreate
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '2.0.2.0'
+  LCLVersion = '2.0.4.0'
   object Image1: TImage
     Left = 16
     Height = 54
@@ -266,7 +266,7 @@ object About: TAbout
   object Label4: TLabel
     Left = 142
     Height = 15
-    Top = 224
+    Top = 240
     Width = 53
     Caption = '---oOo---'
     ParentColor = False

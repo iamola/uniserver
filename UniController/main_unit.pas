@@ -73,10 +73,6 @@ type
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
 
-    MMSS_php52: TMenuItem;
-    MMSS_php53: TMenuItem;
-    MMSS_php54: TMenuItem;
-    MMSS_php55: TMenuItem;
     MMSS_php56: TMenuItem;
     MMSS_php70: TMenuItem;
     MMSS_php71: TMenuItem;
@@ -194,10 +190,6 @@ type
     procedure FormWindowStateChange(Sender: TObject);
     procedure MMSS_display_at_startup_page1Click(Sender: TObject);
     procedure MMSS_display_at_startup_page2Click(Sender: TObject);
-    procedure MMSS_php52Click(Sender: TObject);
-    procedure MMSS_php53Click(Sender: TObject);
-    procedure MMSS_php54Click(Sender: TObject);
-    procedure MMSS_php55Click(Sender: TObject);
     procedure MMSS_php56Click(Sender: TObject);
     procedure MMSS_php70Click(Sender: TObject);
     procedure MMSS_php71Click(Sender: TObject);
@@ -350,26 +342,6 @@ begin
     us_apache_syntax_check; //Opens a CMD (DOS) window and displays syntax check result
 end;
 
-
-procedure TMain.MMSS_php53Click(Sender: TObject);
-begin
-  If Main.MMSS_php53.Checked Then
-   begin
-     UENV_PHP_SELECT :='None';                                 // Set var
-     us_ini_set(USF_US_USER_INI,'USER','PHP_SELECT','None');   // Save to config file
-   end
-  Else
-   begin
-    UENV_PHP_SELECT :='php53';                                 // Set var
-    us_ini_set(USF_US_USER_INI,'USER','PHP_SELECT','php53');   // Save to config file
-   end;
-  windows.SetEnvironmentVariable('PHP_SELECT',PCHAR(UENV_PHP_SELECT)); // PHP Select environoment
-  us_set_environment_path;  // Set new enironment paths
-  us_update_server_state;   // Update menus
-  msg_restart_apache;       // Reminder dialog - Restart Apache.
-  us_update_go_pear_config; // update paths in go-pear configuration file
-end;
-
 procedure TMain.FormWindowStateChange(Sender: TObject);
 begin
  case WindowState of
@@ -419,25 +391,6 @@ begin
   us_ini_set(USF_US_USER_INI,'USER','DISPLAY_PAGE_2',USUC_DISPLAY_PAGE_2); // save to config file
   us_update_server_state;                                                  // Update menus
   msg_restart_apache;                                                      // If running display message
-end;
-
-procedure TMain.MMSS_php52Click(Sender: TObject);
-begin
-    If Main.MMSS_php52.Checked Then
-     begin
-       UENV_PHP_SELECT :='None';                                 // Set var
-       us_ini_set(USF_US_USER_INI,'USER','PHP_SELECT','None');   // Save to config file
-     end
-    Else
-     begin
-      UENV_PHP_SELECT :='php52';                                 // Set var
-      us_ini_set(USF_US_USER_INI,'USER','PHP_SELECT','php52');   // Save to config file
-     end;
-    windows.SetEnvironmentVariable('PHP_SELECT',PCHAR(UENV_PHP_SELECT)); // PHP Select environoment
-    us_set_environment_path;  // Set new enironment paths
-    us_update_server_state;   // Update menus
-    msg_restart_apache;       // Reminder dialog - Restart Apache.
-    us_update_go_pear_config; // update paths in go-pear configuration file
 end;
 
 procedure TMain.MMSS_php56Click(Sender: TObject);
@@ -685,26 +638,6 @@ begin
   root_www_pass_access.ShowModal;
 end;
 
-procedure TMain.MMSS_php55Click(Sender: TObject);
-begin
-  //Toggle action
-  If Main.MMSS_php55.Checked Then
-    begin
-     UENV_PHP_SELECT :='None';                                            // Set var
-     us_ini_set(USF_US_USER_INI,'USER','PHP_SELECT','None');              // save to config file
-    end
-  Else
-    begin
-     UENV_PHP_SELECT :='php55';                                           // Set var
-     us_ini_set(USF_US_USER_INI,'USER','PHP_SELECT','php55');             // save to config file
-    end;
-  windows.SetEnvironmentVariable('PHP_SELECT',PCHAR(UENV_PHP_SELECT)); // PHP Select
-  us_set_environment_path;  // Set new enironment paths
-  us_update_server_state;   // Update menus
-  msg_restart_apache;       // Reminder dialog - Restart apache.
-  us_update_go_pear_config; // update paths in go-pear configuration file
-end;
-
 procedure TMain.MMSS_php_edit_basicClick(Sender: TObject);
 begin
   edit_php_basic.ShowModal;
@@ -936,27 +869,6 @@ begin
   sList_cron.Free;   // Remove from memory
 end;
 
-
-procedure TMain.MMSS_php54Click(Sender: TObject);
-begin
-  If Main.MMSS_php54.Checked Then
-    begin
-     UENV_PHP_SELECT :='None';                                            // Set var
-     us_ini_set(USF_US_USER_INI,'USER','PHP_SELECT','None');              // save to config file
-    end
-  Else
-    begin
-     UENV_PHP_SELECT :='php54';                                           // Set var
-     us_ini_set(USF_US_USER_INI,'USER','PHP_SELECT','php54');             // save to config file
-    end;
-  windows.SetEnvironmentVariable('PHP_SELECT',PCHAR(UENV_PHP_SELECT)); // PHP Select
-  us_set_environment_path;  // Set new enironment paths
-  us_update_server_state;   // Update menus
-  msg_restart_apache;       // Reminder dialog - Restart apache.
-  us_update_go_pear_config; // update paths in go-pear configuration file
-end;
-
-
 procedure TMain.MMSS_php_acc_apcClick(Sender: TObject);
 begin
   disable_all_php_accelerators; // Disable accelerator
@@ -1180,75 +1092,6 @@ end;
 procedure TMain.MMS_edit_selected_php_configClick(Sender: TObject);
 begin
   //==Edit selected PHP configuration file
-
-   //--PHP 52  selected
-   If UENV_PHP_SELECT ='php52' then
-     begin
-        //Edit config php_test.ini
-          If UENV_PHP_INI_SELECT ='php_test.ini' Then
-             us_display_in_editor(USF_PHP_INI_TEST_52);
-
-        //Edit config php_development.ini
-          If UENV_PHP_INI_SELECT ='php_development.ini' Then
-             us_display_in_editor(USF_PHP_INI_DEV_52);
-
-        //Edit config php_production.ini
-          If UENV_PHP_INI_SELECT ='php_production.ini' Then
-             us_display_in_editor(USF_PHP_INI_PROD_52);
-     end;
-   //--End PHP 52  selected
-
-
-   //--PHP 53  selected
-   If UENV_PHP_SELECT ='php53' then
-     begin
-        //Edit config php_test.ini
-          If UENV_PHP_INI_SELECT ='php_test.ini' Then
-             us_display_in_editor(USF_PHP_INI_TEST_53);
-
-        //Edit config php_development.ini
-          If UENV_PHP_INI_SELECT ='php_development.ini' Then
-             us_display_in_editor(USF_PHP_INI_DEV_53);
-
-        //Edit config php_production.ini
-          If UENV_PHP_INI_SELECT ='php_production.ini' Then
-             us_display_in_editor(USF_PHP_INI_PROD_53);
-     end;
-   //--End PHP 53  selected
-
-   //--PHP 54 selected
-   If UENV_PHP_SELECT ='php54' then
-     begin
-      //Edit config php_test.ini
-          If UENV_PHP_INI_SELECT ='php_test.ini' Then
-             us_display_in_editor(USF_PHP_INI_TEST_54);
-
-      //Edit config php_development.ini
-          If UENV_PHP_INI_SELECT ='php_development.ini' Then
-             us_display_in_editor(USF_PHP_INI_DEV_54);
-
-      //Edit config php_production.ini
-          If UENV_PHP_INI_SELECT ='php_production.ini' Then
-              us_display_in_editor(USF_PHP_INI_PROD_54);
-      end;
-   //--End PHP 54 selected
-
-   //--PHP 55 selected
-   If UENV_PHP_SELECT ='php55' then
-     begin
-      //Edit config php_test.ini
-          If UENV_PHP_INI_SELECT ='php_test.ini' Then
-             us_display_in_editor(USF_PHP_INI_TEST_55);
-
-      //Edit config php_development.ini
-          If UENV_PHP_INI_SELECT ='php_development.ini' Then
-             us_display_in_editor(USF_PHP_INI_DEV_55);
-
-      //Edit config php_production.ini
-          If UENV_PHP_INI_SELECT ='php_production.ini' Then
-              us_display_in_editor(USF_PHP_INI_PROD_55);
-     end;
-    //--End PHP 55 selected
 
     //--PHP 56 selected
     If UENV_PHP_SELECT ='php56' then

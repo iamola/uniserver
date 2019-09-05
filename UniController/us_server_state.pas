@@ -319,37 +319,9 @@ begin
 
 
    //---Set PHP drop-down menu state one or other must exist
-   If (DirectoryExists(US_PHP52) or DirectoryExists(US_PHP53) or DirectoryExists(US_PHP54) or DirectoryExists(US_PHP55) or DirectoryExists(US_PHP56) or DirectoryExists(US_PHP70) or DirectoryExists(US_PHP71) or DirectoryExists(US_PHP72) or DirectoryExists(US_PHP73)) Then
+   If (DirectoryExists(US_PHP56) or DirectoryExists(US_PHP70) or DirectoryExists(US_PHP71) or DirectoryExists(US_PHP72) or DirectoryExists(US_PHP73)) Then
     begin
       Main.MM_php.Enabled := true;  // Enable drop-down menu
-
-      //--PHP 52
-      If DirectoryExists(US_PHP52) Then
-         Main.MMSS_php52.Enabled := true      // Select version
-      Else
-         Main.MMSS_php52.Enabled := false;    // Select version
-      //--End PHP 52
-
-      //--PHP 53
-      If DirectoryExists(US_PHP53) Then
-         Main.MMSS_php53.Enabled := true      // Select version
-      Else
-         Main.MMSS_php53.Enabled := false;    // Select version
-      //--End PHP 53
-
-      //--PHP 54
-      If DirectoryExists(US_PHP54) Then
-         Main.MMSS_php54.Enabled := true      // Select version
-      Else                                    // Does not exist
-         Main.MMSS_php54.Enabled := false;    // Select version
-      //--END PHP 54
-
-      //--PHP 55
-      If DirectoryExists(US_PHP55) Then
-         Main.MMSS_php55.Enabled := true      // Select version
-      Else                                    // Does not exist
-         Main.MMSS_php55.Enabled := false;    // Select version
-      //--END PHP 55
 
       //--PHP 56
       If DirectoryExists(US_PHP56) Then
@@ -394,112 +366,6 @@ begin
 
 
    //---PHP Version selected - set checked
-
-   //===PHP52
-   If UENV_PHP_SELECT = 'php52' Then
-    begin
-      Main.MMSS_php52.Checked:=true;
-      //php ini
-      If FileExists(USF_PHP_INI_TEST_52) Then
-         Main.MMSS_php_ini.Enabled:=true
-      Else
-         Main.MMSS_php_ini.Enabled:=false;
-
-      //php development
-      If FileExists(USF_PHP_INI_DEV_52) Then
-         Main.MMSS_php_development.Enabled:=true
-      Else
-         Main.MMSS_php_development.Enabled:=false;
-
-      //php production
-      If FileExists(USF_PHP_INI_PROD_52) Then
-         Main.MMSS_php_production.Enabled:=true
-      Else
-         Main.MMSS_php_production.Enabled:=false;
-    end
-   Else
-     Main.MMSS_php52.Checked:=false;
-   //===End PHP52
-
-
-   //===PHP53
-   If UENV_PHP_SELECT = 'php53' Then
-    begin
-      Main.MMSS_php53.Checked:=true;
-      //php ini
-      If FileExists(USF_PHP_INI_TEST_53) Then
-         Main.MMSS_php_ini.Enabled:=true
-      Else
-         Main.MMSS_php_ini.Enabled:=false;
-
-      //php development
-      If FileExists(USF_PHP_INI_DEV_53) Then
-         Main.MMSS_php_development.Enabled:=true
-      Else
-         Main.MMSS_php_development.Enabled:=false;
-
-      //php production
-      If FileExists(USF_PHP_INI_PROD_53) Then
-         Main.MMSS_php_production.Enabled:=true
-      Else
-         Main.MMSS_php_production.Enabled:=false;
-    end
-   Else
-     Main.MMSS_php53.Checked:=false;
-   //===End PHP53
-
-   //===PHP54
-   If UENV_PHP_SELECT = 'php54' Then
-    begin
-      Main.MMSS_php54.Checked:=true;
-      //php ini
-      If FileExists(USF_PHP_INI_TEST_54) Then
-         Main.MMSS_php_ini.Enabled:=true
-      Else
-         Main.MMSS_php_ini.Enabled:=false;
-
-      //php development
-      If FileExists(USF_PHP_INI_DEV_54) Then
-         Main.MMSS_php_development.Enabled:=true
-      Else
-         Main.MMSS_php_development.Enabled:=false;
-
-      //php production
-      If FileExists(USF_PHP_INI_PROD_54) Then
-         Main.MMSS_php_production.Enabled:=true
-      Else
-         Main.MMSS_php_production.Enabled:=false;
-    end
-   Else
-      Main.MMSS_php54.Checked:=false;
-   //===End PHP54
-
-   //===PHP55
-   If UENV_PHP_SELECT = 'php55' Then
-    begin
-      Main.MMSS_php55.Checked:=true;
-      //php ini
-      If FileExists(USF_PHP_INI_TEST_55) Then
-         Main.MMSS_php_ini.Enabled:=true
-      Else
-         Main.MMSS_php_ini.Enabled:=false;
-
-      //php development
-      If FileExists(USF_PHP_INI_DEV_55) Then
-         Main.MMSS_php_development.Enabled:=true
-      Else
-         Main.MMSS_php_development.Enabled:=false;
-
-      //php production
-      If FileExists(USF_PHP_INI_PROD_55) Then
-         Main.MMSS_php_production.Enabled:=true
-      Else
-         Main.MMSS_php_production.Enabled:=false;
-    end
-   Else
-      Main.MMSS_php55.Checked:=false;
-   //===End PHP55
-
 
     //===PHP56
    If UENV_PHP_SELECT = 'php56' Then

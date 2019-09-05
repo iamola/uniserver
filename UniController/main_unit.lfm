@@ -1,7 +1,7 @@
 object Main: TMain
-  Left = 415
+  Left = 506
   Height = 234
-  Top = 132
+  Top = 304
   Width = 346
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -15,7 +15,7 @@ object Main: TMain
   OnWindowStateChange = FormWindowStateChange
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '2.0.2.0'
+  LCLVersion = '2.0.4.0'
   object Bevel1: TBevel
     Left = 8
     Height = 68
@@ -735,22 +735,6 @@ object Main: TMain
       object MMS_select_php_version: TMenuItem
         Caption = 'Select PHP version'
         ImageIndex = 12
-        object MMSS_php52: TMenuItem
-          Caption = 'PHP version 52'
-          OnClick = MMSS_php52Click
-        end
-        object MMSS_php53: TMenuItem
-          Caption = 'PHP version 53'
-          OnClick = MMSS_php53Click
-        end
-        object MMSS_php54: TMenuItem
-          Caption = 'PHP version 54'
-          OnClick = MMSS_php54Click
-        end
-        object MMSS_php55: TMenuItem
-          Caption = 'PHP version 55'
-          OnClick = MMSS_php55Click
-        end
         object MMSS_php56: TMenuItem
           Caption = 'PHP version 56'
           OnClick = MMSS_php56Click
