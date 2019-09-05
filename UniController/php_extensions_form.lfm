@@ -1,0 +1,40 @@
+object php_extensions: Tphp_extensions
+  Left = 1060
+  Height = 399
+  Top = 129
+  Width = 253
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'PHP Extensions Enable/Disable'
+  ClientHeight = 399
+  ClientWidth = 253
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.2.2.0'
+  object PHP_Extensions_CheckListBox: TCheckListBox
+    Left = 0
+    Height = 351
+    Top = 48
+    Width = 253
+    ItemHeight = 0
+    OnItemClick = PHP_Extensions_CheckListBoxItemClick
+    TabOrder = 0
+  end
+  object Lbl_verson: TLabel
+    Left = 8
+    Height = 15
+    Top = 8
+    Width = 68
+    Caption = 'PHP Version:'
+    ParentColor = False
+  end
+  object Lbl_file: TLabel
+    Left = 8
+    Height = 15
+    Top = 24
+    Width = 60
+    Caption = 'Config File:'
+    ParentColor = False
+  end
+end

@@ -1,0 +1,33 @@
+object apache_modules: Tapache_modules
+  Left = 399
+  Height = 400
+  Top = 147
+  Width = 470
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Apache Modules Enable/Disable'
+  ClientHeight = 400
+  ClientWidth = 470
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.8.0'
+  object Apache_Modules_CheckListBox: TCheckListBox
+    Left = 0
+    Height = 400
+    Top = 0
+    Width = 470
+    Font.CharSet = 4
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Lucida Console'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    ItemHeight = 0
+    OnItemClick = Apache_Modules_CheckListBoxItemClick
+    ParentFont = False
+    TabOrder = 0
+  end
+end

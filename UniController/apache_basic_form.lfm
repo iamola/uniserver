@@ -1,0 +1,179 @@
+object apache_basic: Tapache_basic
+  Left = 655
+  Height = 290
+  Top = 125
+  Width = 431
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Basic Apache Configuration'
+  ClientHeight = 290
+  ClientWidth = 431
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.14.0'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 272
+    Top = 8
+    Width = 412
+    Caption = 'Commonly changed parameters'
+    ClientHeight = 254
+    ClientWidth = 408
+    TabOrder = 0
+    object Edit_server_name: TEdit
+      Left = 10
+      Height = 23
+      Top = 2
+      Width = 285
+      TabOrder = 0
+    end
+    object Edit_email: TEdit
+      Left = 10
+      Height = 23
+      Top = 28
+      Width = 285
+      TabOrder = 1
+    end
+    object Edit_index_files: TEdit
+      Left = 10
+      Height = 23
+      Top = 54
+      Width = 285
+      TabOrder = 2
+    end
+    object Edit_ssi: TEdit
+      Left = 10
+      Height = 23
+      Top = 80
+      Width = 285
+      TabOrder = 3
+    end
+    object Editl_listen_port: TEdit
+      Left = 10
+      Height = 23
+      Top = 184
+      Width = 285
+      TabOrder = 4
+    end
+    object Lbl_server_name: TLabel
+      Left = 300
+      Height = 16
+      Top = 5
+      Width = 66
+      Caption = 'Server name'
+      ParentColor = False
+    end
+    object Llb_email: TLabel
+      Left = 300
+      Height = 16
+      Top = 31
+      Width = 104
+      Caption = 'Server Admin Email'
+      ParentColor = False
+    end
+    object Lbl_index_files: TLabel
+      Left = 300
+      Height = 16
+      Top = 57
+      Width = 106
+      Caption = 'Directory Index Files'
+      ParentColor = False
+    end
+    object Lbl_ssi: TLabel
+      Left = 300
+      Height = 16
+      Top = 83
+      Width = 105
+      Caption = 'Server Side Includes'
+      ParentColor = False
+    end
+    object Lbl_server_signature: TLabel
+      Left = 300
+      Height = 16
+      Top = 109
+      Width = 86
+      Caption = 'Server Signature'
+      ParentColor = False
+    end
+    object Lbl_listen_port: TLabel
+      Left = 302
+      Height = 16
+      Top = 186
+      Width = 57
+      Caption = 'Listen port'
+      ParentColor = False
+    end
+    object Btn_update_config: TButton
+      Left = 10
+      Height = 25
+      Top = 216
+      Width = 196
+      Caption = 'Update Configuration'
+      OnClick = Btn_update_configClick
+      TabOrder = 5
+    end
+    object Btn_help: TButton
+      Left = 294
+      Height = 25
+      Top = 216
+      Width = 101
+      Caption = 'Help'
+      OnClick = Btn_helpClick
+      TabOrder = 6
+    end
+    object Com_server_signature: TComboBox
+      Left = 10
+      Height = 23
+      Top = 106
+      Width = 285
+      ItemHeight = 15
+      Items.Strings = (
+        'Off'
+        'On'
+        'EMail'
+      )
+      TabOrder = 7
+    end
+    object Com_lua_module: TComboBox
+      Left = 10
+      Height = 23
+      Top = 132
+      Width = 285
+      ItemHeight = 15
+      Items.Strings = (
+        'Enabled'
+        'Disabled'
+      )
+      TabOrder = 8
+    end
+    object Com_plua_module: TComboBox
+      Left = 10
+      Height = 23
+      Top = 158
+      Width = 285
+      ItemHeight = 15
+      Items.Strings = (
+        'Enabled'
+        'Disabled'
+      )
+      TabOrder = 9
+    end
+    object Label1: TLabel
+      Left = 302
+      Height = 16
+      Top = 134
+      Width = 64
+      Caption = 'Lua Module'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 302
+      Height = 16
+      Top = 160
+      Width = 71
+      Caption = 'pLua module'
+      ParentColor = False
+    end
+  end
+end

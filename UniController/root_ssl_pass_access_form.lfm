@@ -1,0 +1,146 @@
+object root_ssl_pass_access: Troot_ssl_pass_access
+  Left = 831
+  Height = 372
+  Top = 122
+  Width = 395
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Root folder ssl - Change passwords and access'
+  ClientHeight = 372
+  ClientWidth = 395
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.2.2.0'
+  object GBox_enter_name_password: TGroupBox
+    Left = 8
+    Height = 169
+    Top = 8
+    Width = 376
+    Caption = 'Enter name and Password'
+    ClientHeight = 151
+    ClientWidth = 372
+    TabOrder = 0
+    object Label_name: TLabel
+      Left = 6
+      Height = 15
+      Top = 0
+      Width = 32
+      Caption = 'Name'
+      ParentColor = False
+    end
+    object Edit_name: TEdit
+      Left = 6
+      Height = 23
+      Top = 16
+      Width = 139
+      TabOrder = 0
+    end
+    object Label_password: TLabel
+      Left = 6
+      Height = 15
+      Top = 40
+      Width = 50
+      Caption = 'Password'
+      ParentColor = False
+    end
+    object Edit_password: TEdit
+      Left = 6
+      Height = 23
+      Top = 56
+      Width = 139
+      TabOrder = 1
+    end
+    object Btn_add_to_list: TButton
+      Left = 6
+      Height = 25
+      Top = 88
+      Width = 139
+      Caption = 'Add to List >>'
+      OnClick = Btn_add_to_listClick
+      TabOrder = 2
+    end
+    object ListBox1: TListBox
+      Left = 158
+      Height = 115
+      Top = 0
+      Width = 208
+      ItemHeight = 0
+      TabOrder = 3
+    end
+    object Btn_delete_selected: TButton
+      Left = 158
+      Height = 25
+      Top = 120
+      Width = 208
+      Caption = 'Delete Selected'
+      OnClick = Btn_delete_selectedClick
+      TabOrder = 4
+    end
+  end
+  object GBox_enable_disable_password: TGroupBox
+    Left = 8
+    Height = 67
+    Top = 184
+    Width = 376
+    Caption = 'Enable or Disable password'
+    ClientHeight = 49
+    ClientWidth = 372
+    TabOrder = 1
+    object RBtn_password_disabled: TRadioButton
+      Left = 18
+      Height = 19
+      Top = 3
+      Width = 118
+      Caption = 'Password Disabled'
+      OnClick = RBtn_password_disabledClick
+      TabOrder = 0
+    end
+    object RBtn_password_enabled: TRadioButton
+      Left = 18
+      Height = 19
+      Top = 27
+      Width = 115
+      Caption = 'Password Enabled'
+      OnClick = RBtn_password_enabledClick
+      TabOrder = 1
+    end
+  end
+  object GBox_access: TGroupBox
+    Left = 8
+    Height = 105
+    Top = 256
+    Width = 376
+    Caption = 'Apache Server Access'
+    ClientHeight = 87
+    ClientWidth = 372
+    TabOrder = 2
+    object RBtn_local: TRadioButton
+      Left = 18
+      Height = 19
+      Top = 8
+      Width = 87
+      Caption = 'Local Access'
+      OnClick = RBtn_localClick
+      TabOrder = 0
+    end
+    object RBtn_local_intranet: TRadioButton
+      Left = 18
+      Height = 19
+      Top = 32
+      Width = 154
+      Caption = 'Local and Intranet Access'
+      OnClick = RBtn_local_intranetClick
+      TabOrder = 1
+    end
+    object RBtn_local_intranet_internet: TRadioButton
+      Left = 18
+      Height = 19
+      Top = 56
+      Width = 201
+      Caption = 'Local, Intranet and Internet Access'
+      OnClick = RBtn_local_intranet_internetClick
+      TabOrder = 2
+    end
+  end
+end

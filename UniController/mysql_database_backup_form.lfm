@@ -1,0 +1,88 @@
+object mysql_database_backup: Tmysql_database_backup
+  Left = 409
+  Height = 249
+  Top = 116
+  Width = 465
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'MySQL Database Backup'
+  ClientHeight = 249
+  ClientWidth = 465
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.12.0'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 217
+    Top = 24
+    Width = 216
+    Caption = 'Select a database to backup'
+    ClientHeight = 199
+    ClientWidth = 212
+    TabOrder = 0
+    object ListBox1: TListBox
+      Left = 6
+      Height = 185
+      Top = 7
+      Width = 200
+      ItemHeight = 0
+      OnClick = ListBox1Click
+      TabOrder = 0
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 232
+    Height = 57
+    Top = 24
+    Width = 225
+    Caption = 'Enter backup file name'
+    ClientHeight = 39
+    ClientWidth = 221
+    TabOrder = 1
+    object Ed_db_name: TEdit
+      Left = 6
+      Height = 21
+      Top = 8
+      Width = 210
+      TabOrder = 0
+    end
+  end
+  object Btn_clear: TButton
+    Left = 272
+    Height = 25
+    Top = 120
+    Width = 75
+    Caption = 'Clear'
+    OnClick = Btn_clearClick
+    TabOrder = 2
+  end
+  object Btn_help: TButton
+    Left = 352
+    Height = 25
+    Top = 120
+    Width = 75
+    Caption = 'Help'
+    OnClick = Btn_helpClick
+    TabOrder = 3
+  end
+  object Btn_create_backup: TButton
+    Left = 272
+    Height = 25
+    Top = 184
+    Width = 163
+    Caption = 'Create backup'
+    OnClick = Btn_create_backupClick
+    TabOrder = 4
+  end
+  object ChB_display_all: TCheckBox
+    Left = 16
+    Height = 17
+    Top = 2
+    Width = 118
+    Caption = 'Display all databases'
+    OnClick = ChB_display_allClick
+    TabOrder = 5
+  end
+end
