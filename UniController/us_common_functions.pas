@@ -974,12 +974,17 @@ function MysqlRunning():boolean;
  MysqlServerReady():
  This function checks MySQL server is ready to server data
  Returns true if ready otherwise returns false
- Uses mysqladin ping
+ Uses mysqladmin ping
+
+ Changes
+ -------
+ 2019-09-07 : mysqld is alive may not be the first line, added in a loop for this
 ====================================================================}
 function MysqlServerReady(root_password:string):boolean;
 var
   sList       : TStringList; // Save output from ping
   AProcess    : TProcess;    // Process handle
+  i           : integer;     // Loop counter
 begin
   MysqlServerReady := False;                                        // Assume not ready
   sList     := TStringList.Create;                                  // Create the TStringList object.
@@ -998,9 +1003,12 @@ begin
 
   sList.LoadFromStream(AProcess.Output);     // Read ping output
     if sList.Count > 0 then                  // Check data was read
-     if (sList[0] = 'mysqld is alive') then  // Check returned message
-       MysqlServerReady := True;             // MySQL server is ready
-
+      for i:=0 to sList.Count-1 do
+      begin
+       if (sList[i] = 'mysqld is alive') then  // Check returned message
+         MysqlServerReady := True;             // MySQL server is ready
+         break;
+      end;
   sList.Free;    // Free memory
   AProcess.Free; // Free memory
 
@@ -1278,10 +1286,13 @@ end;
 
 {****************************************************************************
 us_start_mysql_skip_grants:
-  // Start MySQL no grants resturns true if started and ready.
+  // Start MySQL no grants returns true if started and ready.
 
   mysqld_z.exe --defaults-file="C:\UniserverZ\core\mysql\my.ini" --skip-grant-tables
 
+  Changes:
+  --------
+  2019-09-07 : SudeepJD: Add in the --shared-memory for MySQL8
 =============================================================================}
 function us_start_mysql_skip_grants():boolean;
 
@@ -1291,14 +1302,17 @@ Var
  Failed:Boolean;
 begin
     Failed:=False;   //Assume not failed
- 
-   saftey_loop:=0;
-     //--Run command string.
-    AProcess := TProcess.Create(nil);                                              // Create new process
+
+    saftey_loop:=0;
+    //--Run command string.
+    AProcess := TProcess.Create(nil);                                   // Create new process
 
     AProcess.Executable := US_MYSQL_BIN + '\' + MY_EXE_NAME;            // Executable to run
     AProcess.Parameters.Add('--defaults-file="' + USF_MYSQL_INI+ '"');  // Force use of default file
     AProcess.Parameters.Add('--skip-grant-tables');                     // Temp folder
+    If StrtoInt(MY_SQL_VER)>=8 Then
+      AProcess.Parameters.Add('--shared-memory');                       //Shared Memory Start for MySQL8
+
 
     AProcess.Options  := AProcess.Options + [poNoConsole];              // Set option no console
     AProcess.Execute;                                                   // Run command
@@ -1308,6 +1322,7 @@ begin
      begin
        sleep(100);
        saftey_loop := saftey_loop +1;              // Increment counter
+
        if saftey_loop > (USC_MY_StartSafetyTime*10) then
         begin
           us_MessageDlg('Warning','Failed to start '+US_MYMAR_TXT, mtWarning,[mbOk],0) ; //Display warning message
@@ -1318,14 +1333,15 @@ begin
     Until MysqlRunning();
 
   //Check MySQL server is ready
-  If not failed then
+  If not Failed then
    begin
      saftey_loop:=0;
      Repeat                                         // Wait for MySQL server to be ready
       begin
        sleep(100);
         saftey_loop := saftey_loop +1;              // Increment counter
-        if saftey_loop > (USC_MY_StartSafetyTime*10) then
+
+        If saftey_loop > (USC_MY_StartSafetyTime*10) Then
          begin
            us_MessageDlg('Warning',US_MYMAR_TXT+' server failed to become ready', mtWarning,[mbOk],0) ; //Display warning message
            Failed := True;

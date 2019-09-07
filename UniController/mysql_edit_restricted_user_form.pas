@@ -143,7 +143,7 @@ begin
   mysql_edit_restricted_user.Btn_delete.Enabled := True;    // Enable button
 
   //--Get user grant information
-  mysql_str := 'SHOW GRANTS FOR ''' + user_name + '''@''127.0.0.1'';';  //Sql to list grants for user
+  mysql_str := 'SHOW GRANTS FOR ''' + user_name + '''@''localhost'';';  //Sql to list grants for user
 
   sList  := TStringList.Create;       // Create object
   us_mysql_batch(mysql_str,sList);    // Run batch
@@ -213,7 +213,7 @@ begin
  //--- Delete user
  user_name     := Ed_user_name.Text;
  sList  := TStringList.Create;                                   // Create object
- mysql_str := 'DROP USER ''' + user_name + '''@''127.0.0.1'';';  //Sql to delete user
+ mysql_str := 'DROP USER ''' + user_name + '''@''localhost'';';  //Sql to delete user
  us_mysql_batch(mysql_str,sList);                                //Delete user
  sList.Free;
 
@@ -244,7 +244,7 @@ Update users:
  First delete user and then recreate with new data
  Create user and grant privileges to a database
  General format (Note sequence of commas!)
- query = "GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, INDEX ON dbname.* TO username@127.0.0.1 IDENTIFIED BY 'password'";
+ query = "GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, INDEX ON dbname.* TO username@localhost IDENTIFIED BY 'password'";
 ---------------------------------------------------------------------}
 procedure Tmysql_edit_restricted_user.Btn_update_userClick(Sender: TObject);
 var
@@ -344,19 +344,19 @@ begin
 
     //--- Delete user
     sList  := TStringList.Create;                                  // Create object
-    mysql_str := 'DROP USER ''' + user_name + '''@''127.0.0.1'';'; // Sql to delete user
+    mysql_str := 'DROP USER ''' + user_name + '''@''localhost'';'; // Sql to delete user
     us_mysql_batch(mysql_str,sList);                               // Delete user
     sList.Free;                                                    // Remove from memory
 
-
     //--- Build Query string
-    mysql_str := '' ;
-    mysql_str :=  mysql_str + 'GRANT ' + priv_str + ' ';
-    mysql_str :=  mysql_str + 'ON ' + database_name +'.* TO ';
-    mysql_str :=  mysql_str + user_name + '@127.0.0.1 ';
-    mysql_str :=  mysql_str + 'IDENTIFIED BY ''' + user_password +''';';
+  mysql_str := '' ;
+  mysql_str :=  mysql_str + 'CREATE USER ' + user_name + '@localhost ';
+  mysql_str :=  mysql_str + 'IDENTIFIED BY ''' + user_password +''';';
+  mysql_str :=  mysql_str + 'GRANT ' + priv_str + ' ';
+  mysql_str :=  mysql_str + 'ON ' + database_name +'.* TO ';
+  mysql_str :=  mysql_str + user_name + '@localhost ;';
 
-    //showmessage(mysql_str);
+  //showmessage(mysql_str);
 
   //--- Update MySQL server
   sList  := TStringList.Create;    // Create object

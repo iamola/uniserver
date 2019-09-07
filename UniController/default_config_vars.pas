@@ -143,7 +143,7 @@ Var
  MY_EXE_NAME       :string;   // MySQL exe
  MY_PWD            :String;   // MySQL password from file
  US_DB_HOST        :String;   // MySQL host 127.0.0.1
-
+ MY_SQL_VER        :String;   // MySQL version
 
  //===  Top level folders =====
  UniConPath        :String;  // Path to this application back slashes
@@ -555,7 +555,7 @@ begin
 
   //-- MySQL Server
   MY_PWD            := us_get_mysql_password(); // MySQL password from file
-  US_DB_HOST        := '127.0.0.1';             // MySQL host 127.0.0.1
+  US_DB_HOST        := 'localhost';             // MySQL host 127.0.0.1
 
   //=== Perl Shebang
   US_SHEBANG             := '#!';               // #!
@@ -783,10 +783,11 @@ begin
    //*** Start ***
    //[USER]
    US_MYMAR_TXT   := Ini7.ReadString('USER','text','MySQL'); //MySQL or MariaDB
-
+   MY_SQL_VER   := Ini7.ReadString('USER','version','8');     //MySQL version
 
    //*** End ***
    Ini7.Free;     // Free method of object
+
  //=== End MySQL or MariaDB configuration file us_opt.ini
 
  //Button text

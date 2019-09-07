@@ -231,13 +231,14 @@ begin
   priv_str := trim(priv_select + priv_insert + priv_update + priv_delete + priv_create + priv_drop + priv_alter  + priv_index); //Create string, trim left right spaces
   priv_str := StringReplace(priv_str,' ',', ',[rfReplaceAll]);
 
-
   //--- Build Query string
   mysql_str := '' ;
+  mysql_str :=  mysql_str + 'CREATE USER ' + user_name + '@localhost ';
+  mysql_str :=  mysql_str + 'IDENTIFIED BY ''' + user_password +''';';
   mysql_str :=  mysql_str + 'GRANT ' + priv_str + ' ';
   mysql_str :=  mysql_str + 'ON ' + database_name +'.* TO ';
-  mysql_str :=  mysql_str + user_name + '@127.0.0.1 ';
-  mysql_str :=  mysql_str + 'IDENTIFIED BY ''' + user_password +''';';
+  mysql_str :=  mysql_str + user_name + '@localhost ;';
+
 
   //showmessage(mysql_str);
 

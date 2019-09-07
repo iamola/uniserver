@@ -1191,6 +1191,9 @@ MySQL Change root password:
 
  3) Passwords changed kill the MySQL server.
 
+  Changes:
+  --------
+  2019-09-07 : SudeepJD: Added in the MySQL8 support as it needs to be handled differntly
 =============================================================================}
 procedure mysql_change_root_password(new_password:string);
 var
@@ -1198,21 +1201,14 @@ var
   AProcess    : TProcess;    // Process handle
   saftey_loop : Integer;     // Loop counter
   failed      : Boolean;     // Failed to set password
-  IniVer      : TINIFile;     //Check the MySQL Version
-  mysqlVer    : string;
 begin
   failed := False;                          // Assume not failed
-
-  // Read the Version of MySQL Since the password change depends on it.
-  IniVer    := TINIFile.Create(USF_MYMAR_TXT_INI); // create object
-  mysqlVer  := IniVer.ReadString('USER','version','5'); //MySQL or MariaDB
-  IniVer.Free;     // Free method of object
 
   //1==Create new mysql-init.txt
   Assign(FileVar1,USF_MYSQL_TEMP_SQL);      // Assign file
   ReWrite(FileVar1);                        // Create file for writting
 
-  If StrtoInt(mysqlVer)>=8 Then
+  If StrtoInt(MY_SQL_VER)>=8 Then
    begin
     Writeln(FileVar1, 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
     Writeln(FileVar1, 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
@@ -1309,7 +1305,9 @@ mysql_restore_root_password:
 
  To restore password and privileges MySQL server is started with no-privileges using:
  mysqld_z.exe --defaults-file="C:\UniserverZ\core\mysql\my.ini" --skip-grant-tables
-  
+ On MYSQL8 this needs to be started with --shared-memory as well or the server will
+ not start
+
  With server running the following line is executed which runs the restore file.
  mysql.exe --user=root --execute="SOURCE C:\UniserverZ\core\mysql\bin\mysql-init.txt"
 
@@ -1327,6 +1325,11 @@ mysql_restore_root_password:
  5) Update parameters
 
  6) Delete temp file mysql-init.txt
+
+ Changes:
+  --------
+  2019-09-07 : SudeepJD: Added in the MySQL8 support as it needs to be handled differently
+                         MySQL8 does not have a Password in the Database but uses the identified by
 =============================================================================}
 procedure mysql_restore_root_password;
 var
@@ -1338,17 +1341,8 @@ var
   str4     : string;
   str5     : string;
   str6     : string;
-  str7     : string;
-  str8     : string;
-  IniVer   : TINIFile;     //Check the MySQL Version
-  mysqlVer : string;
   passStr  : string;
 begin
-
-  // Read the Version of MySQL Since the password change depends on it.
-  IniVer    := TINIFile.Create(USF_MYMAR_TXT_INI); // create object
-  mysqlVer  := IniVer.ReadString('USER','version','5'); //MySQL or MariaDB
-  IniVer.Free;     // Free method of object
 
   //1==Kill server
   us_kill_mysql_program;                    // Check server running. If running kill it
@@ -1356,21 +1350,19 @@ begin
   //2===Set sql strings to write to file. This is based on the results obtained from list of privileges
   //    Specific privileges are named a set not the root password is calculated using Password(''root'') 
 
-  If StrtoInt(mysqlVer)>=8 Then
-     passStr := 'host = ''localhost'''
+  If StrtoInt(MY_SQL_VER)>=8 Then
+     passStr := 'plugin = ''mysql_native_password'', authentication_string = '''','
   Else
-     passStr := 'Password = PASSWORD(''root''), host = ''127.0.0.1''';
+     passStr := 'Password = PASSWORD(''root''), plugin = '''', authentication_string = '''',';
 
   str1 := 'use mysql;';
-  str2 := 'INSERT IGNORE INTO user SET user = ''root'', ' + passStr + ', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
-  str3 := 'REPLACE INTO user SET       user = ''root'', ' + passStr + ', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
-  str4 := 'INSERT IGNORE INTO user SET user = ''pma'', ' + passStr + ', select_priv = ''n'', insert_priv = ''n'', update_priv = ''n'', delete_priv = ''n'', create_priv = ''n'', drop_priv = ''n'', reload_priv = ''n'', shutdown_priv = ''n'', process_priv = ''n'', file_priv = ''n'', grant_priv = ''n'', references_priv = ''n'', index_priv = ''n'', alter_priv = ''n'', show_db_priv = ''n'', super_priv = ''n'', create_tmp_table_priv = ''n'', lock_tables_priv = ''n'', execute_priv = ''n'', repl_slave_priv = ''n'', repl_client_priv = ''n'', create_view_priv = ''n'', show_view_priv = ''n'', create_routine_priv = ''n'', alter_routine_priv = ''n'', create_user_priv = ''n'', Event_priv = ''n'', Trigger_priv = ''n'', Create_tablespace_priv = ''n'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
-  str5 := 'REPLACE INTO user SET       user = ''pma'', ' + passStr + ', select_priv = ''n'', insert_priv = ''n'', update_priv = ''n'', delete_priv = ''n'', create_priv = ''n'', drop_priv = ''n'', reload_priv = ''n'', shutdown_priv = ''n'', process_priv = ''n'', file_priv = ''n'', grant_priv = ''n'', references_priv = ''n'', index_priv = ''n'', alter_priv = ''n'', show_db_priv = ''n'', super_priv = ''n'', create_tmp_table_priv = ''n'', lock_tables_priv = ''n'', execute_priv = ''n'', repl_slave_priv = ''n'', repl_client_priv = ''n'', create_view_priv = ''n'', show_view_priv = ''n'', create_routine_priv = ''n'', alter_routine_priv = ''n'', create_user_priv = ''n'', Event_priv = ''n'', Trigger_priv = ''n'', Create_tablespace_priv = ''n'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'', plugin = '''', authentication_string = '''';';
-  str6 := 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH mysql_native_password BY ''root'';';
-  str7 := 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH mysql_native_password BY ''root'';';
-  str8 := 'FLUSH PRIVILEGES;';
+  str2 := 'INSERT IGNORE INTO user SET user = ''root'', ' + passStr + ' host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
+  str3 := 'REPLACE INTO user SET       user = ''root'', ' + passStr + ' host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'' ;';
+  str4 := 'INSERT IGNORE INTO user SET user = ''pma'', ' + passStr + ' host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
+  str5 := 'REPLACE INTO user SET       user = ''pma'', ' + passStr + ' host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
+  str6 := 'FLUSH PRIVILEGES;';
 
-  //2==Write above strings to file mysql-init.txt this is used to restore password and privileges
+  //2==Write above strings to file mysql-init.txt this is used to restore user
    Assign(FileVar1,USF_MYSQL_TEMP_SQL);      // Assign file
    ReWrite(FileVar1);                        // Create file for writting
    Writeln(FileVar1, str1);
@@ -1378,12 +1370,7 @@ begin
    Writeln(FileVar1, str3);
    Writeln(FileVar1, str4);
    Writeln(FileVar1, str5);
-   If StrtoInt(mysqlVer)>=8 Then
-   begin
-    Writeln(FileVar1, str6);
-    Writeln(FileVar1, str7);
-   end;
-   Writeln(FileVar1, str8);
+   Writeln(FileVar1, str6);
 
    CloseFile(FileVar1);                     // Close file
    sleep(100);                              // Wait for file to be createed
@@ -1407,6 +1394,11 @@ begin
       //==4)Wait a short time and kill server
       sleep(2000);
       us_kill_mysql_program;                 // Kills MySQL server     
+
+      // ==4.5) If we are dealing with MySQL8 then we need to reset the passord
+      //          after the user is created
+      If StrtoInt(MY_SQL_VER)>=8 Then
+          mysql_change_root_password('root');
 
       //5)==Root password changed
       us_save_mysql_password('root');        // Save 'root' password to password file
