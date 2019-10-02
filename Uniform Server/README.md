@@ -54,4 +54,14 @@ The following are the optional plugins that can be used to enhance the UniformSe
  ### FTP
  
   * FileZilla Server 0.9.60 with a custom controller
+  
+ ---------------------------------------------------------------------
+      Copyright 2002-2019 The Uniform Server Development Team
+                     All rights reserved.
+
+The authors were trying to make the best product so they cannot be
+held responsible for any type of damage or problems caused by using
+this or another software.
+
+                          ---o0o---
 	
