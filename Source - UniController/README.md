@@ -36,7 +36,7 @@ With the working environment in place you are ready to compile UniController as 
 
  You can now change code as required and re-compile. 
 
-###AutoIt Files
+### AutoIt Files
 
 The source code also includes 2 AutoIT scripts in the autoit directory
 
