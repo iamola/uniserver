@@ -1,11 +1,11 @@
 # UniServer Zero XIV Module Releases
 
-##Introuction
+## Introduction
 
  The Uniform Server ZeroXIV design is modular. Install only modules (plugins) that you require. Each server requires a controller,
  which automatically detects installed plugins.
 
-##Controller
+## Controller
 
  Download and save the controller file ZeroXIV_controller_2_3_0.exe to either a new folder or top-level of a drive. The file is a
  self-extracting archive, double click to run, a new folder UniServerZ is created containing the controller UniController.exe
@@ -13,7 +13,7 @@
 
  UniController.exe - User interface for UniServer ZeroXIV
 
-# Install modules (plugins)
+## Install modules (plugins)
 
  Download and save module (plugin) to folder UniServerZ again these are self-extracting archives double click to run, if prompted
  allow overwrite.
@@ -64,11 +64,9 @@
  MariaDB alternative to MySQL server
 
  - Note 1 : The Archive folder contains old Module releases.
- - Note 2 :
- ...Current Apache and PHP modules use OpenSSL 1.1.1
-
- ...ZeroXIV_apache_2_4_18_a.exe: Updated OpenSSL 1.1.1 to 1.1.1
- ...All ZeroXIV_php*_a modules:  Updated OpenSSL 1.1.1 to 1.1.1
+ - Note 2 : Current Apache and PHP modules use OpenSSL 1.1.1
+            ZeroXIV_apache_2_4_18_a.exe: Updated OpenSSL 1.1.1 to 1.1.1
+            All ZeroXIV_php*_a modules:  Updated OpenSSL 1.1.1 to 1.1.1
 
 ---------------------------------------------------------------------
       Copyright 2002-2019 The Uniform Server Development Team
