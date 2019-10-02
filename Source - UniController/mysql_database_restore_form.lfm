@@ -1,0 +1,62 @@
+object mysql_database_restore: Tmysql_database_restore
+  Left = 886
+  Height = 240
+  Top = 118
+  Width = 329
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'MySQL Database Restore'
+  ClientHeight = 240
+  ClientWidth = 329
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.12.0'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 217
+    Top = 8
+    Width = 216
+    Caption = 'Select database backup file'
+    ClientHeight = 199
+    ClientWidth = 212
+    TabOrder = 0
+    object ListBox1: TListBox
+      Left = 6
+      Height = 185
+      Top = 8
+      Width = 200
+      ItemHeight = 0
+      OnClick = ListBox1Click
+      TabOrder = 0
+    end
+  end
+  object Btn_help: TButton
+    Left = 240
+    Height = 25
+    Top = 32
+    Width = 75
+    Caption = 'Help'
+    OnClick = Btn_helpClick
+    TabOrder = 1
+  end
+  object Btn_restore: TButton
+    Left = 240
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'Restore'
+    OnClick = Btn_restoreClick
+    TabOrder = 2
+  end
+  object Btn_clear: TButton
+    Left = 240
+    Height = 25
+    Top = 80
+    Width = 75
+    Caption = 'Clear'
+    OnClick = Btn_clearClick
+    TabOrder = 3
+  end
+end

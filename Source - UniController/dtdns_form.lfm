@@ -1,0 +1,253 @@
+object dtdns: Tdtdns
+  Left = 729
+  Height = 369
+  Top = 127
+  Width = 387
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'DtDNS updater client'
+  ClientHeight = 369
+  ClientWidth = 387
+  FormStyle = fsStayOnTop
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.14.0'
+  object GB1: TGroupBox
+    Left = 8
+    Height = 208
+    Top = 8
+    Width = 368
+    Caption = 'DtDNS Accounts'
+    ClientHeight = 190
+    ClientWidth = 364
+    TabOrder = 0
+    object lbl_domain_name_1: TLabel
+      Left = 15
+      Height = 16
+      Top = 4
+      Width = 87
+      Caption = 'Domain Name 1'
+      ParentColor = False
+    end
+    object lbl_domain_name_2: TLabel
+      Left = 16
+      Height = 16
+      Top = 27
+      Width = 87
+      Caption = 'Domain Name 2'
+      ParentColor = False
+    end
+    object lbl_domain_name_3: TLabel
+      Left = 15
+      Height = 16
+      Top = 51
+      Width = 87
+      Caption = 'Domain Name 3'
+      ParentColor = False
+    end
+    object lbl_domain_name_4: TLabel
+      Left = 16
+      Height = 16
+      Top = 75
+      Width = 87
+      Caption = 'Domain Name 4'
+      ParentColor = False
+    end
+    object lbl_domain_name_5: TLabel
+      Left = 15
+      Height = 16
+      Top = 99
+      Width = 87
+      Caption = 'Domain Name 5'
+      ParentColor = False
+    end
+    object edit_domain_name_1: TEdit
+      Left = 104
+      Height = 23
+      Top = 1
+      Width = 235
+      TabOrder = 0
+    end
+    object edit_domain_name_2: TEdit
+      Left = 104
+      Height = 23
+      Top = 24
+      Width = 235
+      TabOrder = 1
+    end
+    object edit_domain_name_3: TEdit
+      Left = 104
+      Height = 23
+      Top = 48
+      Width = 235
+      TabOrder = 2
+    end
+    object edit_domain_name_4: TEdit
+      Left = 104
+      Height = 23
+      Top = 72
+      Width = 235
+      TabOrder = 3
+    end
+    object edit_domain_name_5: TEdit
+      Left = 104
+      Height = 23
+      Top = 96
+      Width = 235
+      TabOrder = 4
+    end
+    object Btn_save_changes: TButton
+      Left = 6
+      Height = 25
+      Top = 152
+      Width = 88
+      Caption = 'Save Changes'
+      OnClick = Btn_save_changesClick
+      TabOrder = 5
+    end
+    object Btn_force_update: TButton
+      Left = 104
+      Height = 25
+      Top = 152
+      Width = 88
+      Caption = 'Force Update '
+      OnClick = Btn_force_updateClick
+      TabOrder = 6
+    end
+    object Btn_help_accounts: TButton
+      Left = 311
+      Height = 25
+      Top = 152
+      Width = 45
+      Caption = 'Help'
+      OnClick = Btn_help_accountsClick
+      TabOrder = 7
+    end
+    object lbl_password: TLabel
+      Left = 15
+      Height = 16
+      Top = 123
+      Width = 51
+      Caption = 'Password'
+      ParentColor = False
+    end
+    object edit_password: TEdit
+      Left = 104
+      Height = 23
+      Top = 120
+      Width = 235
+      TabOrder = 8
+    end
+    object domain1_status: TPanel
+      Left = 342
+      Height = 14
+      Top = 4
+      Width = 14
+      Color = clSilver
+      ParentColor = False
+      TabOrder = 9
+    end
+    object domain2_status: TPanel
+      Left = 342
+      Height = 14
+      Top = 27
+      Width = 14
+      Color = clSilver
+      ParentColor = False
+      TabOrder = 10
+    end
+    object domain3_status: TPanel
+      Left = 342
+      Height = 14
+      Top = 51
+      Width = 14
+      Color = clSilver
+      ParentColor = False
+      TabOrder = 11
+    end
+    object domain4_status: TPanel
+      Left = 342
+      Height = 14
+      Top = 75
+      Width = 14
+      Color = clSilver
+      ParentColor = False
+      TabOrder = 12
+    end
+    object domain5_status: TPanel
+      Left = 342
+      Height = 14
+      Top = 99
+      Width = 14
+      Color = clSilver
+      ParentColor = False
+      TabOrder = 13
+    end
+    object Btn_force_refresh: TButton
+      Left = 200
+      Height = 25
+      Top = 152
+      Width = 88
+      Caption = 'Refresh'
+      OnClick = Btn_force_refreshClick
+      TabOrder = 14
+    end
+  end
+  object GB3: TGroupBox
+    Left = 8
+    Height = 58
+    Top = 296
+    Width = 368
+    Caption = 'DtDNS Status'
+    ClientHeight = 40
+    ClientWidth = 364
+    TabOrder = 1
+    object Btn_view_log: TButton
+      Left = 112
+      Height = 25
+      Top = 5
+      Width = 88
+      Caption = 'View Log'
+      OnClick = Btn_view_logClick
+      TabOrder = 0
+    end
+    object CB2_enable_logging: TCheckBox
+      Left = 6
+      Height = 19
+      Top = 8
+      Width = 105
+      Caption = 'Enable Logging '
+      OnClick = CB2_enable_loggingClick
+      TabOrder = 1
+    end
+  end
+  object GB2: TGroupBox
+    Left = 7
+    Height = 58
+    Top = 224
+    Width = 369
+    Caption = 'Auto-run Enable/Disable'
+    ClientHeight = 40
+    ClientWidth = 365
+    TabOrder = 2
+    object CB1_auto_run: TCheckBox
+      Left = 6
+      Height = 19
+      Top = 8
+      Width = 69
+      Caption = 'Auto-run'
+      OnClick = CB1_auto_runClick
+      TabOrder = 0
+    end
+    object Btn_auto_run_help: TButton
+      Left = 112
+      Height = 25
+      Top = 5
+      Width = 88
+      Caption = 'Help'
+      OnClick = Btn_auto_run_helpClick
+      TabOrder = 1
+    end
+  end
+end

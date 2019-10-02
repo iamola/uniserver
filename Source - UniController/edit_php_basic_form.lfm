@@ -1,0 +1,505 @@
+object edit_php_basic: Tedit_php_basic
+  Left = 547
+  Height = 335
+  Top = 148
+  Width = 512
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Basic PHP Configuration'
+  ClientHeight = 335
+  ClientWidth = 512
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.0.8.0'
+  object Gb_production: TGroupBox
+    Left = 216
+    Height = 320
+    Top = 8
+    Width = 288
+    Caption = 'Production'
+    ClientHeight = 302
+    ClientWidth = 284
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 94
+      Height = 14
+      Top = 6
+      Width = 146
+      Caption = 'Show PHP In Server Signature'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 94
+      Height = 14
+      Top = 30
+      Width = 162
+      Caption = 'Maximum Script Execute Time (s.)'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 94
+      Height = 14
+      Top = 54
+      Width = 151
+      Caption = 'Maximum Memory Amount (MB)'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 96
+      Height = 14
+      Top = 78
+      Width = 67
+      Caption = 'Display Errors'
+      ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 96
+      Height = 14
+      Top = 102
+      Width = 91
+      Caption = 'Maximum Post Size'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 95
+      Height = 14
+      Top = 126
+      Width = 103
+      Caption = 'Maximum Upload Size'
+      ParentColor = False
+    end
+    object Label7: TLabel
+      Left = 96
+      Height = 14
+      Top = 150
+      Width = 82
+      Caption = 'Short Open Tags'
+      ParentColor = False
+    end
+    object Label8: TLabel
+      Left = 94
+      Height = 14
+      Top = 174
+      Width = 105
+      Caption = 'Display startup errors'
+      ParentColor = False
+    end
+    object Label9: TLabel
+      Left = 94
+      Height = 14
+      Top = 198
+      Width = 59
+      Caption = 'Track errors'
+      ParentColor = False
+    end
+    object Label10: TLabel
+      Left = 95
+      Height = 14
+      Top = 222
+      Width = 57
+      Caption = 'Html errors '
+      ParentColor = False
+    end
+    object Label11: TLabel
+      Left = 96
+      Height = 14
+      Top = 246
+      Width = 73
+      Caption = 'Variables order'
+      ParentColor = False
+    end
+    object Btn_update_production: TButton
+      Left = 6
+      Height = 25
+      Top = 272
+      Width = 80
+      Caption = 'Update'
+      OnClick = Btn_update_productionClick
+      TabOrder = 0
+    end
+    object Btn_help: TButton
+      Left = 94
+      Height = 25
+      Top = 272
+      Width = 80
+      Caption = 'Help'
+      OnClick = Btn_helpClick
+      TabOrder = 1
+    end
+    object Ed_p_max_exe_time: TEdit
+      Left = 6
+      Height = 21
+      Top = 27
+      Width = 80
+      TabOrder = 2
+    end
+    object Ed_p_max_memory: TEdit
+      Left = 6
+      Height = 21
+      Top = 51
+      Width = 80
+      TabOrder = 3
+    end
+    object Ed_p_max_post_size: TEdit
+      Left = 6
+      Height = 21
+      Top = 99
+      Width = 80
+      TabOrder = 4
+    end
+    object Ed_p_max_upload_size: TEdit
+      Left = 6
+      Height = 21
+      Top = 123
+      Width = 80
+      TabOrder = 5
+    end
+    object Com_p_server_signature: TComboBox
+      Left = 6
+      Height = 21
+      Top = 3
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 6
+    end
+    object Com_p_display_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 75
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 7
+    end
+    object Com_p_short_open_tags: TComboBox
+      Left = 6
+      Height = 21
+      Top = 147
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 8
+    end
+    object Com_p_startup_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 171
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 9
+    end
+    object Com_p_track_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 195
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 10
+    end
+    object Com_p_html_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 219
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 11
+    end
+    object Com_p_var_order: TComboBox
+      Left = 6
+      Height = 21
+      Top = 243
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'EGPCS'
+        'GPCS'
+      )
+      TabOrder = 12
+    end
+  end
+  object Gb_current: TGroupBox
+    Left = 8
+    Height = 320
+    Top = 8
+    Width = 97
+    Caption = 'Test'
+    ClientHeight = 302
+    ClientWidth = 93
+    TabOrder = 1
+    object Ed_c_max_exe_time: TEdit
+      Left = 6
+      Height = 21
+      Top = 27
+      Width = 80
+      TabOrder = 0
+    end
+    object Ed_c_max_memory: TEdit
+      Left = 6
+      Height = 21
+      Top = 51
+      Width = 80
+      TabOrder = 1
+    end
+    object Ed_c_max_post_size: TEdit
+      Left = 6
+      Height = 21
+      Top = 99
+      Width = 80
+      TabOrder = 2
+    end
+    object Ed_c_max_upload_size: TEdit
+      Left = 6
+      Height = 21
+      Top = 123
+      Width = 80
+      TabOrder = 3
+    end
+    object Btn_update_test: TButton
+      Left = 6
+      Height = 25
+      Top = 272
+      Width = 80
+      Caption = 'Update'
+      OnClick = Btn_update_testClick
+      TabOrder = 4
+    end
+    object Com_c_server_signature: TComboBox
+      Left = 6
+      Height = 21
+      Top = 3
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 5
+    end
+    object Com_c_display_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 75
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 6
+    end
+    object Com_c_short_open_tags: TComboBox
+      Left = 6
+      Height = 21
+      Top = 147
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 7
+    end
+    object Com_c_startup_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 171
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 8
+    end
+    object Com_c_track_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 195
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 9
+    end
+    object Com_c_html_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 219
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 10
+    end
+    object Com_c_var_order: TComboBox
+      Left = 6
+      Height = 21
+      Top = 243
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'EGPCS'
+        'GPCS'
+      )
+      TabOrder = 11
+    end
+  end
+  object Gb_development: TGroupBox
+    Left = 112
+    Height = 320
+    Top = 8
+    Width = 97
+    Caption = 'Development'
+    ClientHeight = 302
+    ClientWidth = 93
+    TabOrder = 2
+    object Ed_d_max_exe_time: TEdit
+      Left = 6
+      Height = 21
+      Top = 27
+      Width = 80
+      TabOrder = 0
+    end
+    object Ed_d_max_memory: TEdit
+      Left = 6
+      Height = 21
+      Top = 51
+      Width = 80
+      TabOrder = 1
+    end
+    object Ed_d_max_post_size: TEdit
+      Left = 6
+      Height = 21
+      Top = 99
+      Width = 80
+      TabOrder = 2
+    end
+    object Ed_d_max_upload_size: TEdit
+      Left = 6
+      Height = 21
+      Top = 123
+      Width = 80
+      TabOrder = 3
+    end
+    object Btn_update_development: TButton
+      Left = 6
+      Height = 25
+      Top = 272
+      Width = 80
+      Caption = 'Update'
+      OnClick = Btn_update_developmentClick
+      TabOrder = 4
+    end
+    object Com_d_server_signature: TComboBox
+      Left = 6
+      Height = 21
+      Top = 3
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 5
+    end
+    object Com_d_display_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 75
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 6
+    end
+    object Com_d_short_open_tags: TComboBox
+      Left = 6
+      Height = 21
+      Top = 147
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 7
+    end
+    object Com_d_startup_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 171
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 8
+    end
+    object Com_d_track_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 195
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 9
+    end
+    object Com_d_html_errors: TComboBox
+      Left = 6
+      Height = 21
+      Top = 219
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'Off'
+        'On'
+      )
+      TabOrder = 10
+    end
+    object Com_d_var_order: TComboBox
+      Left = 6
+      Height = 21
+      Top = 243
+      Width = 80
+      ItemHeight = 13
+      Items.Strings = (
+        'EGPCS'
+        'GPCS'
+      )
+      TabOrder = 11
+    end
+  end
+end

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Active="Release"/>
+    <Units Count="30">
+      <Unit0>
+        <Filename Value="UniController.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="32"/>
+        <CursorPos Y="48"/>
+        <UsageCount Value="482"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main_unit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Main"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <TopLine Value="1240"/>
+        <CursorPos X="2" Y="1245"/>
+        <UsageCount Value="482"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="default_config_vars.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="506"/>
+        <CursorPos X="33" Y="519"/>
+        <UsageCount Value="482"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="us_common_procedures.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="1423"/>
+        <CursorPos X="51" Y="1434"/>
+        <UsageCount Value="482"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="us_common_functions.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1296"/>
+        <CursorPos X="66" Y="1304"/>
+        <UsageCount Value="482"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="about_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="About"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="40"/>
+        <CursorPos X="40" Y="56"/>
+        <UsageCount Value="482"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="us_server_state.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="575"/>
+        <CursorPos X="11" Y="582"/>
+        <UsageCount Value="482"/>
+        <Loaded Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="server_cert_key_gen_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="server_cert_key_gen"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="7"/>
+        <CursorPos X="35" Y="17"/>
+        <UsageCount Value="482"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="vhost_create_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="vhost_create"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="10"/>
+        <CursorPos X="36" Y="18"/>
+        <UsageCount Value="482"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="vhost_delete_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="vhost_delete"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="13"/>
+        <CursorPos X="60" Y="18"/>
+        <UsageCount Value="482"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="apache_modules_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="apache_modules"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="7"/>
+        <CursorPos X="43" Y="20"/>
+        <UsageCount Value="482"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="apache_basic_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="apache_basic"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="11"/>
+        <CursorPos X="34" Y="17"/>
+        <UsageCount Value="482"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="root_www_pass_access_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="root_www_pass_access"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="36" Y="15"/>
+        <UsageCount Value="482"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="root_ssl_pass_access_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="root_ssl_pass_access"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="44" Y="15"/>
+        <UsageCount Value="482"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="php_extensions_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="php_extensions"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="150"/>
+        <CursorPos X="88" Y="161"/>
+        <UsageCount Value="482"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="edit_php_basic_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="edit_php_basic"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="133"/>
+        <CursorPos Y="541"/>
+        <UsageCount Value="482"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="msmtp_php_mail_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="msmtp_php_mail"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="34" Y="17"/>
+        <UsageCount Value="482"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="are_servers_runable.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="148"/>
+        <CursorPos X="61" Y="158"/>
+        <UsageCount Value="482"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="synapse\httpsend.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="336"/>
+        <UsageCount Value="482"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="server_internet_status_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="server_internet_status"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UsageCount Value="482"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="pc_win_startup_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="pc_win_startup"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="82"/>
+        <CursorPos X="32" Y="90"/>
+        <UsageCount Value="482"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="dtdns_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dtdns"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="482"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="cron_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="cron"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="174"/>
+        <CursorPos X="83" Y="198"/>
+        <UsageCount Value="482"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="command_line_start_up.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="482"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="mysql_db_create_delete_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="mysql_db_create_delete"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UsageCount Value="482"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="mysql_create_restricted_user_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="mysql_create_restricted_user"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="231"/>
+        <CursorPos X="56" Y="240"/>
+        <UsageCount Value="482"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="mysql_edit_restricted_user_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="mysql_edit_restricted_user"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="348"/>
+        <CursorPos X="4" Y="359"/>
+        <UsageCount Value="482"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="mysql_database_backup_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="mysql_database_backup"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UsageCount Value="482"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="mysql_database_restore_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="mysql_database_restore"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="46" Y="17"/>
+        <UsageCount Value="482"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="message_dlg_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="us_message_dlg"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UsageCount Value="482"/>
+      </Unit29>
+    </Units>
+    <JumpHistory Count="5" HistoryIndex="4">
+      <Position1>
+        <Filename Value="main_unit.pas"/>
+        <Caret Line="400" Column="34" TopLine="393"/>
+      </Position1>
+      <Position2>
+        <Filename Value="main_unit.pas"/>
+        <Caret Line="1245" Column="2" TopLine="1240"/>
+      </Position2>
+      <Position3>
+        <Filename Value="us_server_state.pas"/>
+        <Caret Line="503" Column="23" TopLine="495"/>
+      </Position3>
+      <Position4>
+        <Filename Value="us_server_state.pas"/>
+        <Caret Line="576" Column="12" TopLine="571"/>
+      </Position4>
+      <Position5>
+        <Filename Value="us_server_state.pas"/>
+        <Caret Line="582" Column="11" TopLine="575"/>
+      </Position5>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode="default"/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkData"/>
+        <WatchData Value="sList.Count"/>
+        <WatchScope Value="wpsGlobal"/>
+        <WatchKind Value="wpkWrite"/>
+        <InitialEnabled Value="False"/>
+      </Item1>
+    </BreakPoints>
+    <Watches Count="5">
+      <Item1>
+        <Expression Value="sList_files"/>
+      </Item1>
+      <Item2>
+        <Expression Value="US_PHP_EXTEN"/>
+      </Item2>
+      <Item3>
+        <Expression Value="sList[0]"/>
+      </Item3>
+      <Item4>
+        <Expression Value="sList.Count"/>
+      </Item4>
+      <Item5>
+        <Expression Value="sList[i]"/>
+      </Item5>
+    </Watches>
+  </Debugging>
+</CONFIG>

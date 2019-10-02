@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Active="Debug"/>
+    <Units Count="7">
+      <Unit0>
+        <Filename Value="UniService.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="7"/>
+        <CursorPos X="31" Y="10"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Main"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="130"/>
+        <CursorPos X="12" Y="145"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="default_config_vars.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="272"/>
+        <CursorPos X="47" Y="283"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="about_form.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="About"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="58"/>
+        <CursorPos X="61" Y="69"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="us_common_functions.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="124"/>
+        <CursorPos Y="131"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="us_common_procedures.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="356"/>
+        <CursorPos X="28" Y="356"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="C:\Lazarus\lcl\dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="716"/>
+        <CursorPos X="22" Y="724"/>
+        <UsageCount Value="9"/>
+      </Unit6>
+    </Units>
+    <JumpHistory Count="26" HistoryIndex="25">
+      <Position1>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="13" Column="30"/>
+      </Position1>
+      <Position2>
+        <Filename Value="UniService.lpr"/>
+        <Caret Line="20" TopLine="6"/>
+      </Position2>
+      <Position3>
+        <Filename Value="about_form.pas"/>
+        <Caret Line="11" Column="18"/>
+      </Position3>
+      <Position4>
+        <Filename Value="UniService.lpr"/>
+        <Caret Line="20" Column="41" TopLine="6"/>
+      </Position4>
+      <Position5>
+        <Filename Value="about_form.pas"/>
+        <Caret Column="48"/>
+      </Position5>
+      <Position6>
+        <Filename Value="about_form.pas"/>
+        <Caret Line="37" Column="47" TopLine="23"/>
+      </Position6>
+      <Position7>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="212" Column="40" TopLine="205"/>
+      </Position7>
+      <Position8>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="282" Column="22" TopLine="267"/>
+      </Position8>
+      <Position9>
+        <Filename Value="us_common_procedures.pas"/>
+        <Caret Line="5" Column="29"/>
+      </Position9>
+      <Position10>
+        <Filename Value="us_common_procedures.pas"/>
+        <Caret Line="36" Column="27" TopLine="20"/>
+      </Position10>
+      <Position11>
+        <Filename Value="us_common_procedures.pas"/>
+        <Caret Line="388" Column="37" TopLine="388"/>
+      </Position11>
+      <Position12>
+        <Filename Value="us_common_procedures.pas"/>
+        <Caret Line="397" Column="47" TopLine="388"/>
+      </Position12>
+      <Position13>
+        <Filename Value="us_common_procedures.pas"/>
+        <Caret Line="31" Column="27" TopLine="18"/>
+      </Position13>
+      <Position14>
+        <Filename Value="us_common_procedures.pas"/>
+        <Caret Line="181" Column="31" TopLine="177"/>
+      </Position14>
+      <Position15>
+        <Filename Value="us_common_procedures.pas"/>
+        <Caret Line="524" Column="29" TopLine="520"/>
+      </Position15>
+      <Position16>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="258" TopLine="250"/>
+      </Position16>
+      <Position17>
+        <Filename Value="us_common_procedures.pas"/>
+        <Caret Line="524" Column="31" TopLine="520"/>
+      </Position17>
+      <Position18>
+        <Filename Value="us_common_procedures.pas"/>
+        <Caret Line="42" Column="27" TopLine="34"/>
+      </Position18>
+      <Position19>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="275" Column="19"/>
+      </Position19>
+      <Position20>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="107" Column="52" TopLine="92"/>
+      </Position20>
+      <Position21>
+        <Filename Value="main_form.pas"/>
+        <Caret Line="68" Column="12" TopLine="60"/>
+      </Position21>
+      <Position22>
+        <Filename Value="main_form.pas"/>
+        <Caret Line="67" TopLine="60"/>
+      </Position22>
+      <Position23>
+        <Filename Value="main_form.pas"/>
+        <Caret Line="119" Column="22" TopLine="103"/>
+      </Position23>
+      <Position24>
+        <Filename Value="us_common_functions.pas"/>
+        <Caret Line="84" Column="28" TopLine="78"/>
+      </Position24>
+      <Position25>
+        <Filename Value="us_common_functions.pas"/>
+        <Caret Line="131" Column="78" TopLine="123"/>
+      </Position25>
+      <Position26>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="246" Column="62" TopLine="246"/>
+      </Position26>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <Watches Count="1">
+      <Item1>
+        <Expression Value="US_APACHE + '\conf\extra_us\' + UENV_PHP_SELECT + '.conf'"/>
+      </Item1>
+    </Watches>
+  </Debugging>
+</CONFIG>
