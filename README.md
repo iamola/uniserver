@@ -4,7 +4,7 @@ of Apache2, Perl5, PHP (switch between PHP56, PHP70, PHP71, PHP72, PHP 73), MySQ
 
 No installation required! No registry dust! Just unpack and fire up!
 
-Uniform Server Zero XIV can be found at SourceForge at https://sourceforge.net/projects/miniserver/ or can be downloaded by clicking on the button below:
+**Uniform Server Zero XIV** can be found at SourceForge at https://sourceforge.net/projects/miniserver/ or can be downloaded by clicking on the button below:
 
 [![Download Uniform Server](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/miniserver/files/latest/download)
 
@@ -58,3 +58,7 @@ The following are the optional plugins that can be used to enhance the UniformSe
 ### FTP
 
  * FileZilla Server v0.9.60 with a custom controller 
+ 
+### Run as a Service
+
+ * Uniservice v2.3.0 - Enables the Servers to be run as a Windows Service.
