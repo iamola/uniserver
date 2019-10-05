@@ -25,9 +25,12 @@ With the working environment in place you are ready to compile UniService as fol
  3. In the pop-up window click "Open Projects" button 
     Navigate to folder: z_controller\UniServerZ
     Click on file UniService.lpi, click Open Button.
+ 4. You may have to convert the Execution level at 
+    Project > Project Options > Application > For Windows
+    from Require Admin to as invoker otherwise the compiler will throw and error.
     The projects opens and is ready for compiling.
- 6. A quick test run the project: Run > run or press F9
+ 5. A quick test run the project: Run > run or press F9
     Last line displayed, Project "UniService" successfully built
- 7. UniService will run.
+ 6. UniService will run.
 
  You can now change code as required and re-compile.

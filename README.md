@@ -4,7 +4,9 @@ of Apache2, Perl5, PHP (switch between PHP56, PHP70, PHP71, PHP72, PHP 73), MySQ
 
 No installation required! No registry dust! Just unpack and fire up!
 
-The **Uniform Server** Folder has the latest versions of the Uniform Server Package
+Uniform Server Zero XIV can be found at SourceForge at https://sourceforge.net/projects/miniserver/ or can be downloaded by clicking on the button below:
+
+[![Download Uniform Server](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/miniserver/files/latest/download)
 
 # Uniform Server Core
 
