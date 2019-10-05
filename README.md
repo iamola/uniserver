@@ -18,6 +18,7 @@ The base version which is suitable for most users is the 14_0_0_ZeroXIV.exe that
  * MySQL v8.0.17
  * PhpMyAdmin v4.9.0.1
  * msmtp - A SMTP mail client
+ * Cron Scheduler
 
 # Uniform Server Modules
 
