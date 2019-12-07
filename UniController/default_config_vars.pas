@@ -19,7 +19,7 @@ uses
 {global vars}
 
 const
-  UNICONTROLLER_VERSION = 'V2.3.0';
+  UNICONTROLLER_VERSION = 'V2.3.1';
   ZENDOPCACHE_DLL       = 'php_opcache.dll';
 
   Btn_text_enable_ssl   = 'Enable SSL (Currently Disabled)';
@@ -48,19 +48,19 @@ Var
    UENV_US_ROOTF_SSL   :String;  // US_ROOTF_SSL   Apache server root folder ssl environment var
 
    UENV_MYSQL_TCP_PORT :string;  // MYSQL_TCP_PORT MySQL port environment var
-   UENV_PHP_SELECT     :string;  // PHP_SELECT     PHP Selected php56, php70, php71, php72, php73 environment var
+   UENV_PHP_SELECT     :string;  // PHP_SELECT     PHP Selected php56, php70, php71, php72, php73, php74 environment var
    UENV_PHP_INI_SELECT :string;  // PHP_INI_SELECT PHP configuration file php_test.ini php_development.ini php_production.ini environment var
 
   //==== End User Config and Enironment variables
 
   //==== User Config button options
-   US_OPT1_BTN_TXT     :String;   // button text - phpMyAdmin
-   US_OPT1_PAGE        :String;   // page to display when button clicked
-   US_OPT2_BTN_TXT     :String;   // button text - Adminer
-   US_OPT2_PAGE        :String;   // page to display when button clicked
-   US_OPT3_BTN_TXT     :String;   // button text - phpMyBackupPro
-   US_OPT3_PAGE        :String;   // page to display when button clicked
-   US_MYMAR_TXT        :String;   // Display string MySQL or MariaDB - Depends on server installed
+   US_OPT1_BTN_TXT     :string;   // button text - phpMyAdmin
+   US_OPT1_PAGE        :string;   // page to display when button clicked
+   US_OPT2_BTN_TXT     :string;   // button text - Adminer
+   US_OPT2_PAGE        :string;   // page to display when button clicked
+   US_OPT3_BTN_TXT     :string;   // button text - phpMyBackupPro
+   US_OPT3_PAGE        :string;   // page to display when button clicked
+   US_MYMAR_TXT        :string;   // Display string MySQL or MariaDB - Depends on server installed
   //==== User Config button options
 
 
@@ -176,12 +176,14 @@ Var
  US_PHP71          :String;  // PHP 71 root folder
  US_PHP72          :String;  // PHP 71 root folder
  US_PHP73          :String;  // PHP 73 root folder
+ US_PHP74          :String;  // PHP 74 root folder
 
  US_PHP56_EXT      :String;  // PHP 56 extensions folder
  US_PHP70_EXT      :String;  // PHP 70 extensions folder
  US_PHP71_EXT      :String;  // PHP 71 extensions folder
  US_PHP72_EXT      :String;  // PHP 72 extensions folder
  US_PHP73_EXT      :String;  // PHP 73 extensions folder
+ US_PHP74_EXT      :String;  // PHP 74 extensions folder
 
  US_PERL           :String;  // Perl main folder
  US_PERL_BIN       :String;  // Perl binary folder
@@ -264,6 +266,11 @@ Var
  USF_PHP_INI_PROD_73  :String;   // PHP 7.3.* configuration production
  USF_PHP_INI_DEV_73   :String;   // PHP 7.3.* configuration development
  USF_PHP_INI_CLI_73   :String;   // PHP 7.3.* command line config
+
+ USF_PHP_INI_TEST_74  :String;   // PHP 7.4.* configuration
+ USF_PHP_INI_PROD_74  :String;   // PHP 7.4.* configuration production
+ USF_PHP_INI_DEV_74   :String;   // PHP 7.4.* configuration development
+ USF_PHP_INI_CLI_74   :String;   // PHP 7.4.* command line config
 
  //-- msmtp configuration
  USF_MSMTP_EXE          :String;  // MSMTP executable
@@ -401,12 +408,14 @@ begin
   US_PHP71           := UniConPath +  '\core\php71';        // PHP 71 root folder
   US_PHP72           := UniConPath +  '\core\php72';        // PHP 72 root folder
   US_PHP73           := UniConPath +  '\core\php73';        // PHP 73 root folder
+  US_PHP74           := UniConPath +  '\core\php74';        // PHP 73 root folder
 
   US_PHP56_EXT       := UniConPath +  '\core\php56\extensions'; // PHP 56 extensions folder
   US_PHP70_EXT       := UniConPath +  '\core\php70\extensions'; // PHP 70 extensions folder
   US_PHP71_EXT       := UniConPath +  '\core\php71\extensions'; // PHP 71 extensions folder
   US_PHP72_EXT       := UniConPath +  '\core\php72\extensions'; // PHP 72 extensions folder
   US_PHP73_EXT       := UniConPath +  '\core\php73\extensions'; // PHP 73 extensions folder
+  US_PHP74_EXT       := UniConPath +  '\core\php74\extensions'; // PHP 74 extensions folder
 
   US_PERL            := UniConPath +  '\core\perl';         // Perl main folder
   US_PERL_BIN        := UniConPath +  '\core\perl\bin';     // Perl binary folder
@@ -482,6 +491,11 @@ begin
   USF_PHP_INI_PROD_73  := US_PHP73 + '\php_production.ini';  // PHP 7.3.* configuration production
   USF_PHP_INI_DEV_73   := US_PHP73 + '\php_development.ini'; // PHP 7.3.* configuration development
   USF_PHP_INI_CLI_73   := US_PHP73 + '\php-cli.ini';         // PHP 7.3.* command line config
+
+  USF_PHP_INI_TEST_74  := US_PHP74 + '\php_test.ini';        // PHP 7.4.* configuration
+  USF_PHP_INI_PROD_74  := US_PHP74 + '\php_production.ini';  // PHP 7.4.* configuration production
+  USF_PHP_INI_DEV_74   := US_PHP74 + '\php_development.ini'; // PHP 7.4.* configuration development
+  USF_PHP_INI_CLI_74   := US_PHP74 + '\php-cli.ini';         // PHP 7.4.* command line config
 
   //-- msmtp configuration
   USF_MSMTP_EXE          := US_MSMTP + '\msmtp.exe';            // MSMTP executable
@@ -707,9 +721,9 @@ begin
 
    UENV_MYSQL_TCP_PORT := Ini2.ReadString('USER','MYSQL_TCP_PORT','3306');
 
-   UENV_PHP_SELECT := Ini2.ReadString('USER','PHP_SELECT','php73');          // Get user selected PHP version
+   UENV_PHP_SELECT := Ini2.ReadString('USER','PHP_SELECT','php74');          // Get user selected PHP version
 
-   //If folders php56, php70, php71, php72, php73 do not exist or
+   //If folders php56, php70, php71, php72, php73, php74 do not exist or
    //incorrect PHP_SELECT value override user config. Set var PHP_SELECT to None.
    php_valid := False; // Assume PHP not installed
    If (DirectoryExists(US_PHP56) And (UENV_PHP_SELECT ='php56')) Then php_valid := True;
@@ -717,6 +731,7 @@ begin
    If (DirectoryExists(US_PHP71) And (UENV_PHP_SELECT ='php71')) Then php_valid := True;
    If (DirectoryExists(US_PHP72) And (UENV_PHP_SELECT ='php72')) Then php_valid := True;
    If (DirectoryExists(US_PHP73) And (UENV_PHP_SELECT ='php73')) Then php_valid := True;
+   If (DirectoryExists(US_PHP74) And (UENV_PHP_SELECT ='php74')) Then php_valid := True;
    If Not php_valid Then UENV_PHP_SELECT :='None';
 
    UENV_PHP_INI_SELECT := Ini2.ReadString('USER','PHP_INI_SELECT','php_test.ini');

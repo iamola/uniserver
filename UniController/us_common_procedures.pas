@@ -18,8 +18,8 @@ uses
   us_common_functions,
   JwaTlHelp32,windows,Process,
   Graphics,
-  RegExpr,LazFileUtils, FileUtil,
-  ExtCtrls, LCLType,INIFiles;
+  RegExpr, LazFileUtils, FileUtil,
+  ExtCtrls, LCLType, INIFiles;
 
 //=== General ===
  procedure us_set_environment_path;             //Set enironment path
@@ -120,6 +120,7 @@ uses
    TMain.MMSS_php71Click    - environment paths
    TMain.MMSS_php71Click
    TMain.MMSS_php73Click
+   TMain.MMSS_php74Click
 
   ORIGINAL_ENV_PATH - Original environment path when controller started
 
@@ -810,6 +811,7 @@ procedure us_start_mysql_program;
 Var
  AProcess: TProcess;
  saftey_loop: Integer;
+ mysql_exe: string;
 begin
  if not MysqlRunning() then
   begin
@@ -865,14 +867,13 @@ begin
     Until MysqlRunning();
 
     //=== If the MySQL version is 8 then the Console window does not close
-    //===    Use the mysqlhide.exe shim to close it.
+    //=== with the pnoconsole. Use the Window ShowWindowHide to close it.
 
     If (US_MYMAR_TXT = 'MySQL') And (StrToInt(MY_SQL_VER) >= 8) Then
      begin
-       AProcess := TProcess.Create(nil);                                              // Create new process
-       AProcess.Executable := US_MYSQL_BIN + '\mysqlhide.exe';                        // Executable to run
-       AProcess.Execute;                                                              // Run command
-       AProcess.Free;
+       sleep(1000);
+       mysql_exe := US_MYSQL_BIN + '\' + MY_EXE_NAME;
+       ShowWindow(FindWindow(nil,PChar(mysql_exe)),SW_HIDE);
      end;
   end;
 end;

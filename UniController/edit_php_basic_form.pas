@@ -583,6 +583,15 @@ If UENV_PHP_SELECT ='php73' then
  end;
 //--End PHP 73  selected
 
+//--PHP 74  selected
+If UENV_PHP_SELECT ='php74' then
+ begin
+  USF_PHP_INI      := USF_PHP_INI_TEST_74; // config php_test.ini
+  USF_PHP_INI_DEV  := USF_PHP_INI_DEV_74;  // config php_development.ini
+  USF_PHP_INI_PROD := USF_PHP_INI_PROD_74; // php_production.ini
+ end;
+//--End PHP 74  selected
+
     //=== Get data from configuration file php_test.ini
    if FileExists(USF_PHP_INI) Then
     begin

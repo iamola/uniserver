@@ -317,7 +317,7 @@ begin
 
 
    //---Set PHP drop-down menu state one or other must exist
-   If (DirectoryExists(US_PHP56) or DirectoryExists(US_PHP70) or DirectoryExists(US_PHP71) or DirectoryExists(US_PHP72) or DirectoryExists(US_PHP73)) Then
+   If (DirectoryExists(US_PHP56) or DirectoryExists(US_PHP70) or DirectoryExists(US_PHP71) or DirectoryExists(US_PHP72) or DirectoryExists(US_PHP73) or DirectoryExists(US_PHP74)) Then
     begin
       Main.MM_php.Enabled := true;  // Enable drop-down menu
 
@@ -356,6 +356,13 @@ begin
       Else                                    // Does not exist
          Main.MMSS_php73.Enabled := false;    // Select version
       //--END PHP 73
+
+      //--PHP 74
+      If DirectoryExists(US_PHP74) Then
+         Main.MMSS_php74.Enabled := true      // Select version
+      Else                                    // Does not exist
+         Main.MMSS_php74.Enabled := false;    // Select version
+      //--END PHP 74
 
     end
 
@@ -495,6 +502,32 @@ begin
    Else
       Main.MMSS_php73.Checked:=false;
    //===End PHP73
+
+    //===PHP74
+   If UENV_PHP_SELECT = 'php74' Then
+    begin
+      Main.MMSS_php74.Checked:=true;
+      //php ini
+      If FileExists(USF_PHP_INI_TEST_74) Then
+         Main.MMSS_php_ini.Enabled:=true
+      Else
+         Main.MMSS_php_ini.Enabled:=false;
+
+      //php development
+      If FileExists(USF_PHP_INI_DEV_74) Then
+         Main.MMSS_php_development.Enabled:=true
+      Else
+         Main.MMSS_php_development.Enabled:=false;
+
+      //php production
+      If FileExists(USF_PHP_INI_PROD_74) Then
+         Main.MMSS_php_production.Enabled:=true
+      Else
+         Main.MMSS_php_production.Enabled:=false;
+    end
+   Else
+      Main.MMSS_php74.Checked:=false;
+   //===End PHP74
 
     //---PHP Information menu button.
     If AP and Not(UENV_PHP_SELECT = 'None') Then
