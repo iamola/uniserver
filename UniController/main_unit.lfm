@@ -1,13 +1,14 @@
 object Main: TMain
-  Left = 506
-  Height = 234
-  Top = 304
-  Width = 346
+  Left = 633
+  Height = 292
+  Top = 380
+  Width = 432
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'UniServer Zero XIV'
-  ClientHeight = 214
-  ClientWidth = 346
+  ClientHeight = 267
+  ClientWidth = 432
+  DesignTimePPI = 120
   FormStyle = fsStayOnTop
   Menu = MainMenu1
   OnClose = FormClose
@@ -15,65 +16,70 @@ object Main: TMain
   OnWindowStateChange = FormWindowStateChange
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '2.0.10.0'
   object Bevel1: TBevel
-    Left = 8
-    Height = 68
-    Top = 8
-    Width = 330
+    Left = 10
+    Height = 85
+    Top = 10
+    Width = 412
     Shape = bsFrame
   end
   object GB2: TGroupBox
-    Left = 8
-    Height = 121
-    Top = 84
-    Width = 155
+    Left = 10
+    Height = 151
+    Top = 105
+    Width = 194
     Caption = 'Apache Utilities'
-    ClientHeight = 101
-    ClientWidth = 151
+    ClientHeight = 126
+    ClientWidth = 190
+    ParentFont = False
     TabOrder = 0
     object Btn_server_console: TButton
-      Left = 7
-      Height = 23
+      Left = 9
+      Height = 29
       Top = 2
-      Width = 135
+      Width = 169
       Caption = 'Server Console'
       OnClick = Btn_server_consoleClick
+      ParentFont = False
       TabOrder = 0
     end
     object Btn_view_www: TButton
-      Left = 7
-      Height = 23
-      Top = 27
-      Width = 135
+      Left = 9
+      Height = 29
+      Top = 34
+      Width = 169
       Caption = 'View www'
       OnClick = Btn_view_wwwClick
+      ParentFont = False
       TabOrder = 1
     end
     object Btn_view_ssl: TButton
-      Left = 7
-      Height = 23
-      Top = 52
-      Width = 135
+      Left = 9
+      Height = 29
+      Top = 65
+      Width = 169
       Caption = 'View ssl'
       OnClick = Btn_view_sslClick
+      ParentFont = False
       TabOrder = 2
     end
     object Btn_documentation: TButton
-      Left = 7
-      Height = 23
-      Top = 77
-      Width = 135
+      Left = 9
+      Height = 29
+      Top = 96
+      Width = 169
       Caption = 'Documentation'
       OnClick = Btn_documentationClick
+      ParentFont = False
       TabOrder = 3
     end
   end
   object Image1: TImage
-    Left = 18
-    Height = 54
-    Top = 14
-    Width = 132
+    Left = 22
+    Height = 68
+    Top = 18
+    Width = 165
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963281C000089504E47
       0D0A1A0A0000000D4948445200000084000000360806000000064631D9000000
@@ -305,85 +311,92 @@ object Main: TMain
     }
   end
   object Btn_start_apache: TButton
-    Left = 180
-    Height = 25
-    Top = 14
-    Width = 115
+    Left = 225
+    Height = 31
+    Top = 18
+    Width = 144
     Caption = 'Start Apache'
     OnClick = Btn_start_apacheClick
+    ParentFont = False
     TabOrder = 1
   end
   object Btn_start_mysql: TButton
-    Left = 180
-    Height = 25
-    Top = 43
-    Width = 115
+    Left = 225
+    Height = 31
+    Top = 54
+    Width = 144
     Caption = 'Start MySQL'
     OnClick = Btn_start_mysqlClick
+    ParentFont = False
     TabOrder = 2
   end
   object apache_img: TImage
-    Left = 305
-    Height = 15
-    Top = 19
-    Width = 15
+    Left = 381
+    Height = 20
+    Top = 24
+    Width = 20
   end
   object mysql_img: TImage
-    Left = 305
-    Height = 15
-    Top = 48
-    Width = 15
+    Left = 381
+    Height = 20
+    Top = 60
+    Width = 20
   end
   object GB_mysql_utilities: TGroupBox
-    Left = 180
-    Height = 121
-    Top = 84
-    Width = 155
+    Left = 225
+    Height = 151
+    Top = 105
+    Width = 194
     Caption = 'MySQL Utilities'
-    ClientHeight = 101
-    ClientWidth = 151
+    ClientHeight = 126
+    ClientWidth = 190
+    ParentFont = False
     TabOrder = 3
     object Btn_mysql_console: TButton
-      Left = 7
-      Height = 23
+      Left = 9
+      Height = 29
       Top = 2
-      Width = 135
+      Width = 169
       Caption = 'MySQL Console'
       OnClick = Btn_mysql_consoleClick
+      ParentFont = False
       TabOrder = 0
     end
     object Btn_opt1: TButton
-      Left = 7
-      Height = 23
-      Top = 27
-      Width = 135
+      Left = 9
+      Height = 29
+      Top = 34
+      Width = 169
       Caption = 'phpMyAdmin'
       OnClick = Btn_opt1Click
+      ParentFont = False
       TabOrder = 1
     end
     object Btn_opt2: TButton
-      Left = 7
-      Height = 23
-      Top = 52
-      Width = 135
+      Left = 9
+      Height = 29
+      Top = 65
+      Width = 169
       Caption = 'Adminer'
       OnClick = Btn_opt2Click
+      ParentFont = False
       TabOrder = 2
     end
     object Btn_opt3: TButton
-      Left = 7
-      Height = 23
-      Top = 76
-      Width = 135
+      Left = 9
+      Height = 29
+      Top = 95
+      Width = 169
       Caption = 'phpMyBackupPro'
       OnClick = Btn_opt3Click
+      ParentFont = False
       TabOrder = 3
     end
   end
   object MainMenu1: TMainMenu
     Images = menuImageList
-    left = 64
-    top = 16
+    Left = 80
+    Top = 20
     object MM_general: TMenuItem
       Caption = 'General'
       object MMS_server_internet_status: TMenuItem
@@ -727,10 +740,6 @@ object Main: TMain
       object MMS_select_php_version: TMenuItem
         Caption = 'Select PHP version'
         ImageIndex = 12
-        object MMSS_php56: TMenuItem
-          Caption = 'PHP version 56'
-          OnClick = MMSS_php56Click
-        end
         object MMSS_php70: TMenuItem
           Caption = 'PHP version 70'
           OnClick = MMSS_php70Click
@@ -750,6 +759,10 @@ object Main: TMain
         object MMSS_php74: TMenuItem
           Caption = 'PHP Version 74'
           OnClick = MMSS_php74Click
+        end
+        object MMSS_php80: TMenuItem
+          Caption = 'PHP version 80'
+          OnClick = MMSS_php80Click
         end
       end
       object MMS_select_php_config: TMenuItem
@@ -1133,17 +1146,17 @@ object Main: TMain
       0000
     }
     OnClick = SystrayIconClick
-    left = 120
-    top = 24
+    Left = 150
+    Top = 30
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
-    left = 8
-    top = 16
+    Left = 10
+    Top = 20
   end
   object menuImageList: TImageList
-    left = 160
-    top = 16
+    Left = 200
+    Top = 20
     Bitmap = {
       4C69260000001000000010000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF

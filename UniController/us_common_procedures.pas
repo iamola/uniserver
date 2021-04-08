@@ -115,12 +115,12 @@ uses
 
   Used by us_main_init
   Also used by elements that change the path:
-   TMain.MMSS_php56Click    - PHP select buttons
-   TMain.MMSS_php70Click    - change the
-   TMain.MMSS_php71Click    - environment paths
-   TMain.MMSS_php71Click
+   TMain.MMSS_php70Click    - PHP select buttons
+   TMain.MMSS_php71Click    - change the
+   TMain.MMSS_php72Click    - environment paths
    TMain.MMSS_php73Click
    TMain.MMSS_php74Click
+   TMain.MMSS_php80Click
 
   ORIGINAL_ENV_PATH - Original environment path when controller started
 
@@ -671,8 +671,8 @@ Inputs:
 
 Requires TImage:
  Create a new TImage
-  set height = 15
-  set width  = 15
+  set height = 19
+  set width  = 19
   set name   = apache_img
 
 =============================================================================}
@@ -692,12 +692,12 @@ begin
   If state='red' Then
    begin
     Bmp := TBitmap.Create;
-    Bmp.Height := 15;
-    Bmp.Width  := 15;
+    Bmp.Height := 19;
+    Bmp.Width  := 19;
     Bmp.Canvas.Brush.Color := clBorder;
-    Bmp.Canvas.FillRect(0,0,14,14);
+    Bmp.Canvas.FillRect(0,0,19,19);
     Bmp.Canvas.Brush.Color := clBack_stopped;
-    Bmp.Canvas.FillRect(1,1,14,14);
+    Bmp.Canvas.FillRect(1,1,19,19);
     Main.apache_img.Canvas.Draw(0,0,Bmp);
     Bmp.free;
    end;
@@ -706,12 +706,12 @@ begin
   If state='green' Then
    begin
     Bmp := TBitmap.Create;
-    Bmp.Height := 15;
-    Bmp.Width  := 15;
+    Bmp.Height := 19;
+    Bmp.Width  := 19;
     Bmp.Canvas.Brush.Color := clBorder;
-    Bmp.Canvas.FillRect(0,0,14,14);
+    Bmp.Canvas.FillRect(0,0,19,19);
     Bmp.Canvas.Brush.Color := clBack_running;
-    Bmp.Canvas.FillRect(1,1,14,14);
+    Bmp.Canvas.FillRect(1,1,19,19);
     Main.apache_img.Canvas.Draw(0,0,Bmp);
     Bmp.free;
    end;
@@ -735,7 +735,7 @@ If FileExists(USF_APACHE_CNF) Then
    sList.LoadFromFile(USF_APACHE_CNF);    // Load file
    for i:=0 to sList.Count-1 do          // Scan file line by line
      begin
-      if ExecRegExpr('^#LoadModule ssl_module modules/mod_ssl.so', sList[i]) then      // Match found
+      if (sList[i]<>'') and ExecRegExpr('^#LoadModule ssl_module modules/mod_ssl.so', sList[i]) then      // Match found
         begin
          sList[i] := 'LoadModule ssl_module modules/mod_ssl.so'; // Update with new string
          Break;                                                  // Nothing else to do
@@ -770,7 +770,7 @@ If FileExists(USF_APACHE_CNF) Then
     sList.LoadFromFile(USF_APACHE_CNF);         // Load file
   for i:=0 to sList.Count-1 do          // Scan file line by line
     begin
-     if ExecRegExpr('^LoadModule ssl_module modules/mod_ssl.so', sList[i]) then      // Match found
+     if (sList[i]<>'') and ExecRegExpr('^LoadModule ssl_module modules/mod_ssl.so', sList[i]) then      // Match found
        begin
         sList[i] := '#LoadModule ssl_module modules/mod_ssl.so'; // Update with new string
         Break;                                                   // Nothing else to do
@@ -1011,12 +1011,12 @@ begin
   If state='red' Then
    begin
     Bmp := TBitmap.Create;
-    Bmp.Height := 15;
-    Bmp.Width  := 15;
+    Bmp.Height := 19;
+    Bmp.Width  := 19;
     Bmp.Canvas.Brush.Color := clBorder;
-    Bmp.Canvas.FillRect(0,0,14,14);
+    Bmp.Canvas.FillRect(0,0,19,19);
     Bmp.Canvas.Brush.Color := clBack_stopped;
-    Bmp.Canvas.FillRect(1,1,14,14);
+    Bmp.Canvas.FillRect(1,1,19,19);
     Main.mysql_img.Canvas.Draw(0,0,Bmp);
     Bmp.free;
    end;
@@ -1025,12 +1025,12 @@ begin
   If state='green' Then
    begin
     Bmp := TBitmap.Create;
-    Bmp.Height := 15;
-    Bmp.Width  := 15;
+    Bmp.Height := 19;
+    Bmp.Width  := 19;
     Bmp.Canvas.Brush.Color := clBorder;
-    Bmp.Canvas.FillRect(0,0,14,14);
+    Bmp.Canvas.FillRect(0,0,19,19);
     Bmp.Canvas.Brush.Color := clBack_running;
-    Bmp.Canvas.FillRect(1,1,14,14);
+    Bmp.Canvas.FillRect(1,1,19,19);
     Main.mysql_img.Canvas.Draw(0,0,Bmp);
     Bmp.free;
    end;
@@ -1175,52 +1175,62 @@ MySQL Change root password:
     UPDATE mysql.user SET Password = PASSWORD('newpass') WHERE User = 'pma';
     FLUSH PRIVILEGES;
 
- 2) Start MySQL server with mysql-init.txt runs the sql changing root password
+ 2) Start MySQL server
 
     Command line format:
-    C:\UniServerZ\core\mysql\bin\mysqld_z.exe --defaults-file=C:\UniServerZ\core\mysql\my.ini --init-file=C:\UniServerZ\core\mysql\bin\mysql-init.txt
+    C:\UniServerZ\core\mysql\bin\mysqld_z.exe --defaults-file=C:\UniServerZ\core\mysql\my.ini
 
- 3) Passwords changed kill the MySQL server.
+ 3) Run mySQL with the user and the password providing the input file to change the password
+    Command Line Format:
+    mysql.exe --user=root --password=root --execute="SOURCE mysql-init.txt"
+
+ 4) Passwords changed kill the MySQL server.
 
   Changes:
   --------
   2019-09-07 : SudeepJD: Added in the MySQL8 support as it needs to be handled differntly
+  2021-04-06 : SudeepJD: MySQL5.7+ and MySQL8 are now handled the same way using ALTER instead of UPDATE
+               Updated the method of changing the password since we know the old password
 =============================================================================}
 procedure mysql_change_root_password(new_password:string);
 var
-  FileVar1    : TextFile;    // Text File handle
-  AProcess    : TProcess;    // Process handle
-  saftey_loop : Integer;     // Loop counter
-  failed      : Boolean;     // Failed to set password
+  FileVar1      : TextFile;    // Text File handle
+  AProcess      : TProcess;    // Process handle
+  saftey_loop   : Integer;     // Loop counter
+  failed        : Boolean;     // Failed to set password
+  root_password : String;      //The existing password
 begin
   failed := False;                          // Assume not failed
 
+  root_password := us_get_mysql_password();
+
   //1==Create new mysql-init.txt
   Assign(FileVar1,USF_MYSQL_TEMP_SQL);      // Assign file
-  ReWrite(FileVar1);                        // Create file for writting
-
-  If (US_MYMAR_TXT='MySQL') And (StrtoInt(MY_SQL_VER)>=8) Then
-   begin
-    Writeln(FileVar1, 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
-    Writeln(FileVar1, 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
-   end
-  Else
-   begin
-    Writeln(FileVar1, 'UPDATE mysql.user SET Password = PASSWORD('''+new_password+''') WHERE User = ''root'';');
-    Writeln(FileVar1, 'UPDATE mysql.user SET Password = PASSWORD('''+new_password+''') WHERE User = ''pma'';');
-   end;
+  ReWrite(FileVar1);                        // Create file for writing
 
   Writeln(FileVar1, 'FLUSH PRIVILEGES;');
+  If (US_MYMAR_TXT = 'MySQL') Then
+   Begin
+    Writeln(FileVar1, 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
+    Writeln(FileVar1, 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
+   End
+  Else
+   Begin
+    Writeln(FileVar1, 'ALTER USER ''root''@''localhost'' IDENTIFIED BY '''+new_password+''';');
+    Writeln(FileVar1, 'ALTER USER ''pma''@''localhost'' IDENTIFIED BY '''+new_password+''';');
+   End;
+  Writeln(FileVar1, 'FLUSH PRIVILEGES;');
+
   CloseFile(FileVar1);                     // Close file
   sleep(100);                              // Wait for file to be created
 
-  //2==Start MySQL server with sql file mysql-init.txt
+  //2==Start MySQL server
   //   File is run during start-up and passwords changed.
   AProcess := TProcess.Create(nil);                                              // Create new process
 
   AProcess.Executable := US_MYSQL_BIN + '\' + MY_EXE_NAME;                       // Executable to run
   AProcess.Parameters.Add('--defaults-file="' + USF_MYSQL_INI+ '"');             // Force use of default file
-  AProcess.Parameters.Add('--init-file="' + USF_MYSQL_TEMP_SQL+ '"');            // Parameter mysql mysql-init.txt file
+  //AProcess.Parameters.Add('--init-file="' + USF_MYSQL_TEMP_SQL+ '"');            // Parameter mysql mysql-init.txt file
 
   AProcess.Options  := AProcess.Options + [poNoConsole];                         // Set option no console
   //AProcess.Priority := ppHigh;                                                 // The process runs at higher than normal priority.
@@ -1243,7 +1253,7 @@ begin
   Until MysqlRunning();
 
   //Check MySQL server is ready
-  If not failed then
+  If not Failed then
    begin
      saftey_loop:=0;
      Repeat                                         // Wait for MySQL server to be ready
@@ -1258,10 +1268,26 @@ begin
            Break;
          end;
       end;
-     Until MysqlServerReady(new_password);
+     Until MysqlServerReady(root_password);
    end;
 
+  //3)==Run the sql file and execute the Init file
+  If not Failed then
+   Begin
+     AProcess := TProcess.Create(nil);   // Create new process
+
+      AProcess.Executable := US_MYSQL_BIN + '\mysql.exe';                   // Executable to run
+      AProcess.Parameters.Add('--user=root');                               // User root
+      AProcess.Parameters.Add('--password=' + root_password);       // User password
+      AProcess.Parameters.Add('--execute="SOURCE '+USF_MYSQL_TEMP_SQL+'"'); // mysql-init.txt
+
+      AProcess.Options  := AProcess.Options + [poNoConsole];                // Set option no console
+      AProcess.Execute;                                                     // Run command
+      AProcess.Free;
+   End;
+
   //3)==MySQL running kill the MySQL server.
+  Sleep(4000);
   us_kill_mysql_program;                  // Kills MySQL server
 
   //4)==Delete temp file mysql-init.txt
@@ -1306,21 +1332,25 @@ mysql_restore_root_password:
  
  1) Kill server if running
 
- 2) A new mysql-init.txt file is created this is used for restoring the MySQL root password.
+ 2) A new mysql-init.txt file is created this is used for restoring the MySQL root user.
 
- 3) Start MySQL server with skip grant tables 
+ 3) Start MySQL server with skip grant tables
     mysqld_z.exe --defaults-file="C:\UniserverZ\core\mysql\my.ini" --skip-grant-tables
 
- 4) Password restored kill the MySQL server.
+ 4) Insert and Replace the root and pma if they were deleted
 
- 5) Update parameters
+ 5) Kill the server
 
- 6) Delete temp file mysql-init.txt
+ 6) Update parameters
+
+ 7) Delete temp file mysql-init.txt
 
  Changes:
   --------
   2019-09-07 : SudeepJD: Added in the MySQL8 support as it needs to be handled differently
                          MySQL8 does not have a Password in the Database but uses the identified by
+  2021-04-07 : SudeepJD: MariaDB post 10.5 has made mysql.user a view, so it cannot be modified
+                         This has moved to global_privs and the restore needs to be done differently.
 =============================================================================}
 procedure mysql_restore_root_password;
 var
@@ -1332,7 +1362,9 @@ var
   str4     : string;
   str5     : string;
   str6     : string;
-  passStr  : string;
+  str7     : string;
+  str8     : string;
+  str9     : string;
 begin
 
   //1==Kill server
@@ -1341,19 +1373,30 @@ begin
   //2===Set sql strings to write to file. This is based on the results obtained from list of privileges
   //    Specific privileges are named a set not the root password is calculated using Password(''root'') 
 
-  If (US_MYMAR_TXT='MySQL') And (StrtoInt(MY_SQL_VER)>=8) Then
-     passStr := 'plugin = ''mysql_native_password'', authentication_string = '''','
-  Else if (US_MYMAR_TXT='MariaDB') And (StrtoInt(MY_SQL_VER)>=10) Then
-     passStr := 'Password = PASSWORD(''root''), plugin = '''', authentication_string = '''', Delete_history_priv=''y'','
+  If (US_MYMAR_TXT='MySQL') Then
+   Begin
+    str1 := 'use mysql;';
+    str2 := 'INSERT IGNORE INTO user SET user = ''root'', plugin = ''mysql_native_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
+    str3 := 'REPLACE INTO user SET       user = ''root'', plugin = ''mysql_native_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'' ;';
+    str4 := 'INSERT IGNORE INTO user SET user = ''pma'', plugin = ''mysql_native_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
+    str5 := 'REPLACE INTO user SET       user = ''pma'', plugin = ''mysql_native_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
+    str6 := 'FLUSH PRIVILEGES;';
+    str7 := 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH mysql_native_password BY ''root'';';
+    str8 := 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH mysql_native_password BY ''root'';';
+    str9 := 'FLUSH PRIVILEGES;';
+   End
   Else
-     passStr := 'Password = PASSWORD(''root''), plugin = '''', authentication_string = '''',';
-
-  str1 := 'use mysql;';
-  str2 := 'INSERT IGNORE INTO user SET user = ''root'', ' + passStr + ' host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
-  str3 := 'REPLACE INTO user SET       user = ''root'', ' + passStr + ' host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'' ;';
-  str4 := 'INSERT IGNORE INTO user SET user = ''pma'', ' + passStr + ' host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
-  str5 := 'REPLACE INTO user SET       user = ''pma'', ' + passStr + ' host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
-  str6 := 'FLUSH PRIVILEGES;';
+   Begin
+    str1 := 'use mysql;';
+    str2 := 'INSERT IGNORE INTO global_priv (Host, User, Priv) VALUES (''localhost'', ''root'', ''{"access":0,"plugin":"mysql_native_password","authentication_string":"","password_last_changed":0}'');';
+    str3 := 'INSERT IGNORE INTO global_priv (Host, User, Priv) VALUES (''localhost'', ''pma'', ''{"access":0,"plugin":"mysql_native_password","authentication_string":"","password_last_changed":0}'');';
+    str4 := 'FLUSH PRIVILEGES;';
+    str5 := 'ALTER USER ''root''@''localhost'' IDENTIFIED BY ''root'';';
+    str6 := 'ALTER USER ''pma''@''localhost'' IDENTIFIED BY ''root'';';
+    str7 := 'GRANT ALL ON *.* TO ''root''@''localhost'';';
+    str8 := 'GRANT ALL ON *.* TO ''pma''@''localhost'';';
+    str9 := 'FLUSH PRIVILEGES;';
+   End;
 
   //2==Write above strings to file mysql-init.txt this is used to restore user
    Assign(FileVar1,USF_MYSQL_TEMP_SQL);      // Assign file
@@ -1364,46 +1407,42 @@ begin
    Writeln(FileVar1, str4);
    Writeln(FileVar1, str5);
    Writeln(FileVar1, str6);
+   Writeln(FileVar1, str7);
+   Writeln(FileVar1, str8);
+   Writeln(FileVar1, str9);
 
    CloseFile(FileVar1);                     // Close file
-   sleep(100);                              // Wait for file to be createed
+   Sleep(100);                              // Wait for file to be created
 
   //3)== Start MySQL server with skip Grant tables
-
   If us_start_mysql_skip_grants() Then
     Begin   // Server running
 
-      //Run sql file mysql-init.txt
+      //==4)Run sql file mysql-init.txt
       AProcess := TProcess.Create(nil);   // Create new process
 
       AProcess.Executable := US_MYSQL_BIN + '\mysql.exe';                   // Executable to run
-      AProcess.Parameters.Add('--user=root');                               // User root
       AProcess.Parameters.Add('--execute="SOURCE '+USF_MYSQL_TEMP_SQL+'"'); // mysql-init.txt
 
       AProcess.Options  := AProcess.Options + [poNoConsole];                // Set option no console
       AProcess.Execute;                                                     // Run command
       AProcess.Free;     
 
-      //==4)Wait a short time and kill server
-      sleep(2000);
+      //5)==Wait a short time and kill server
+      Sleep(4000);
       us_kill_mysql_program;                 // Kills MySQL server     
 
-      // ==4.5) If we are dealing with MySQL8 then we need to reset the passord
-      //          after the user is created
-      If (US_MYMAR_TXT='MySQL') And (StrtoInt(MY_SQL_VER)>=8) Then
-          mysql_change_root_password('root');
-
-      //5)==Root password changed
+      //6)==Root password changed
       us_save_mysql_password('root');        // Save 'root' password to password file
       MY_PWD := 'root';                      // Updated password global variable
-      us_MessageDlg(US_MYMAR_TXT+' Info',US_MYMAR_TXT+' root password restored', mtcustom,[mbOk],0) ; //Display information message
+      us_MessageDlg(US_MYMAR_TXT+' Info',US_MYMAR_TXT+' root user restored', mtcustom,[mbOk],0) ; //Display information message
     End
   Else      // Failed to start server
     Begin
-      us_MessageDlg(US_MYMAR_TXT+' Info','Failed to restore root password. No action taken', mtcustom,[mbOk],0) ; //Display information message
+      us_MessageDlg(US_MYMAR_TXT+' Info','Failed to restore root user. No action taken', mtcustom,[mbOk],0) ; //Display information message
     End;
 
-  //6)==Delete temp file mysql-init.txt
+  //7)==Delete temp file mysql-init.txt
   If FileExists(USF_MYSQL_TEMP_SQL) Then
     DeleteFile(Pchar(USF_MYSQL_TEMP_SQL));
 
@@ -1482,7 +1521,7 @@ begin
      begin
        sList.Clear;                                   // Remove old list content
        sList.LoadFromFile(sList_Files[i]);            // Load file
-       If ExecRegExpr('^'+US_SHEBANG, sList[0])  then // Shebang found in first line
+       If (sList[i]<>'') and ExecRegExpr('^'+US_SHEBANG, sList[0])  then // Shebang found in first line
          begin
             sList[0] := NEW_SHEBANG;                  // Set new shebang
 
@@ -1502,7 +1541,7 @@ begin
      begin
        sList.Clear;                                  // Remove old list content
        sList.LoadFromFile(sList_Files[i]);           // Load file
-       If ExecRegExpr('^'+US_SHEBANG, sList[0]) then // Shebang found in first line
+       If (sList[i]<>'') and ExecRegExpr('^'+US_SHEBANG, sList[0]) then // Shebang found in first line
          begin
             sList[0] := NEW_SHEBANG;                // Set new shebang
 
@@ -1522,7 +1561,7 @@ begin
      begin
        sList.Clear;                                   // Remove old list content
        sList.LoadFromFile(sList_Files[i]);            // Load file
-       If ExecRegExpr('^'+US_SHEBANG, sList[0]) then  // Shebang found in first line
+       If (sList[i]<>'') and ExecRegExpr('^'+US_SHEBANG, sList[0]) then  // Shebang found in first line
          begin
             sList[0] := NEW_SHEBANG;                  // Set new shebang
 
@@ -1563,7 +1602,7 @@ begin
  for i:=0 to sList.Count-1 do
    begin
      // Zend OpCache code
-     If ExecRegExpr('^[^;].*'+QuoteRegExprMetaChars(ZENDOPCACHE_DLL)+'.*$', sList[i]) Then  sList[i] := ';'+sList[i];
+     If (sList[i]<>'') and ExecRegExpr('^[^;].*'+QuoteRegExprMetaChars(ZENDOPCACHE_DLL)+'.*$', sList[i]) Then  sList[i] := ';'+sList[i];
    end; //End scan list
 
   If FileIsWritable(selected_ini_file) Then
@@ -1601,7 +1640,7 @@ begin
    for i:=0 to sList.Count-1 do
       begin
          // Zend OpCache code
-        If ExecRegExpr('^[;].*'+QuoteRegExprMetaChars(ZENDOPCACHE_DLL)+'.*$', sList[i]) Then
+        If (sList[i]<>'') and ExecRegExpr('^[;].*'+QuoteRegExprMetaChars(ZENDOPCACHE_DLL)+'.*$', sList[i]) Then
           sList[i] := ReplaceRegExpr('^;', sList[i], '', False); //Remove ; to enable
       end; //End scan list
   end;
@@ -1786,7 +1825,7 @@ begin
 
     for i:=0 to sList2.Count-1 do // Scan list
     begin
-     if RegexObj.Exec(sList2[i]) then                            // Match found
+     if (sList2[i]<>'') and RegexObj.Exec(sList2[i]) then                            // Match found
        begin
         //Build new line:
         pt1 := 's:';              // s:
@@ -1806,7 +1845,7 @@ begin
 
     for i:=0 to sList2.Count-1 do      // Scan list
     begin
-     if RegexObj.Exec(sList2[i]) then  // Match found
+     if (sList2[i]<>'') and RegexObj.Exec(sList2[i]) then  // Match found
        begin
         //Build new line:
         pt1 := 's:';              // s:
@@ -2065,8 +2104,8 @@ If FileExists(USF_PAC) Then               // Check proxy.pac exists
      for i:=0 to sList.Count-1 do         // Scan file line by line
 
        begin
-        if ExecRegExpr(host, sList[i]) then break; // host exists nothing else to do
-        if ExecRegExpr(endPac,  sList[i]) then     // host not found
+        if (sList[i]<>'') and ExecRegExpr(host, sList[i]) then break; // host exists nothing else to do
+        if (sList[i]<>'') and ExecRegExpr(endPac, sList[i]) then     // host not found
           begin
             sList.Insert(i,newHost);               // add new host before to list
             sList.SaveToFile(USF_PAC);             // Save new host to PAC file
@@ -2100,7 +2139,7 @@ If FileExists(USF_PAC) Then          // Check proxy.pac exists
      for i:=0 to sList.Count-1 do           // Scan file line by line
 
        begin
-        if ExecRegExpr(host, sList[i]) then  // host found
+        if (sList[i]<>'') and ExecRegExpr(host, sList[i]) then  // host found
           begin
             sList.Delete(i);                 // Remove host from list
             sList.SaveToFile(USF_PAC);       // Save pac file

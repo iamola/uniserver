@@ -92,7 +92,7 @@ begin
 
         //-- Get Server Admin Email
         RegexObj.Expression := '^\s*ServerAdmin\s*([\w@.\$\{\}]+)'; // Set search pattern
-         if RegexObj.Exec(sList[i]) then                            // Match found
+         if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                            // Match found
            begin
             //Expand email may contain ${US_SERVERNAME}
             Edit_email.Text := StringReplace(RegexObj.Match[1], '${US_SERVERNAME}',UENV_US_SERVERNAME,[rfReplaceAll]);
@@ -101,27 +101,27 @@ begin
 
          //-- Get Directory Index Files
          RegexObj.Expression := '^\s*DirectoryIndex\s*([\w.\s]+[^\s])\s*$'; // Set search pattern
-          if RegexObj.Exec(sList[i]) then                                   // Match found
+          if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                                   // Match found
             begin
              Edit_index_files.Text := RegexObj.Match[1];         // Display index file extensions             end;
             end;
 
           //-- Get Lua status
            RegexObj.Expression := '^#LoadModule lua_module modules/mod_lua.so'; //Set search pattern
-             if RegexObj.Exec(sList[i]) then                                    // Match found
+             if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                                    // Match found
                 Com_lua_module.Text  := 'Disabled';      //Display Lua status
 
            RegexObj.Expression := '^LoadModule lua_module modules/mod_lua.so';  //Set search pattern
-             if RegexObj.Exec(sList[i]) then                                    // Match found
+             if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                                    // Match found
                Com_lua_module.Text   := 'Enabled';       //Display Lua status
 
           //-- Get PLua status
              RegexObj.Expression := '^#LoadModule plua_module modules/mod_plua.so'; //Set search pattern
-               if RegexObj.Exec(sList[i]) then                                     // Match found
+               if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                                     // Match found
                   Com_plua_module.Text  := 'Disabled';      //Display Lua status
 
              RegexObj.Expression := '^LoadModule plua_module modules/mod_plua.so';  //Set search pattern
-               if RegexObj.Exec(sList[i]) then                                     // Match found
+               if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                                     // Match found
                  Com_plua_module.Text   := 'Enabled';       //Display Lua status
 
 
@@ -143,14 +143,14 @@ begin
 
         //-- Get server-parsed ssi file extensions
         RegexObj.Expression := '^\s*AddHandler\s*server-parsed\s*([\w.\s]+[^\s])\s*$'; //Set search pattern
-          if RegexObj.Exec(sList[i]) then                                               // Match found
+          if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                                               // Match found
             begin
              Edit_ssi.Text := RegexObj.Match[1];  //Display list of file extensions
             end;
 
          //-- Get Server signature ststus
           RegexObj.Expression := '^\s*ServerSignature\s*(\w+)'; //Set search pattern
-            if RegexObj.Exec(sList[i]) then                     // Match found
+            if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                     // Match found
               begin
                Com_server_signature.Text := RegexObj.Match[1]; //Display server signature ststus
               end;
@@ -243,7 +243,7 @@ begin
          begin
 
            //-- Set Server Admin Email
-           if ExecRegExpr('^\s*ServerAdmin\s*', sList[i]) then  // Match found
+           if (sList[i]<>'') and ExecRegExpr('^\s*ServerAdmin\s*', sList[i]) then  // Match found
              begin
                new_admin_email := Edit_email.Text;    //Get user input
                new_admin_email := StringReplace(new_admin_email, UENV_US_SERVERNAME,'${US_SERVERNAME}',[rfReplaceAll]);
@@ -251,14 +251,14 @@ begin
              end;
 
            //-- Set Directory Index Files
-           if ExecRegExpr('^\s*DirectoryIndex\s*', sList[i]) then  // Match found
+           if (sList[i]<>'') and ExecRegExpr('^\s*DirectoryIndex\s*', sList[i]) then  // Match found
              begin
                 sList[i] := '    DirectoryIndex '+Edit_index_files.Text;
              end;
 
            //-- Set Lua status
             RegexObj.Expression := '^?LoadModule lua_module modules/mod_lua.so'; //Set search pattern
-              if RegexObj.Exec(sList[i]) then                                    // Match found
+              if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                                    // Match found
                begin
                  If Com_lua_module.Text = 'Enabled' Then
                    sList[i] := 'LoadModule lua_module modules/mod_lua.so'
@@ -268,7 +268,7 @@ begin
 
            //-- Set PLua status
             RegexObj.Expression := '^?LoadModule plua_module modules/mod_plua.so'; //Set search pattern
-              if RegexObj.Exec(sList[i]) then                                      // Match found
+              if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                                      // Match found
                begin
                  If Com_plua_module.Text = 'Enabled' Then
                    sList[i] := 'LoadModule plua_module modules/mod_plua.so'
@@ -303,13 +303,13 @@ begin
        begin
 
         //-- Set server-parsed ssi file extensions
-        if ExecRegExpr('^\s*AddHandler\s*server-parsed\s*', sList[i]) then  // Match found
+        if (sList[i]<>'') and ExecRegExpr('^\s*AddHandler\s*server-parsed\s*', sList[i]) then  // Match found
          begin
           sList[i] := 'AddHandler server-parsed '+Edit_ssi.Text;
          end;
 
         //-- Set Server signature ststus
-        if ExecRegExpr('^\s*ServerSignature\s*', sList[i]) then  // Match found
+        if (sList[i]<>'') and ExecRegExpr('^\s*ServerSignature\s*', sList[i]) then  // Match found
           begin
             sList[i] := 'ServerSignature '+Com_server_signature.Text;
           end;

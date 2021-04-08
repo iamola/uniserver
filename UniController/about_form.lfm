@@ -1,22 +1,23 @@
 object About: TAbout
-  Left = 761
-  Height = 269
-  Top = 135
-  Width = 364
+  Left = 951
+  Height = 336
+  Top = 169
+  Width = 455
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'About'
-  ClientHeight = 269
-  ClientWidth = 364
+  ClientHeight = 336
+  ClientWidth = 455
+  DesignTimePPI = 120
   OnCreate = FormCreate
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '2.0.10.0'
   object Image1: TImage
-    Left = 16
-    Height = 54
-    Top = 8
-    Width = 132
+    Left = 20
+    Height = 68
+    Top = 10
+    Width = 165
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963281C000089504E47
       0D0A1A0A0000000D4948445200000084000000360806000000064631D9000000
@@ -248,34 +249,37 @@ object About: TAbout
     }
   end
   object Label1: TLabel
-    Left = 180
-    Height = 15
-    Top = 22
-    Width = 34
+    Left = 225
+    Height = 20
+    Top = 28
+    Width = 44
     Caption = 'Label1'
     ParentColor = False
+    ParentFont = False
   end
   object Label2: TLabel
-    Left = 16
-    Height = 15
-    Top = 70
-    Width = 34
+    Left = 20
+    Height = 20
+    Top = 88
+    Width = 44
     Caption = 'Label2'
     ParentColor = False
+    ParentFont = False
   end
   object Label4: TLabel
-    Left = 142
-    Height = 15
-    Top = 240
-    Width = 53
+    Left = 178
+    Height = 20
+    Top = 300
+    Width = 65
     Caption = '---oOo---'
     ParentColor = False
+    ParentFont = False
   end
   object Bevel1: TBevel
-    Left = 160
-    Height = 54
-    Top = 8
-    Width = 192
+    Left = 200
+    Height = 68
+    Top = 10
+    Width = 240
     Shape = bsFrame
   end
 end

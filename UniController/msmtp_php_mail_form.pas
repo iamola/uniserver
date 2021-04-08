@@ -102,7 +102,7 @@ begin
        RegexObj.Expression := '^\s*account\s+default\s*:\s*([^\s]*)\s*';  //Set search pattern
        for i:=0 to sList.Count-1 do
          begin
-           if RegexObj.Exec(sList[i]) then                     // Match found
+           if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                     // Match found
              begin
                 sList[i] := 'account default : ' + CB_select_default_account.Text;   //Display in select box
                 break;
@@ -232,7 +232,7 @@ begin
        RegexObj.Expression := '^\s*account\s*([^\s]*)\s*';  //Set search pattern
        for i:=0 to sList.Count-1 do
          begin
-           if RegexObj.Exec(sList[i]) then                            // Match found
+           if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                            // Match found
              begin
                if not (RegexObj.Match[1] = 'default') Then
                   CB_select_default_account.Items.Add(RegexObj.Match[1]); //Display in select box
@@ -243,7 +243,7 @@ begin
        RegexObj.Expression := '^\s*account\s+default\s*:\s*([^\s]*)\s*';  //Set search pattern
        for i:=0 to sList.Count-1 do
          begin
-           if RegexObj.Exec(sList[i]) then                                // Match found
+           if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                                // Match found
                 CB_select_default_account.Text := RegexObj.Match[1];   //Display in select box
            end;//End scan list
 

@@ -57,7 +57,7 @@ begin
   Label1.Caption := str1;
 
   str2:='';
-  str2:= str2 + 'UniController coded in Pascal and compiled with Lazarus 2.0.4' +sLineBreak;
+  str2:= str2 + 'UniController coded in Pascal and compiled with Lazarus 2.0.10' +sLineBreak;
   str2:= str2 + 'Product: Uniform Server Zero XIV ' +sLineBreak;
   str2:= str2 + 'Release status: UniController XIV version '+UNICONTROLLER_VERSION +sLineBreak+sLineBreak;
   str2 := str2 + 'People who have contributed to Uniform Server:' + sLineBreak;

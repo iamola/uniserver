@@ -73,7 +73,7 @@ begin
          begin
            //-- Get Server name
           RegexObj.Expression := '^\s*ServerName\s*([^\s]*)';      // Set search pattern
-           if RegexObj.Exec(sList[i]) then                         // Match found
+           if (sList[i]<>'') and RegexObj.Exec(sList[i]) then                         // Match found
              begin
                If is_first Then
                   is_first := false //Do not display first
@@ -115,11 +115,11 @@ begin
         for i:=0 to sList.Count-1 do
           begin
             //-- Get Start of Vhost
-            If ExecRegExpr('^\s*<VirtualHost\s', sList[i]) Then
+            If (sList[i]<>'') and ExecRegExpr('^\s*<VirtualHost\s', sList[i]) Then
                start_index := i; //Save start of block index
 
             //-- Get Server name
-            If ExecRegExpr('^\s*ServerName\s*'+In_ServerName, sList[i]) Then
+            If (sList[i]<>'') and ExecRegExpr('^\s*ServerName\s*'+In_ServerName, sList[i]) Then
               begin
                  Out_root_folder := sList[i-1];   // Save root folder
                  sList.Delete(start_index);       // Delete entery
@@ -144,7 +144,7 @@ begin
          for i:=sList.Count-1 downto 0 do
            begin
              //-- Get Start of Vhost
-             If ExecRegExpr('^\s*<VirtualHost\s', sList[i]) Then
+             If (sList[i]<>'') and ExecRegExpr('^\s*<VirtualHost\s', sList[i]) Then
                 sList.Insert(i,''); // Insert blank line
            end;
 

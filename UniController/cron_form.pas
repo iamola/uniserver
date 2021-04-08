@@ -129,7 +129,7 @@ var
 begin
 
   //--Set paths
-  // UENV_PHP_SELECT - PHP version selected php56, php 70, php71, php 72 or php 73
+  // UENV_PHP_SELECT - PHP version selected php 70, php71, php 72, php 73, php80
   USF_PHP_EXE      :=  UniConPath + '\core\'+ UENV_PHP_SELECT +'\php.exe';     // PHP command executable
   USF_PHP_INI_CLI  :=  UniConPath + '\core\'+ UENV_PHP_SELECT +'\php-cli.ini'; // PHP command line config
 
@@ -299,7 +299,7 @@ begin
         //Convert this to unix time. Get component parts using regex
         RegexObj := TRegExpr.Create;
         RegexObj.Expression := '^start\s*=\s*(\d*).(\d*).(\d*)\s*(\d*):(\d*):(\d*)\s*$';  //Set search pattern
-        if RegexObj.Exec(sList_cron[i+1]) then        // Match found
+        if (sList_cron[i+1]<>'') and RegexObj.Exec(sList_cron[i+1]) then        // Match found
            begin                                      // Extract parts
             s_year    := StrToInt(RegexObj.Match[1]);
             s_month   := StrToInt(RegexObj.Match[2]);
@@ -319,14 +319,14 @@ begin
 
         offset_time := 0;                                       // Clear period.
         RegexObj.Expression := '^period\s*=\s*(\d+)\s*;?.*$';   // Set search pattern
-        if RegexObj.Exec(sList_cron[i+2]) then                  // Match found is numeric (seconds)
+        if (sList_cron[i+2]<>'') and RegexObj.Exec(sList_cron[i+2]) then                  // Match found is numeric (seconds)
            begin                                                // Process this
             offset_time := StrToInt(RegexObj.Match[1]);         // Convert numeric to Int
            end
         else                                                    // Not a digit hence Alpha
            begin
              RegexObj.Expression := '^period\s*=\s*([A-Za-z]+)\s*.*$';  // Set search pattern
-             if RegexObj.Exec(sList_cron[i+2]) then                     // Match found is Alpha
+             if (sList_cron[i+2]<>'') and RegexObj.Exec(sList_cron[i+2]) then                     // Match found is Alpha
                begin                                                    // Process this
                   offset_time_str := RegexObj.Match[1];                 // Save match
                   If (offset_time_str = 'hourly')  OR (offset_time_str = 'Hourly')  Then offset_time :=        60*60;
@@ -342,7 +342,7 @@ begin
         path := '';                                         // Set initial value blank
 
         RegexObj.Expression := '^path\s*=\s*([^\s]+)\s*$';  // Set search pattern
-        if RegexObj.Exec(sList_cron[i+3]) then              // Match found
+        if (sList_cron[i+3]<>'') and RegexObj.Exec(sList_cron[i+3]) then              // Match found
           begin
              path := RegexObj.Match[1];                     // Extract and save to path
           end;
@@ -352,7 +352,7 @@ begin
         ref_time_str  := '';                                // Reset ref time string
         RegexObj.Expression := '^ref\s*=\s*(\d+)\s*;?.*$';  // Set search pattern
 
-        if RegexObj.Exec(sList_cron[i+4]) then              // Match found is numeric (seconds)
+        if (sList_cron[i+4]<>'') and RegexObj.Exec(sList_cron[i+4]) then              // Match found is numeric (seconds)
            begin                                            // Process this
              ref_time_str := RegexObj.Match[1];             // Save string
              ref_time     := StrToInt(RegexObj.Match[1]);   // Convert to Int

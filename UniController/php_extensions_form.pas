@@ -71,17 +71,6 @@ procedure Tphp_extensions.FormShow(Sender: TObject);
 
     //==Set config file paths for selected PHP version
 
-    //--PHP 56  selected
-    If UENV_PHP_SELECT ='php56' Then
-    begin
-     str_version := str_version + 'php56';
-     US_PHP_EXTEN  := US_PHP56_EXT;  // PHP extensions folder
-     If UENV_PHP_INI_SELECT ='php_test.ini'        Then USF_PHP_INI_PATH := USF_PHP_INI_TEST_56; // config php_test.ini
-     If UENV_PHP_INI_SELECT ='php_development.ini' Then USF_PHP_INI_PATH := USF_PHP_INI_DEV_56;  // config php_development.ini
-     If UENV_PHP_INI_SELECT ='php_production.ini'  Then USF_PHP_INI_PATH := USF_PHP_INI_PROD_56; // php_production.ini
-    end;
-    //--End PHP 56  selected
-
     //--PHP 70  selected
     If UENV_PHP_SELECT ='php70' Then
     begin
@@ -136,6 +125,17 @@ procedure Tphp_extensions.FormShow(Sender: TObject);
      If UENV_PHP_INI_SELECT ='php_production.ini'  Then USF_PHP_INI_PATH := USF_PHP_INI_PROD_74; // php_production.ini
     end;
     //--End PHP 74  selected
+
+    //--PHP 80  selected
+    If UENV_PHP_SELECT ='php80' Then
+    begin
+     str_version := str_version + 'php80';
+     US_PHP_EXTEN  := US_PHP80_EXT;  // PHP extensions folder
+     If UENV_PHP_INI_SELECT ='php_test.ini'        Then USF_PHP_INI_PATH := USF_PHP_INI_TEST_80; // config php_test.ini
+     If UENV_PHP_INI_SELECT ='php_development.ini' Then USF_PHP_INI_PATH := USF_PHP_INI_DEV_80;  // config php_development.ini
+     If UENV_PHP_INI_SELECT ='php_production.ini'  Then USF_PHP_INI_PATH := USF_PHP_INI_PROD_80; // php_production.ini
+    end;
+    //--End PHP 80  selected
 
     //Display text
     Lbl_verson.Caption := str_version;                             //Dispaly currently selected PHP series

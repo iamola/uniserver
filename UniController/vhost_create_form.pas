@@ -81,7 +81,7 @@ begin
    for i:=0 to sList.Count-1 do
      begin
         //-- Check section not present
-        If ExecRegExpr('^\s*ServerName\s*'+In_ServerName, sList[i]) Then
+        If (sList[i]<>'') and ExecRegExpr('^\s*ServerName\s*'+In_ServerName, sList[i]) Then
          begin
            vhost_found := True; //Already contains the new Vhost section
            break;               //Nothing else to do
@@ -118,7 +118,7 @@ begin
        for i:=sList.Count-1 downto 0 do
          begin
            //-- Get Start of Vhost
-           If ExecRegExpr('^\s*<VirtualHost\s', sList[i]) Then
+           If (sList[i]<>'') and ExecRegExpr('^\s*<VirtualHost\s', sList[i]) Then
               sList.Insert(i,''); // Insert blank line
          end;
 
@@ -181,7 +181,7 @@ begin
      for i:=0 to sList.Count-1 do
        begin
           //-- Check section not enabled
-          If ExecRegExpr('^\s*#\s*Include\s*conf/extra/httpd-vhosts.conf', sList[i]) Then
+          If (sList[i]<>'') and ExecRegExpr('^\s*#\s*Include\s*conf/extra/httpd-vhosts.conf', sList[i]) Then
            begin
              sList[i] := 'Include conf/extra/httpd-vhosts.conf'; // Enabled line (section)
              //Save updated file

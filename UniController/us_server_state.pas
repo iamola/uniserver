@@ -317,17 +317,9 @@ begin
 
 
    //---Set PHP drop-down menu state one or other must exist
-   If (DirectoryExists(US_PHP56) or DirectoryExists(US_PHP70) or DirectoryExists(US_PHP71) or DirectoryExists(US_PHP72) or DirectoryExists(US_PHP73) or DirectoryExists(US_PHP74)) Then
+   If (DirectoryExists(US_PHP70) or DirectoryExists(US_PHP71) or DirectoryExists(US_PHP72) or DirectoryExists(US_PHP73) or DirectoryExists(US_PHP74) or DirectoryExists(US_PHP80)) Then
     begin
       Main.MM_php.Enabled := true;  // Enable drop-down menu
-
-      //--PHP 56
-      If DirectoryExists(US_PHP56) Then
-         Main.MMSS_php56.Enabled := true      // Select version
-      Else                                    // Does not exist
-         Main.MMSS_php56.Enabled := false;    // Select version
-      //--END PHP 56
-
 
       //--PHP 70
       If DirectoryExists(US_PHP70) Then
@@ -364,6 +356,13 @@ begin
          Main.MMSS_php74.Enabled := false;    // Select version
       //--END PHP 74
 
+      //--PHP 80
+      If DirectoryExists(US_PHP80) Then
+         Main.MMSS_php80.Enabled := true      // Select version
+      Else                                    // Does not exist
+         Main.MMSS_php80.Enabled := false;    // Select version
+      //--END PHP 80
+
     end
 
    Else //-- No PHP
@@ -371,33 +370,6 @@ begin
 
 
    //---PHP Version selected - set checked
-
-    //===PHP56
-   If UENV_PHP_SELECT = 'php56' Then
-    begin
-      Main.MMSS_php56.Checked:=true;
-      //php ini
-      If FileExists(USF_PHP_INI_TEST_56) Then
-         Main.MMSS_php_ini.Enabled:=true
-      Else
-         Main.MMSS_php_ini.Enabled:=false;
-
-      //php development
-      If FileExists(USF_PHP_INI_DEV_56) Then
-         Main.MMSS_php_development.Enabled:=true
-      Else
-         Main.MMSS_php_development.Enabled:=false;
-
-      //php production
-      If FileExists(USF_PHP_INI_PROD_56) Then
-         Main.MMSS_php_production.Enabled:=true
-      Else
-         Main.MMSS_php_production.Enabled:=false;
-    end
-   Else
-      Main.MMSS_php56.Checked:=false;
-   //===End PHP56
-
 
     //===PHP70
    If UENV_PHP_SELECT = 'php70' Then
@@ -529,7 +501,34 @@ begin
       Main.MMSS_php74.Checked:=false;
    //===End PHP74
 
-    //---PHP Information menu button.
+    //===PHP80
+   If UENV_PHP_SELECT = 'php80' Then
+    begin
+      Main.MMSS_php80.Checked:=true;
+      //php ini
+      If FileExists(USF_PHP_INI_TEST_80) Then
+         Main.MMSS_php_ini.Enabled:=true
+      Else
+         Main.MMSS_php_ini.Enabled:=false;
+
+      //php development
+      If FileExists(USF_PHP_INI_DEV_80) Then
+         Main.MMSS_php_development.Enabled:=true
+      Else
+         Main.MMSS_php_development.Enabled:=false;
+
+      //php production
+      If FileExists(USF_PHP_INI_PROD_80) Then
+         Main.MMSS_php_production.Enabled:=true
+      Else
+         Main.MMSS_php_production.Enabled:=false;
+    end
+   Else
+      Main.MMSS_php80.Checked:=false;
+   //===End PHP80
+
+
+   //---PHP Information menu button.
     If AP and Not(UENV_PHP_SELECT = 'None') Then
       begin
         Main.MMS_view_phpinfo.Enabled  := True;     // Enable PHP info menu button
@@ -590,10 +589,10 @@ begin
          begin
 
            // Zend OpCache code
-           If ExecRegExpr(QuoteRegExprMetaChars(ZENDOPCACHE_DLL), sList[i]) Then
+           If (sList[i]<>'') and ExecRegExpr(QuoteRegExprMetaChars(ZENDOPCACHE_DLL), sList[i]) Then
            begin
              zendopcache_code := True;
-             If ExecRegExpr('^;.*$', sList[i]) Then
+             If (sList[i]<>'') and ExecRegExpr('^;.*$', sList[i]) Then
                 Main.MMSS_php_acc_zop.Checked := False
              Else
                 Main.MMSS_php_acc_zop.Checked := True;

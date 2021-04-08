@@ -303,7 +303,7 @@ begin
     //--- Scan list
     for i:=0 to sList.Count-1 do
      begin
-       if RegexObj.Exec(sList[i]) then      // run regex - if match found
+       if (sList[i]<>'') and RegexObj.Exec(sList[i]) then      // run regex - if match found
          begin
            GetPortPID := RegexObj.Match[1]; // Set Pid found
            break;                           // Nothing else to do
@@ -556,10 +556,10 @@ function us_get_valid_web_page(var web_page:string): boolean;
          ssl_temp  := StringReplace(UENV_US_ROOTF_SSL, '/','\',[rfReplaceAll]);  // Path e.g replace / with \
 
          //Check the path contains a valid folder - Server-root or installation-root
-         If ExecRegExpr(QuoteRegExprMetaChars(www_temp),   file_name) Then valid := true; // Valid input
-         If ExecRegExpr(QuoteRegExprMetaChars(ssl_temp),   file_name) Then valid := true; // Valid input
-         If ExecRegExpr(QuoteRegExprMetaChars(US_HOME),    file_name) Then valid := true; // Valid input
-         If ExecRegExpr(QuoteRegExprMetaChars(US_CGI_BIN), file_name) Then valid := true; // Valid input
+         If (file_name<>'') and ExecRegExpr(QuoteRegExprMetaChars(www_temp),   file_name) Then valid := true; // Valid input
+         If (file_name<>'') and ExecRegExpr(QuoteRegExprMetaChars(ssl_temp),   file_name) Then valid := true; // Valid input
+         If (file_name<>'') and ExecRegExpr(QuoteRegExprMetaChars(US_HOME),    file_name) Then valid := true; // Valid input
+         If (file_name<>'') and ExecRegExpr(QuoteRegExprMetaChars(US_CGI_BIN), file_name) Then valid := true; // Valid input
 
          If not valid Then
            begin
@@ -897,7 +897,7 @@ If FileExists(USF_APACHE_CNF) Then
    sList.LoadFromFile(USF_APACHE_CNF);    // Load file
    for i:=0 to sList.Count-1 do           // Scan file line by line
      begin
-      if ExecRegExpr('^LoadModule ssl_module modules/mod_ssl.so', sList[i]) then  // Match found
+      if (sList[i]<>'') and ExecRegExpr('^LoadModule ssl_module modules/mod_ssl.so', sList[i]) then  // Match found
         begin
          SSL_Enabled := True;            // SSL is enabled
          Break;                          // Nothing else to do
@@ -1446,7 +1446,7 @@ function valid_server_name(server_name:string;display_str:string): boolean;
   //-- Check domain name looks resonable e.g fred.com
   If valid_input then
    begin
-      If server_name = 'localhost' Then
+      If pos('localhost', server_name) > 0 Then
         begin
           valid_input := True;
         end
