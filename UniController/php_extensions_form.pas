@@ -137,6 +137,17 @@ procedure Tphp_extensions.FormShow(Sender: TObject);
     end;
     //--End PHP 80  selected
 
+    //--PHP 81  selected
+    If UENV_PHP_SELECT ='php81' Then
+    begin
+     str_version := str_version + 'php81';
+     US_PHP_EXTEN  := US_PHP81_EXT;  // PHP extensions folder
+     If UENV_PHP_INI_SELECT ='php_test.ini'        Then USF_PHP_INI_PATH := USF_PHP_INI_TEST_81; // config php_test.ini
+     If UENV_PHP_INI_SELECT ='php_development.ini' Then USF_PHP_INI_PATH := USF_PHP_INI_DEV_81;  // config php_development.ini
+     If UENV_PHP_INI_SELECT ='php_production.ini'  Then USF_PHP_INI_PATH := USF_PHP_INI_PROD_81; // php_production.ini
+    end;
+    //--End PHP 81  selected
+
     //Display text
     Lbl_verson.Caption := str_version;                             //Dispaly currently selected PHP series
     Lbl_file.Caption   := str_file_selected + UENV_PHP_INI_SELECT; //Dispaly currently selected PHP config file

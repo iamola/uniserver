@@ -66,7 +66,8 @@ begin
   str2 := str2 + '- Mike Gleaves (Ric)' +sLineBreak;
   str2 := str2 + '- Bob Strand (BobS)'+sLineBreak;
   str2 := str2 + '- Sudeep DSouza (SudeepJD)'+sLineBreak;
-  str2 := str2 + '- Davide Bonsangue (BrainStorm)'+sLineBreak+sLineBreak;
+  str2 := str2 + '- Davide Bonsangue (BrainStorm)'+sLineBreak;
+  str2 := str2 + '- Sylvain Bourdon (sbourdon)'+sLineBreak+sLineBreak;
   Label2.Caption := str2;
 end;
 

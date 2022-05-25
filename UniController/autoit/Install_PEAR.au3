@@ -1,5 +1,5 @@
 #pragma compile(Out, Install_PEAR.exe)
-#pragma compile(UPX, True)
+#pragma compile(UPX, False)
 #pragma compile(FileDescription, UniformServer - Installation of Pear for UniformServer)
 #pragma compile(ProductName, US_PearInstaller)
 #pragma compile(ProductVersion, 1.0)
@@ -19,7 +19,7 @@ EnvSet("PATH",$apachePath & ";" & $phpPath & ";" & $path)
 IniWrite($phpPath & "\php-cli.ini","PHP","include_path",'".;' & @ScriptDir & '\pear"')
 
 ;Initate the Install
-Run("cmd /T:B0 /K title PEAR Install && cd " & @ScriptDir & " && php " & @ScriptDir & "\go-pear.phar")
+Run(@ComSpec & " /T:B0 /K title PEAR Install && cd " & @ScriptDir & " && php " & @ScriptDir & "\go-pear.phar")
 WinWaitActive("PEAR Install")
 $hndl = WinGetHandle("PEAR Install")
 SendKeepActive("PEAR Install")

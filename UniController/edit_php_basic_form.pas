@@ -592,6 +592,15 @@ If UENV_PHP_SELECT ='php80' then
  end;
 //--End PHP 80  selected
 
+//--PHP 81  selected
+If UENV_PHP_SELECT ='php81' then
+ begin
+  USF_PHP_INI      := USF_PHP_INI_TEST_81; // config php_test.ini
+  USF_PHP_INI_DEV  := USF_PHP_INI_DEV_81;  // config php_development.ini
+  USF_PHP_INI_PROD := USF_PHP_INI_PROD_81; // php_production.ini
+ end;
+//--End PHP 81  selected
+
     //=== Get data from configuration file php_test.ini
    if FileExists(USF_PHP_INI) Then
     begin

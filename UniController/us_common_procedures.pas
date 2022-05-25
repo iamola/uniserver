@@ -121,6 +121,7 @@ uses
    TMain.MMSS_php73Click
    TMain.MMSS_php74Click
    TMain.MMSS_php80Click
+   TMain.MMSS_php81Click
 
   ORIGINAL_ENV_PATH - Original environment path when controller started
 

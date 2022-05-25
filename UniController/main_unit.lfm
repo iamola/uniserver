@@ -740,6 +740,7 @@ object Main: TMain
       object MMS_select_php_version: TMenuItem
         Caption = 'Select PHP version'
         ImageIndex = 12
+        OnClick = MMS_select_php_versionClick
         object MMSS_php70: TMenuItem
           Caption = 'PHP version 70'
           OnClick = MMSS_php70Click
@@ -763,6 +764,10 @@ object Main: TMain
         object MMSS_php80: TMenuItem
           Caption = 'PHP version 80'
           OnClick = MMSS_php80Click
+        end
+        object MMSS_php81: TMenuItem
+          Caption = 'PHP version 81'
+          OnClick = MMSS_php81Click
         end
       end
       object MMS_select_php_config: TMenuItem

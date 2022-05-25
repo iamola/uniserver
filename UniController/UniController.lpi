@@ -19,8 +19,9 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="3"/>
-      <RevisionNr Value="2"/>
-      <StringTable Comments="Run servers as standard  programs" CompanyName="Uniform Server" FileDescription="Controller for UniServer Zero XIV" InternalName="Unicontroller Zero XIV" LegalCopyright="MPG" LegalTrademarks="MPG" OriginalFilename="Zero-14" ProductName="Unicontroller Zero" ProductVersion="2.3.2"/>
+      <RevisionNr Value="3"/>
+      <BuildNr Value="1"/>
+      <StringTable Comments="Run servers as standard  programs" CompanyName="Uniform Server" FileDescription="Controller for UniServer Zero XIV" InternalName="Unicontroller Zero XIV" LegalCopyright="MPG" LegalTrademarks="MPG" OriginalFilename="Zero-14" ProductName="Unicontroller Zero" ProductVersion="2.3.3"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>
