@@ -2,14 +2,13 @@
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <BuildModes Active="Release"/>
-    <Units Count="31">
+    <Units Count="36">
       <Unit0>
         <Filename Value="UniController.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="22"/>
         <CursorPos Y="29"/>
         <UsageCount Value="482"/>
       </Unit0>
@@ -19,10 +18,10 @@
         <ComponentName Value="Main"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="1342"/>
-        <CursorPos X="3" Y="1344"/>
-        <FoldState Value=" T4F0T T3nM0i514q"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="109"/>
+        <CursorPos X="52" Y="167"/>
+        <FoldState Value=" T4F0T T3nM0i5e"/>
         <UsageCount Value="482"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -30,27 +29,25 @@
       <Unit2>
         <Filename Value="default_config_vars.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="41"/>
-        <CursorPos X="4" Y="51"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="28" Y="27"/>
         <UsageCount Value="482"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="us_common_procedures.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="1654"/>
-        <CursorPos X="33" Y="1667"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="850"/>
+        <CursorPos X="31" Y="870"/>
         <UsageCount Value="482"/>
-        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="us_common_functions.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="94"/>
-        <CursorPos X="102" Y="105"/>
+        <TopLine Value="997"/>
+        <CursorPos X="57" Y="1014"/>
         <UsageCount Value="482"/>
       </Unit4>
       <Unit5>
@@ -59,17 +56,16 @@
         <ComponentName Value="About"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="37"/>
-        <CursorPos X="64" Y="62"/>
+        <CursorPos X="43" Y="3"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="us_server_state.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="633"/>
-        <CursorPos Y="643"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="57"/>
+        <CursorPos X="2" Y="76"/>
         <UsageCount Value="482"/>
         <Loaded Value="True"/>
       </Unit6>
@@ -154,11 +150,9 @@
         <ComponentName Value="php_extensions"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="130"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="93" Y="134"/>
         <UsageCount Value="482"/>
-        <Loaded Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="edit_php_basic_form.pas"/>
@@ -203,7 +197,12 @@
         <ComponentName Value="server_internet_status"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="142"/>
+        <CursorPos X="11" Y="69"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit19>
       <Unit20>
         <Filename Value="pc_win_startup_form.pas"/>
@@ -300,6 +299,8 @@
         <ComponentName Value="us_message_dlg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="106"/>
         <UsageCount Value="482"/>
       </Unit29>
       <Unit30>
@@ -309,161 +310,200 @@
         <CursorPos X="10" Y="104"/>
         <UsageCount Value="60"/>
       </Unit30>
+      <Unit31>
+        <Filename Value="main_unit.lfm"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="370"/>
+        <CursorPos X="20" Y="385"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="server_internet_status_form.lfm"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="364"/>
+        <CursorPos X="13" Y="405"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="php_extensions_form.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="message_dlg_form.lfm"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="52" Y="436"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="about_form.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit35>
     </Units>
-    <JumpHistory Count="27" HistoryIndex="26">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
-        <Filename Value="us_common_procedures.pas"/>
-        <Caret Line="231" Column="20" TopLine="210"/>
+        <Filename Value="us_server_state.pas"/>
+        <Caret Line="163" Column="78" TopLine="146"/>
       </Position1>
       <Position2>
         <Filename Value="us_server_state.pas"/>
-        <Caret Line="369" Column="34" TopLine="354"/>
+        <Caret Line="164" Column="53" TopLine="146"/>
       </Position2>
       <Position3>
         <Filename Value="us_server_state.pas"/>
-        <Caret Line="360" Column="29" TopLine="354"/>
+        <Caret Line="166" Column="54" TopLine="146"/>
       </Position3>
       <Position4>
-        <Filename Value="us_server_state.pas"/>
-        <Caret Line="361" Column="20" TopLine="354"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="61" Column="11" TopLine="42"/>
       </Position4>
       <Position5>
-        <Filename Value="us_server_state.pas"/>
-        <Caret Line="567" Column="19" TopLine="547"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="62" Column="11" TopLine="42"/>
       </Position5>
       <Position6>
-        <Filename Value="php_extensions_form.pas"/>
-        <Caret Line="149" Column="19" TopLine="136"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="198" Column="9" TopLine="166"/>
       </Position6>
       <Position7>
-        <Filename Value="us_server_state.pas"/>
-        <Caret Line="567" Column="19" TopLine="547"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="300" Column="10" TopLine="268"/>
       </Position7>
       <Position8>
-        <Filename Value="main_unit.pas"/>
-        <Caret Line="80" Column="13" TopLine="70"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="437" Column="43" TopLine="406"/>
       </Position8>
       <Position9>
-        <Filename Value="php_extensions_form.pas"/>
-        <Caret Line="134" Column="93" TopLine="130"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="532" Column="40" TopLine="501"/>
       </Position9>
       <Position10>
-        <Filename Value="us_server_state.pas"/>
-        <Caret Line="320" Column="179" TopLine="310"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="792" Column="47" TopLine="761"/>
       </Position10>
       <Position11>
-        <Filename Value="main_unit.pas"/>
-        <Caret Line="81" Column="48" TopLine="541"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="793" Column="17" TopLine="762"/>
       </Position11>
       <Position12>
-        <Filename Value="main_unit.pas"/>
-        <Caret Line="909" Column="6" TopLine="898"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="795" Column="36" TopLine="764"/>
       </Position12>
       <Position13>
-        <Filename Value="main_unit.pas"/>
-        <Caret Line="221" Column="15" TopLine="211"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="798" Column="63" TopLine="767"/>
       </Position13>
       <Position14>
-        <Filename Value="main_unit.pas"/>
-        <Caret Line="1344" Column="3" TopLine="1341"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="799" Column="11" TopLine="768"/>
       </Position14>
       <Position15>
         <Filename Value="main_unit.pas"/>
-        <Caret Line="909" Column="39" TopLine="909"/>
+        <Caret Line="882" Column="25" TopLine="850"/>
       </Position15>
       <Position16>
-        <Filename Value="us_server_state.pas"/>
-        <Caret Line="640" Column="26" TopLine="633"/>
+        <Filename Value="main_unit.pas"/>
+        <Caret Line="886" Column="85" TopLine="854"/>
       </Position16>
       <Position17>
-        <Filename Value="us_server_state.pas"/>
-        <Caret Line="639" Column="38" TopLine="633"/>
+        <Filename Value="main_unit.pas"/>
+        <Caret Line="56" Column="13" TopLine="8"/>
       </Position17>
       <Position18>
-        <Filename Value="us_server_state.pas"/>
-        <Caret Line="50" Column="18" TopLine="40"/>
+        <Filename Value="main_unit.pas"/>
+        <Caret Line="183" Column="23" TopLine="152"/>
       </Position18>
       <Position19>
-        <Filename Value="us_server_state.pas"/>
-        <Caret Line="643" TopLine="633"/>
+        <Filename Value="main_unit.pas"/>
+        <Caret Line="882" Column="25" TopLine="850"/>
       </Position19>
       <Position20>
         <Filename Value="main_unit.pas"/>
-        <Caret Line="149" Column="4" TopLine="140"/>
+        <Caret Line="886" Column="85" TopLine="854"/>
       </Position20>
       <Position21>
-        <Filename Value="main_unit.pas"/>
-        <Caret Line="221" Column="15" TopLine="211"/>
+        <Filename Value="main_unit.lfm"/>
+        <Caret Line="385" Column="20" TopLine="370"/>
       </Position21>
       <Position22>
         <Filename Value="main_unit.pas"/>
-        <Caret Line="915" Column="18" TopLine="898"/>
+        <Caret Line="183" Column="30" TopLine="160"/>
       </Position22>
       <Position23>
-        <Filename Value="us_common_procedures.pas"/>
-        <Caret Line="69" Column="33" TopLine="58"/>
+        <Filename Value="main_unit.pas"/>
+        <Caret Line="882" Column="30" TopLine="859"/>
       </Position23>
       <Position24>
         <Filename Value="main_unit.pas"/>
-        <Caret Line="915" Column="18" TopLine="898"/>
+        <Caret Line="183" Column="30" TopLine="165"/>
       </Position24>
       <Position25>
-        <Filename Value="main_unit.pas"/>
-        <Caret Line="914" Column="13" TopLine="898"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="27" Column="70" TopLine="18"/>
       </Position25>
       <Position26>
-        <Filename Value="main_unit.pas"/>
-        <Caret Line="1344" Column="3" TopLine="1342"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="61" Column="66" TopLine="29"/>
       </Position26>
       <Position27>
-        <Filename Value="us_common_procedures.pas"/>
-        <Caret Line="70" Column="42" TopLine="58"/>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="198" Column="55" TopLine="166"/>
       </Position27>
+      <Position28>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="437" Column="74" TopLine="406"/>
+      </Position28>
+      <Position29>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="27" Column="23" TopLine="10"/>
+      </Position29>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode="default"/>
+      <Modes ActiveMode="default"/>
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="2">
-      <Item1>
+    <BreakPoints>
+      <Item>
         <Kind Value="bpkData"/>
         <WatchData Value="sList.Count"/>
         <WatchScope Value="wpsGlobal"/>
         <WatchKind Value="wpkWrite"/>
         <InitialEnabled Value="False"/>
-      </Item1>
-      <Item2>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="us_server_state.pas"/>
-        <Line Value="255"/>
-      </Item2>
+      </Item>
     </BreakPoints>
-    <Watches Count="7">
-      <Item1>
+    <Watches>
+      <Item>
         <Expression Value="sList_files"/>
-      </Item1>
-      <Item2>
+      </Item>
+      <Item>
         <Expression Value="US_PHP_EXTEN"/>
-      </Item2>
-      <Item3>
+      </Item>
+      <Item>
         <Expression Value="sList[0]"/>
-      </Item3>
-      <Item4>
+      </Item>
+      <Item>
         <Expression Value="sList.Count"/>
-      </Item4>
-      <Item5>
+      </Item>
+      <Item>
         <Expression Value="sList[i]"/>
-      </Item5>
-      <Item6>
+      </Item>
+      <Item>
         <Expression Value="root_password"/>
-      </Item6>
-      <Item7>
+      </Item>
+      <Item>
         <Expression Value="zendopcache_file"/>
-      </Item7>
+      </Item>
     </Watches>
   </Debugging>
 </CONFIG>

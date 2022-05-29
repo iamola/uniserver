@@ -19,12 +19,12 @@ uses
 {global vars}
 
 const
-  UNICONTROLLER_VERSION = 'V2.3.3';
+  UNICONTROLLER_VERSION = 'v2.4.0';
   ZENDOPCACHE_DLL       = 'php_opcache.dll';
 
   Btn_text_enable_ssl   = 'Enable SSL (Currently Disabled)';
   Btn_text_disable_ssl  = 'Disable SSL (Currently Enabled)';
-  VERSION_FILE_ADDRESS  = 'http://www.uniformserver.com/system/.version2';
+  VERSION_FILE_ADDRESS  = 'http://miniserver.sourceforge.net/version.txt';
 
   //Portable Web browser Pale Moon
   PALE_MOONL_EXE           = 'Palemoon-Portable.exe'; // Portable Palemoon launcher start-up exe name
@@ -684,7 +684,7 @@ begin
     USC_ZA_CHECK     := strToBool(Ini1.ReadString('GENERAL','ZoneAlarmCheck','True'));  //Check if Zone Alarm Presence is required
 
    //[UNIQUE]
-   UNIQUE_TEXT_IN_TITLE_BAR := Ini1.ReadString('UNIQUE','Unique_text','UniServer Zero 11'); // Reference HTML page title e.g UniServer Zero 11 Pale Moon
+   UNIQUE_TEXT_IN_TITLE_BAR := Ini1.ReadString('UNIQUE','Unique_text','UniServer Zero 14'); // Reference HTML page title e.g UniServer Zero 11 Pale Moon
 
 
    //[HOSTS]

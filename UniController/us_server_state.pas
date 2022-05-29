@@ -564,15 +564,15 @@ begin
     If AP and Not(UENV_PHP_SELECT = 'None') Then
       begin
         Main.MMS_view_phpinfo.Enabled  := True;     // Enable PHP info menu button
-        If FileExists(USF_GO_PEAR_CONFIG) Then
-          Main.MMS_pear_frontend.Enabled := True    // Enable PHP pear frontend button
-        else
-        Main.MMS_pear_frontend.Enabled := False;    // Disable PHP pear frontend button  
+        //If FileExists(USF_GO_PEAR_CONFIG) Then
+        //  Main.MMS_pear_frontend.Enabled := True    // Enable PHP pear frontend button
+        //else
+        //Main.MMS_pear_frontend.Enabled := False;    // Disable PHP pear frontend button  
       end
     Else
       begin
        Main.MMS_view_phpinfo.Enabled  := False;     // Disable PHP info menu  button
-       Main.MMS_pear_frontend.Enabled := False;     // Disable PHP pear frontend button
+       //Main.MMS_pear_frontend.Enabled := False;     // Disable PHP pear frontend button
       end;
 
     //---PHP Edit selected php ini file button
