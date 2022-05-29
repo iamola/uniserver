@@ -1373,8 +1373,8 @@ begin
   str := str + 'force a Windows Shebang update by running "Force Windows Shebang"' + sLineBreak;
   str := str + 'from the Perl drop-down menu.' + sLineBreak+ sLineBreak;
 
-  str := str + 'Before uploading scripts from the cgi-bin folder to a Unix server,' + sLineBreak;
-  str := str + 'force a Unix shebang update by running "Force Unix Shebang"' + sLineBreak;
+  str := str + 'Note 2: Before uploading scripts from the cgi-bin folder to a Unix server,' + sLineBreak;
+  str := str + 'force a Unix Shebang update by running "Force Unix Shebang"' + sLineBreak;
   str := str + 'from the Perl drop-down menu.' + sLineBreak;
 
   us_MessageDlg(title, str, mtInformation,[mbOk],0) ;  //Display message

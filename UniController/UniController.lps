@@ -18,9 +18,10 @@
         <ComponentName Value="Main"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="109"/>
-        <CursorPos X="52" Y="167"/>
+        <TopLine Value="1357"/>
+        <CursorPos X="31" Y="1377"/>
         <FoldState Value=" T4F0T T3nM0i5e"/>
         <UsageCount Value="482"/>
         <Loaded Value="True"/>
@@ -312,10 +313,11 @@
       </Unit30>
       <Unit31>
         <Filename Value="main_unit.lfm"/>
-        <IsVisibleTab Value="True"/>
+        <ComponentName Value="Main"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="370"/>
-        <CursorPos X="20" Y="385"/>
+        <CursorPos X="90"/>
         <UsageCount Value="14"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
@@ -349,7 +351,7 @@
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit35>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="us_server_state.pas"/>
         <Caret Line="163" Column="78" TopLine="146"/>
@@ -466,6 +468,10 @@
         <Filename Value="default_config_vars.pas"/>
         <Caret Line="27" Column="23" TopLine="10"/>
       </Position29>
+      <Position30>
+        <Filename Value="main_unit.lfm"/>
+        <Caret Line="385" Column="20" TopLine="370"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
