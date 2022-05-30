@@ -21,7 +21,7 @@ Create a working environment for compiling and testing code:
 
 ###  Compiling UniService
 
-With the working environment in place, you are ready to compile UniController as follows:
+With the working environment in place, you are ready to compile UniService as follows:
  
  1. Start Lazarus
  2. Close any existing projects: Project > Close Project
@@ -31,7 +31,7 @@ With the working environment in place, you are ready to compile UniController as
  4. You may have to convert the "Execution Level" at 
     Project > Project Options > Application > For Windows
     from "Require Admin" to "as invoker"; otherwise, the compiler will throw an error
-    The projects open and is ready for compiling
+    The project opens and is ready for compiling
  5. A quick test run the project: Run > run or press F9
     Last line displayed: Project "UniService" successfully built
  6. UniService will run
