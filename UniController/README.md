@@ -23,7 +23,7 @@ With the working environment in place, you are ready to compile UniController as
  
  1. Start Lazarus
  2. Close any existing projects: Project > Close Project
- 3. In the pop-up window, click "Open Projects" button 
+ 3. In the pop-up window, click "Open Project" button 
     Navigate to folder: z_controller\UniServerZ
     Click on file UniController.lpi, click Open button
     The projects open and is ready for compiling
