@@ -133,14 +133,14 @@ begin
 
           us_apache_service_test; // Runs service test
            str := '';
-           str := str + 'Correct any errors reported.'+ sLineBreak;
-           str := str + 'Otherwise the service will not run.';
+           str := str + 'If any errors were reported, fix them.'+ sLineBreak;
+           str := str + 'Otherwise, the service will not run.';
            showmessage(str);
 
           us_restore_files;       // Restore configuration files.
            str := '';
            str := str + 'Restored back-up files.'+ sLineBreak;
-           str := str + 'Removed  back-up files and folder.';
+           str := str + 'Removed back-up files and folder.';
            showmessage(str);
 
         end
@@ -226,25 +226,24 @@ var
   str :string;
 begin
   str :='';
-  str := str + 'Errors in Apache configuration files will prevent' + sLineBreak ;
-  str := str + 'Apache running as a service.'                      + sLineBreak  + sLineBreak;
+  str := str + 'Errors in Apache configuration files will prevent Apache running as a service.' + sLineBreak  + sLineBreak;
 
   str := str + 'Apache service test performs the following:'       + sLineBreak;
-  str := str + '1) Open a command window'                          + sLineBreak;
-  str := str + '2) Check configuration files exist'                + sLineBreak;
-  str := str + '3) Create back-up folder and copy files'           + sLineBreak;
-  str := str + '4) Check all back-up files exist'                  + sLineBreak;
-  str := str + '5) Replace variables with absolute paths.'         + sLineBreak;
+  str := str + '1) Check configuration files exist'                + sLineBreak;
+  str := str + '2) Create back-up folder and copy files'           + sLineBreak;
+  str := str + '3) Check all back-up files exist'                  + sLineBreak;
+  str := str + '4) Replace variables with absolute paths'         + sLineBreak;
+  str := str + '5) Open a command window'                          + sLineBreak;
   str := str + '6) Install Apache service'                         + sLineBreak;
   str := str + '7) Performs Apache configuration test'             + sLineBreak;
-  str := str + '8) Uninstall Apache service.'                      + sLineBreak;
-  str := str + '9) Restore original files from back-up.'           + sLineBreak;
-  str := str + '10) Delete back-up files and folder.'               + sLineBreak  + sLineBreak;
+  str := str + '8) Uninstall Apache service (close window when done)'                      + sLineBreak;
+  str := str + '9) Restore original files from back-up'           + sLineBreak;
+  str := str + '10) Delete back-up files and folder'               + sLineBreak  + sLineBreak;
 
-  str := str + 'Closing above command window returns to the Service Utility.' + sLineBreak  + sLineBreak;
+  str := str + 'Closing above command window returns to the Uniform Server Service utility.' + sLineBreak  + sLineBreak;
 
-  str := str + 'Errors reported must be corrected before the service can '    + sLineBreak;
-  str := str + 'be installed and started from the UniServer Service Utility.' + sLineBreak;
+  str := str + 'If any errors were reported, you must fix them before the service '    + sLineBreak;
+  str := str + 'can be installed and started from the Uniform Server Service utility.' + sLineBreak;
 
   MessageDlg('Apache service test information', str,  mtcustom,[mbOk],0) ; //Display message
 end;

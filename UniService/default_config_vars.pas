@@ -45,7 +45,7 @@ Var
  UENV_US_SERVERNAME   :string;  // US_SERVERNAME  Apache server name environment var
  UENV_US_ROOTF_WWW    :string;  // US_ROOTF_WWW   Apache server root folder www environment var
  UENV_US_ROOTF_SSL    :String;  // US_ROOTF_SSL   Apache server root folder ssl environment var
- UENV_PHP_SELECT      :string;  // PHP_SELECT     PHP Selected php53, php54, php55, php56 or php70 environment var
+ UENV_PHP_SELECT      :string;  // PHP_SELECT     PHP Selected php70, php71, php72, php73, php74, php80 or php81 environment var
  UENV_PHP_INI_SELECT  :string;  // PHP_INI_SELECT PHP configuration file php_test.ini php_development.ini php_production.ini environment var
  US_MYMAR_TXT         :String;  // Display string MySQL or MariaDB - Depends on server installed
 
@@ -65,12 +65,13 @@ Var
  US_MYSQL          :String;  // MYSQL folder
  US_MYSQL_BIN      :String;  // MySQL Binary folder
 
- US_PHP56          :String;  // PHP 56 root folder
  US_PHP70          :String;  // PHP 70 root folder
  US_PHP71          :String;  // PHP 71 root folder
  US_PHP72          :String;  // PHP 72 root folder
  US_PHP73          :String;  // PHP 73 root folder
  US_PHP74          :String;  // PHP 74 root folder
+ US_PHP80          :String;  // PHP 80 root folder
+ US_PHP81          :String;  // PHP 81 root folder
 
  //== FILES ===
 
@@ -149,12 +150,13 @@ begin
  US_MYSQL           := UniConPath +  '\core\mysql';         // MYSQL folder
  US_MYSQL_BIN       := UniConPath +  '\core\mysql\bin';     // MySQL Binary folder
 
-  US_PHP56           := UniConPath +  '\core\php56';        // PHP 56 root folder
   US_PHP70           := UniConPath +  '\core\php70';        // PHP 70 root folder
   US_PHP71           := UniConPath +  '\core\php71';        // PHP 71 root folder
   US_PHP72           := UniConPath +  '\core\php72';        // PHP 72 root folder
   US_PHP73           := UniConPath +  '\core\php73';        // PHP 73 root folder
   US_PHP74           := UniConPath +  '\core\php74';        // PHP 74 root folder
+  US_PHP80           := UniConPath +  '\core\php80';        // PHP 80 root folder
+  US_PHP81           := UniConPath +  '\core\php81';        // PHP 81 root folder
 
  //== Files ===
 
@@ -198,7 +200,7 @@ begin
    Ini2 := TINIFile.Create(USF_US_USER_INI); // create object
    //*** Start ***
    //[USER]
-   UENV_PHP_SELECT      := Ini2.ReadString('USER','PHP_SELECT','php73');                   // Version selected by user
+   UENV_PHP_SELECT      := Ini2.ReadString('USER','PHP_SELECT','php81');                   // Version selected by user
    UENV_PHP_INI_SELECT  := Ini2.ReadString('USER','PHP_INI_SELECT','php_production.ini');  // PHP configuration file selected by user
    UENV_AP_PORT         := Ini2.ReadString('USER','AP_PORT','80');                         // Apache port environment var
    UENV_AP_SSL_PORT     := Ini2.ReadString('USER','AP_SSL_PORT','443');                    // Apache ssl port environment var
@@ -206,15 +208,16 @@ begin
    UENV_US_ROOTF_WWW    := Ini2.ReadString('USER','US_ROOTF_WWW',UniConPath_F+'/www');     // Apache server root folder www environment var
    UENV_US_ROOTF_SSL    := Ini2.ReadString('USER','US_ROOTF_SSL',UniConPath_F+'/ssl');     // Apache server root folder ssl environment var
 
-   //If folders php56, php70, php71, php72, php73 and php74 do not exist or
+   //If folders php70, php71, php72, php73, php74, php80 and php81 do not exist or
    //incorrect PHP_SELECT value override user config. Set var PHP_SELECT to None.
    php_valid := False; // Assume PHP not installed
-   If (DirectoryExists(US_PHP56) And (UENV_PHP_SELECT ='php56')) Then php_valid := True;
    If (DirectoryExists(US_PHP70) And (UENV_PHP_SELECT ='php70')) Then php_valid := True;
    If (DirectoryExists(US_PHP71) And (UENV_PHP_SELECT ='php71')) Then php_valid := True;
    If (DirectoryExists(US_PHP72) And (UENV_PHP_SELECT ='php72')) Then php_valid := True;
    If (DirectoryExists(US_PHP73) And (UENV_PHP_SELECT ='php73')) Then php_valid := True;
    If (DirectoryExists(US_PHP74) And (UENV_PHP_SELECT ='php74')) Then php_valid := True;
+   If (DirectoryExists(US_PHP80) And (UENV_PHP_SELECT ='php80')) Then php_valid := True;
+   If (DirectoryExists(US_PHP81) And (UENV_PHP_SELECT ='php81')) Then php_valid := True;
    If Not php_valid Then UENV_PHP_SELECT :='None';
 
    //Convert absolute/relative root paths to absolute paths.
