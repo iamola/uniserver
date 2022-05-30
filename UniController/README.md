@@ -11,10 +11,10 @@ Create a working environment for compiling and testing code:
  1. Create a new folder, for example z_controller
  2. Download the latest version of Uniform Server ZeroXIV 
     for example 14_0_5_ZeroXIV.exe and save to folder z_controller
- 3. Double click on downloaded file (14_0_5_ZeroXIV.exe); this extracts Uniform Server ZeroXIV
- 4. Download the source from Github to folder z_controller 
- 5. Note: Two new folders are created: synapse and unicon_images
-          Project source code is added to folder z_controller
+ 3. Double click on downloaded file (14_0_5_ZeroXIV.exe); this extracts Uniform Server ZeroXIV to folder z_controller\UniServerZ
+ 4. Download the source from Github to folder z_controller\UniServerZ 
+ 5. Note: Two new folders are created: z_controller\UniServerZ\synapse and z_controller\UniServerZ\unicon_images
+          Project source code is added to folder z_controller\UniServerZ
  6. That completes working environment creation
  
 ###  Compiling UniController
@@ -26,7 +26,7 @@ With the working environment in place, you are ready to compile UniController as
  3. In the pop-up window, click "Open Projects" button 
     Navigate to folder: z_controller\UniServerZ
     Click on file UniController.lpi, click Open button
-    The projects opens and is ready for compiling
+    The projects open and is ready for compiling
  4. A quick test run the project: Run > run or press F9
     Note: Synapse will produce several warning Hint messages; these are not errors
     Last line displayed: Project "UniController" successfully built
