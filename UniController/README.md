@@ -22,11 +22,11 @@ Create a working environment for compiling and testing code:
 With the working environment in place, you are ready to compile UniController as follows:
  
  1. Start Lazarus
- 2. Close any existing projects: Project > Close Project
+ 2. Close any existing project: Project > Close Project
  3. In the pop-up window, click "Open Project" button 
     Navigate to folder: z_controller\UniServerZ
     Click on file UniController.lpi, click Open button
-    The projects open and is ready for compiling
+    The project open and is ready for compiling
  4. A quick test run the project: Run > run or press F9
     Note: Synapse will produce several warning Hint messages; these are not errors
     Last line displayed: Project "UniController" successfully built
