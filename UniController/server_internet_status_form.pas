@@ -199,7 +199,7 @@ var
   str     :string;
 begin
    str:='';
-   str:= str + 'UniServer Zero XI' +sLineBreak;
+   str:= str + 'UniServer Zero XIV' +sLineBreak;
    str:= str + 'UniController ' + UNICONTROLLER_VERSION;
    Label1.Caption := str;
 

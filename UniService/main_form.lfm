@@ -1,113 +1,114 @@
 object Main: TMain
   Left = 545
-  Height = 228
+  Height = 285
   Top = 178
-  Width = 354
+  Width = 442
   BorderStyle = bsDialog
   Caption = 'Uniform Server Service'
-  ClientHeight = 228
-  ClientWidth = 354
+  ClientHeight = 285
+  ClientWidth = 442
+  DesignTimePPI = 120
   OnClose = FormClose
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '2.2.2.0'
   object GB_apache: TGroupBox
-    Left = 8
-    Height = 57
-    Top = 88
-    Width = 335
+    Left = 10
+    Height = 71
+    Top = 110
+    Width = 419
     Caption = 'Apache service'
-    ClientHeight = 37
-    ClientWidth = 331
+    ClientHeight = 46
+    ClientWidth = 415
     TabOrder = 0
     object Btn_apache_install_uninstall: TButton
-      Left = 10
-      Height = 25
-      Top = 6
-      Width = 120
+      Left = 12
+      Height = 31
+      Top = 8
+      Width = 150
       Caption = 'Install service'
       OnClick = Btn_apache_install_uninstallClick
       TabOrder = 0
     end
     object Btn_apache_start_stop: TButton
-      Left = 181
-      Height = 25
-      Top = 6
-      Width = 120
+      Left = 226
+      Height = 31
+      Top = 8
+      Width = 150
       Caption = 'Run service'
       OnClick = Btn_apache_start_stopClick
       TabOrder = 1
     end
     object P_apache_install_indicator: TPanel
-      Left = 133
-      Height = 18
-      Top = 9
-      Width = 18
+      Left = 166
+      Height = 22
+      Top = 11
+      Width = 22
       Color = clRed
       ParentColor = False
       TabOrder = 2
     end
     object P_apache_start_indicator: TPanel
-      Left = 305
-      Height = 18
-      Top = 9
-      Width = 18
+      Left = 381
+      Height = 22
+      Top = 11
+      Width = 22
       Color = clRed
       ParentColor = False
       TabOrder = 3
     end
   end
   object GB_mysql: TGroupBox
-    Left = 8
-    Height = 57
-    Top = 160
-    Width = 335
+    Left = 10
+    Height = 71
+    Top = 200
+    Width = 419
     Caption = 'MySQL service'
-    ClientHeight = 37
-    ClientWidth = 331
+    ClientHeight = 46
+    ClientWidth = 415
     TabOrder = 1
     object Btn_mysql_install_uninstall: TButton
-      Left = 10
-      Height = 25
-      Top = 6
-      Width = 120
+      Left = 12
+      Height = 31
+      Top = 8
+      Width = 150
       Caption = 'Install service'
       OnClick = Btn_mysql_install_uninstallClick
       TabOrder = 0
     end
     object Btn_mysql_start_stop: TButton
-      Left = 181
-      Height = 25
-      Top = 6
-      Width = 120
+      Left = 226
+      Height = 31
+      Top = 8
+      Width = 150
       Caption = 'Run service'
       OnClick = Btn_mysql_start_stopClick
       TabOrder = 1
     end
     object P_mysql_install_indicator: TPanel
-      Left = 133
-      Height = 18
-      Top = 9
-      Width = 18
+      Left = 166
+      Height = 22
+      Top = 11
+      Width = 22
       Color = clRed
       ParentColor = False
       TabOrder = 2
     end
     object P_mysql_start_indicator: TPanel
-      Left = 305
-      Height = 18
-      Top = 9
-      Width = 18
+      Left = 381
+      Height = 22
+      Top = 11
+      Width = 22
       Color = clRed
       ParentColor = False
       TabOrder = 3
     end
   end
   object Image1: TImage
-    Left = 10
-    Height = 54
-    Top = 15
-    Width = 132
+    Left = 12
+    Height = 68
+    Top = 19
+    Width = 165
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963281C000089504E47
       0D0A1A0A0000000D4948445200000084000000360806000000064631D9000000
@@ -339,37 +340,37 @@ object Main: TMain
     }
   end
   object GroupBox1: TGroupBox
-    Left = 152
-    Height = 64
-    Top = 6
-    Width = 191
+    Left = 190
+    Height = 80
+    Top = 8
+    Width = 239
     Caption = 'Test and Information'
-    ClientHeight = 44
-    ClientWidth = 187
+    ClientHeight = 55
+    ClientWidth = 235
     TabOrder = 2
     object Button2: TButton
-      Left = 159
-      Height = 20
-      Top = 24
-      Width = 20
+      Left = 199
+      Height = 25
+      Top = 30
+      Width = 25
       Caption = '?'
       OnClick = Button2Click
       TabOrder = 0
     end
     object Button1: TButton
-      Left = 104
-      Height = 20
+      Left = 130
+      Height = 25
       Top = 0
-      Width = 51
+      Width = 64
       Caption = 'About'
       OnClick = Button1Click
       TabOrder = 1
     end
     object Btn_apache_service_test: TButton
       Left = 2
-      Height = 20
-      Top = 24
-      Width = 153
+      Height = 25
+      Top = 30
+      Width = 191
       Caption = 'Apache service test'
       OnClick = Btn_apache_service_testClick
       TabOrder = 2

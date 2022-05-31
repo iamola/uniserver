@@ -249,7 +249,7 @@ type
     procedure MMS_mysql_error_logClick(Sender: TObject);
     procedure MMS_mysql_restore_root_pwdClick(Sender: TObject);
     procedure MMS_pc_win_startupClick(Sender: TObject);
-    procedure MMS_pear_frontendClick(Sender: TObject);
+    //procedure MMS_pear_frontendClick(Sender: TObject);
     procedure MMS_perl_view_test_plClick(Sender: TObject);
     procedure MMS_php_mail_msmtpClick(Sender: TObject);
     procedure MMS_php_view_accelerator_control_panelClick(Sender: TObject);
@@ -1317,13 +1317,13 @@ begin
     pc_win_startup.ShowModal;     //Display PC-Win start-up
 end;
 
-procedure TMain.MMS_pear_frontendClick(Sender: TObject);
- var
-  url :String;
-begin
- url := 'http://' + UENV_US_SERVERNAME + ':' + UENV_AP_PORT + '/us_pear/index.php';
- browser_display_url(url); // Display URL in default/portable browser
-end;
+//procedure TMain.MMS_pear_frontendClick(Sender: TObject);
+// var
+//  url :String;
+//begin
+// url := 'http://' + UENV_US_SERVERNAME + ':' + UENV_AP_PORT + '/us_pear/index.php';
+// browser_display_url(url); // Display URL in default/portable browser
+//end;
 
 procedure TMain.MMS_perl_view_test_plClick(Sender: TObject);
 var
@@ -1362,19 +1362,19 @@ var
 begin
   title     := 'Perl Shebang Help';
   str:='';
-  str := str + 'Perl scripts developed on Unix will not run on a Window machine' + sLineBreak;
+  str := str + 'Perl scripts developed on Unix will not run on a Window machine;' + sLineBreak;
   str := str + 'the Shebang requires conversion to a Windows format.' + sLineBreak+ sLineBreak;
 
-  str := str + 'The Shabang allows Apache to find the Perl interpreter ' + sLineBreak;
+  str := str + 'The Shebang allows Apache to find the Perl interpreter.' + sLineBreak;
   str := str + 'Windows Shebang - First line of a Perl script:' + sLineBreak;
   str := str + '#!perl' + sLineBreak+ sLineBreak;
 
-  str := str + 'Note 1: After installing third-party scripts to the cgi-bin folder. ' + sLineBreak;
-  str := str + 'Force a Windows shebang update by running "Force Windows Shebang". ' + sLineBreak;
+  str := str + 'Note 1: After installing third-party scripts to the cgi-bin folder,' + sLineBreak;
+  str := str + 'force a Windows Shebang update by running "Force Windows Shebang"' + sLineBreak;
   str := str + 'from the Perl drop-down menu.' + sLineBreak+ sLineBreak;
 
-  str := str + 'Note 2: Before uploading scripts from the cgi-bin folder to a Unix server. ' + sLineBreak;
-  str := str + 'Force a Unix shebang update by running "Force Unix Shebang". ' + sLineBreak;
+  str := str + 'Note 2: Before uploading scripts from the cgi-bin folder to a Unix server,' + sLineBreak;
+  str := str + 'force a Unix Shebang update by running "Force Unix Shebang"' + sLineBreak;
   str := str + 'from the Perl drop-down menu.' + sLineBreak;
 
   us_MessageDlg(title, str, mtInformation,[mbOk],0) ;  //Display message
