@@ -18,9 +18,8 @@
         <ComponentName Value="Main"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="1357"/>
+        <TopLine Value="1356"/>
         <CursorPos X="31" Y="1377"/>
         <FoldState Value=" T4F0T T3nM0i5e"/>
         <UsageCount Value="482"/>
@@ -57,6 +56,7 @@
         <ComponentName Value="About"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <TopLine Value="37"/>
         <CursorPos X="43" Y="3"/>
         <UsageCount Value="482"/>
         <Loaded Value="True"/>
@@ -198,8 +198,9 @@
         <ComponentName Value="server_internet_status"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="142"/>
+        <TopLine Value="141"/>
         <CursorPos X="11" Y="69"/>
         <UsageCount Value="482"/>
         <Loaded Value="True"/>
@@ -325,8 +326,8 @@
       <Unit32>
         <Filename Value="server_internet_status_form.lfm"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="364"/>
-        <CursorPos X="13" Y="405"/>
+        <TopLine Value="305"/>
+        <CursorPos X="46" Y="335"/>
         <UsageCount Value="14"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>

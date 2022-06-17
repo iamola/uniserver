@@ -332,7 +332,7 @@ object server_internet_status: Tserver_internet_status
     Height = 56
     Top = 168
     Width = 340
-    Caption = 'Pre-configured server version: Note: 14.x.x user-assembled '
+    Caption = 'Pre-configured server version:'
     ClientHeight = 38
     ClientWidth = 336
     TabOrder = 1

@@ -1,6 +1,5 @@
 # UniformServer
-The Uniform Server is a free lightweight WAMP server solution for Windows. Less than 40MB, modular design, includes the latest versions 
-of Apache2, Perl5, PHP (switch between PHP70, PHP71, PHP72, PHP 73, PHP 74, PHP80), MySQL5, MYSQL8, MariaDB5 or MariaDB 10, phpMyAdmin or Adminer4. 
+The Uniform Server is a free lightweight WAMP server solution for Windows. Less than 50MB, modular design, includes the latest versions of Apache2, PHP (switch between PHP 7.0, PHP 7.1, PHP 7.2, PHP 7.3, PHP 7.4, PHP 8.0, PHP 8.1), MySQL5, MYSQL8 or MariaDB10, phpMyAdmin or Adminer4. 
 
 No installation required! No registry dust! Just unpack and fire up!
 
@@ -12,7 +11,7 @@ No installation required! No registry dust! Just unpack and fire up!
 
 The base version which is suitable for most users is the 14_0_X_ZeroXIV.exe that contains the following:
 
- * Unicontroller v2.3.2 - The Uniform Server Controller
+ * Unicontroller v2.4.0 - The Uniform Server Controller
  * Apache
  * PHP
  * MySQL
@@ -25,12 +24,11 @@ The base version which is suitable for most users is the 14_0_X_ZeroXIV.exe that
 Apart from the core, The Uniform Server Zero XIV has a modular design . Install only modules (plugins) that you require. 
 Each server requires a controller, which automatically detects installed plugins.
 
-The following are the optional plugins that can be used to enhance the UniformServer Core from the **XIV Modules** folder
+The following are the optional plugins that can be used to enhance the Uniform Server Core from the **XIV Modules** folder
 
 ### PHP
 
- * PHP v7.0 to v8.0
- * Pear - AutoInstaller
+ * PHP v7.0 to v8.1
 
 ### Perl
 
@@ -47,8 +45,6 @@ The following are the optional plugins that can be used to enhance the UniformSe
  
  * phpMyAdmin
  * Adminer
- * phpMyBackupPro
- * Sypex Dumper
  * MySQL Autobackup
 
 ### FTP
@@ -57,4 +53,4 @@ The following are the optional plugins that can be used to enhance the UniformSe
  
 ### Run as a Service
 
- * Uniservice v2.3.0 - Enables the Servers to be run as a Windows Service.
+ * Uniservice v2.4.0 - Enables the Servers to be run as a Windows Service.
