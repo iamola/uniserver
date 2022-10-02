@@ -38,8 +38,8 @@ The following are the optional plugins that can be used to enhance the Uniform S
 
 ### Databases
 
- * MySQL 8
- * MariaDB 10
+ * MySQL
+ * MariaDB
 
 ### Database Administration
 
@@ -61,4 +61,4 @@ The following are the optional plugins that can be used to enhance the Uniform S
 
 ### Documentation
 
- * Documentation
+ * Extensive documentation is available
