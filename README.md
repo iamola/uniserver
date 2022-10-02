@@ -18,6 +18,7 @@ The base version which is suitable for most users is the 15_x_x_ZeroXV.exe that 
  * PhpMyAdmin
  * msmtp - A SMTP mail client
  * Cron Scheduler
+ * Documentation
 
 # Uniform Server Modules
 
@@ -28,22 +29,18 @@ The following are the optional plugins that can be used to enhance the Uniform S
 
 ### Core
 
- * Apache
- * UniController 2.5.0 - The Uniform Server Controller
  * UniService 2.5.0 - Enables the Servers to be run as a Windows Service.
 
 ### PHP
 
  * PHP 7.0 to 8.1
 
-### Databases
+### Database
 
- * MySQL
  * MariaDB
 
 ### Database Administration
 
- * phpMyAdmin
  * Adminer
  * MySQL Auto Backup
 
@@ -58,7 +55,3 @@ The following are the optional plugins that can be used to enhance the Uniform S
 ### Portable Browser
 
  * Pale Moon
-
-### Documentation
-
- * Extensive documentation is available
