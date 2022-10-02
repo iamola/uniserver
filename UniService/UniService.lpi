@@ -13,7 +13,7 @@
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
       <XPManifest>
-        <DpiAware Value="True"/>
+        <DpiAware Value="True/PM_V2"/>
         <ExecutionLevel Value="requireAdministrator"/>
       </XPManifest>
       <Icon Value="0"/>
@@ -21,9 +21,8 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MajorVersionNr Value="2"/>
-      <MinorVersionNr Value="3"/>
-      <BuildNr Value="1"/>
-      <StringTable Comments="Run Uniform Server as a Service" CompanyName="Uniform Server" FileDescription="UniService for Uniform Server" ProductName="UniService" ProductVersion="2.3.0"/>
+      <MinorVersionNr Value="5"/>
+      <StringTable Comments="Run Uniform Server as a Service" CompanyName="Uniform Server" FileDescription="UniService for Uniform Server" ProductName="UniService" ProductVersion="2.5.0"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>

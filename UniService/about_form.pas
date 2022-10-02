@@ -52,14 +52,14 @@ begin
    about.Caption := 'About';     // About
 
   str1:='';
-  str1:= str1 + 'UniServer Zero XIV '+sLineBreak;
-  str1:= str1 + 'UniService XIV 2.4.0';
+  str1:= str1 + 'UniServer Zero XV '+sLineBreak;
+  str1:= str1 + 'UniService XV 2.5.0';
   Label1.Caption := str1;
 
   str2:='';
   str2:= str2 + 'UniService coded in Pascal and compiled with Lazarus' +sLineBreak;
-  str2:= str2 + 'Product: Uniform Server Zero XIV ' +sLineBreak;
-  str2:= str2 + 'Release status: UniService XIV version 2.4.0'+sLineBreak+sLineBreak;
+  str2:= str2 + 'Product: Uniform Server Zero XV ' +sLineBreak;
+  str2:= str2 + 'Release status: UniService XV version 2.5.0'+sLineBreak+sLineBreak;
 
   str2 := str2 + 'People who have contributed to Uniform Server:' + sLineBreak;
   str2 := str2 + 'Developers:'  +sLineBreak;

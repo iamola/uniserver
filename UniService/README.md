@@ -1,19 +1,22 @@
-# UniformServer
-The Uniform Server is a free lightweight WAMP server solution for Windows. Less than 50MB, modular design, includes the latest versions of Apache2, PHP (switch between PHP 7.0, PHP 7.1, PHP 7.2, PHP 7.3, PHP 7.4, PHP 8.0, PHP 8.1), MySQL5, MYSQL8 or MariaDB10, phpMyAdmin or Adminer4. No installation required! No registry dust! Just unpack and fire up!
+# Uniform Server
+Uniform Server is a free lightweight WAMP server solution for Windows.
+Build using a modular design approach, it includes the latest versions of Apache, MySQL or MariaDB, PHP (with version switching), phpMyAdmin or Adminer.
+
+No installation required! No registry dust! Just unpack and fire up!
 
 ## UniService
-The UniService plugin for UniformServer enables Uniform Service to be run as a Service on Windows.
+The UniService plugin for Uniform Server enables Uniform Service to be run as a Service on Windows.
 
 ### Create working environment
 
 Create a working environment for compiling and testing code:
 
  1. Create a new folder, for example z_controller
- 2. Download the latest version of Uniform Server ZeroXIV 
-    for example 14_0_5_ZeroXIV.exe and save to folder z_controller
- 3. Double click on downloaded file (14_0_5_ZeroXIV.exe); this extracts Uniform Server ZeroXIV to folder z_controller\UniServerZ
+ 2. Download the latest version of Uniform Server ZeroXV 
+    for example 15_0_0_ZeroXV.exe and save to folder z_controller
+ 3. Double click on downloaded file (15_0_0_ZeroXV.exe); this extracts Uniform Server ZeroXV to folder z_controller\UniServerZ
  4. Download the latest version of UniService and save to folder z_controller\UniServerZ 
- 5. Double click on downloaded file (ZeroXIV_uniservice_x_x_x.exe); this extracts UniService to folder z_controller\UniServerZ
+ 5. Double click on downloaded file (ZeroXV_uniservice_x_x_x.exe); this extracts UniService to folder z_controller\UniServerZ
  6. Download the source from Github to folder z_controller\UniServerZ 
  7. Note: A new folder is created: z_controller\UniServerZ\unicon_images
           Project source code is added to folder z_controller\UniServerZ
