@@ -11,7 +11,7 @@ No installation required! No registry dust! Just unpack and fire up!
 
 The base version which is suitable for most users is the 15_x_x_ZeroXV.exe that contains the following:
 
- * Unicontroller v2.5.0 - The Uniform Server Controller
+ * Unicontroller 2.5.0 - The Uniform Server Controller
  * Apache
  * PHP
  * MySQL
@@ -24,32 +24,41 @@ The base version which is suitable for most users is the 15_x_x_ZeroXV.exe that 
 Apart from the core, The Uniform Server Zero XV has a modular design . Install only modules (plugins) that you require. 
 Each server requires a controller, which automatically detects installed plugins.
 
-The following are the optional plugins that can be used to enhance the Uniform Server Core from the **XV Modules** folder
+The following are the optional plugins that can be used to enhance the Uniform Server Core from the **XV Modules** folder:
+
+### Core
+
+ * Apache
+ * UniController 2.5.0 - The Uniform Server Controller
+ * UniService 2.5.0 - Enables the Servers to be run as a Windows Service.
 
 ### PHP
 
- * PHP v7.0 to v8.1
+ * PHP 7.0 to 8.1
 
-### Perl
-
- * Strawberry Perl
- * Active Perl - manually installed
- 
 ### Databases
 
  * MySQL 8
  * MariaDB 10
 
 ### Database Administration
- 
+
  * phpMyAdmin
  * Adminer
- * MySQL Autobackup
+ * MySQL Auto Backup
 
 ### FTP
 
- * FileZilla Server with a custom controller 
- 
-### Run as a Service
+ * FileZilla Server with a custom controller
 
- * Uniservice v2.5.0 - Enables the Servers to be run as a Windows Service.
+### Perl
+
+ * Strawberry Perl
+
+### Portable Browser
+
+ * Pale Moon
+
+### Documentation
+
+ * Documentation
