@@ -52,14 +52,14 @@ begin
    about.Caption := 'About';     // About
 
   str1:='';
-  str1:= str1 + 'UniServer Zero XIV '+ USC_AppVersion +sLineBreak;
-  str1:= str1 + 'UniController XIV ' + UNICONTROLLER_VERSION;
+  str1:= str1 + 'UniServer Zero XV '+ USC_AppVersion +sLineBreak;
+  str1:= str1 + 'UniController XV ' + UNICONTROLLER_VERSION;
   Label1.Caption := str1;
 
   str2:='';
   str2:= str2 + 'UniController coded in Pascal and compiled with Lazarus' +sLineBreak;
-  str2:= str2 + 'Product: Uniform Server Zero XIV ' +sLineBreak;
-  str2:= str2 + 'Release status: UniController XIV '+UNICONTROLLER_VERSION +sLineBreak+sLineBreak;
+  str2:= str2 + 'Product: Uniform Server Zero XV ' +sLineBreak;
+  str2:= str2 + 'Release status: UniController XV '+UNICONTROLLER_VERSION +sLineBreak+sLineBreak;
   str2 := str2 + 'People who have contributed to Uniform Server:' + sLineBreak;
   str2 := str2 + 'Developers:'  +sLineBreak;
   str2 := str2 + '- Olajide Olaolorun (olajideolaolorun)' +sLineBreak;

@@ -19,12 +19,12 @@ uses
 {global vars}
 
 const
-  UNICONTROLLER_VERSION = 'v2.4.0';
+  UNICONTROLLER_VERSION = 'v2.5.0';
   ZENDOPCACHE_DLL       = 'php_opcache.dll';
 
   Btn_text_enable_ssl   = 'Enable SSL (Currently Disabled)';
   Btn_text_disable_ssl  = 'Disable SSL (Currently Enabled)';
-  VERSION_FILE_ADDRESS  = 'http://miniserver.sourceforge.net/version.txt';
+  VERSION_FILE_ADDRESS  = 'http://www.uniformserver.com/system/.version';
 
   //Portable Web browser Pale Moon
   PALE_MOONL_EXE           = 'Palemoon-Portable.exe'; // Portable Palemoon launcher start-up exe name
@@ -647,7 +647,7 @@ begin
    //*** Start ***
    //[APP]
    USC_AppNumber       := Ini1.ReadString('APP','AppNumber','1');                          // Application number
-   USC_AppVersion      := Ini1.ReadString('APP','AppVersion','10.0.0');                    // Version
+   USC_AppVersion      := Ini1.ReadString('APP','AppVersion','15.0.0');                    // Version
    USC_ServerType      := Ini1.ReadString('APP','ServerType','WAMP0');                     // Default=WAMP APS=Apache standalone server MYS=MySQL  standalone server
    USC_ServerTypeText1 := Ini1.ReadString('APP','ServerTypeText1','Uniform Server Zero');  // TrayIcon hover text
    USC_ServerTypeText2 := Ini1.ReadString('APP','ServerTypeText2','Portable WAMP Server'); // TrayIcon hover text
@@ -684,7 +684,7 @@ begin
     USC_ZA_CHECK     := strToBool(Ini1.ReadString('GENERAL','ZoneAlarmCheck','True'));  //Check if Zone Alarm Presence is required
 
    //[UNIQUE]
-   UNIQUE_TEXT_IN_TITLE_BAR := Ini1.ReadString('UNIQUE','Unique_text','UniServer Zero 14'); // Reference HTML page title e.g UniServer Zero 11 Pale Moon
+   UNIQUE_TEXT_IN_TITLE_BAR := Ini1.ReadString('UNIQUE','Unique_text','UniServer Zero 15'); // Reference HTML page title e.g UniServer Zero 11 Pale Moon
 
 
    //[HOSTS]

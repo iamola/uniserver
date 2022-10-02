@@ -5,7 +5,7 @@ object Main: TMain
   Width = 432
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'UniServer Zero XIV'
+  Caption = 'UniServer Zero XV'
   ClientHeight = 267
   ClientWidth = 432
   DesignTimePPI = 120
