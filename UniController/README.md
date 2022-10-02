@@ -5,7 +5,7 @@ Build using a modular design approach, it includes the latest versions of Apache
 No installation required! No registry dust! Just unpack and fire up!
 
 ## UniController
-The UniController is the heart of the Uniform Server Package where everything can be controlled, modified and updated. It is built using Pascal and compiled with Lazurus.
+The UniController is the heart of the Uniform Server Package where everything can be controlled, modified and updated. It is built using Pascal and compiled with Lazarus.
 
 ### Create working environment
 
@@ -34,10 +34,10 @@ With the working environment in place, you are ready to compile UniController as
     Last line displayed: Project "UniController" successfully built.
  5. UniController will run.
 
- You can now change code as required and re-compile .
+ You can now change code as required and re-compile.
 
 ### AutoIt Files
 
 The source code also includes the following AutoIt script in the autoit directory:
 
- 1. Install_PEAR.au3 - Automated the complete installation of PEAR
+ 1. Install_PEAR.au3 - Automated the complete installation of PEAR.
