@@ -11,7 +11,7 @@ No installation required! No registry dust! Just unpack and fire up!
 
 The base version which is suitable for most users is the 15_x_x_ZeroXV.exe that contains the following:
 
- * Unicontroller 2.5.0 - The Uniform Server Controller
+ * Unicontroller 2.5.1 - The Uniform Server Controller
  * Apache
  * PHP
  * MySQL
@@ -29,11 +29,11 @@ The following are the optional plugins that can be used to enhance the Uniform S
 
 ### Core
 
- * UniService 2.5.0 - Enables the Servers to be run as a Windows Service.
+ * UniService 2.5.1 - Enables the Servers to be run as a Windows Service.
 
 ### PHP
 
- * PHP 7.0 to 8.1
+ * PHP 7.0 to 8.2
 
 ### Database
 
