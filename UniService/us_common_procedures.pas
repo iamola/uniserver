@@ -3,11 +3,8 @@ unit us_common_procedures;
 {#############################################################################
 '# Name: us_common_procedures.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.0.4 25-04-2014
-'# Mike Gleaves V1.0.5 28-04-2014 Vhost update variables $[US_ROOTF]
-'#                                and $[HOME] in httpd-vhosts.conf
-'#                                Note [] are curly brackets
+'# Web: https://www.uniformserver.com
+'#
 '# Common procedures for UniService
 '#############################################################################}
 

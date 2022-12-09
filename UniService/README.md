@@ -12,8 +12,8 @@ The UniService plugin for Uniform Server enables Uniform Service to be run as a 
 Create a working environment for compiling and testing code:
 
  1. Create a new folder, for example z_controller.
- 2. Download the latest version of Uniform Server ZeroXV, for example 15_0_0_ZeroXV.exe and save to folder z_controller.
- 3. Double click on downloaded file (15_0_0_ZeroXV.exe); this extracts Uniform Server ZeroXV to folder z_controller\UniServerZ.
+ 2. Download the latest version of Uniform Server ZeroXV, for example 15_x_x_ZeroXV.exe and save to folder z_controller.
+ 3. Double click on downloaded file (15_x_x_ZeroXV.exe); this extracts Uniform Server ZeroXV to folder z_controller\UniServerZ.
  4. Download the latest version of UniService and save to folder z_controller\UniServerZ. 
  5. Double click on downloaded file (ZeroXV_uniservice_x_x_x.exe); this extracts UniService to folder z_controller\UniServerZ.
  6. Download the source from Github to folder z_controller\UniServerZ .

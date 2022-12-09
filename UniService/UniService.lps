@@ -8,9 +8,10 @@
       <Unit0>
         <Filename Value="UniService.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="5"/>
         <CursorPos Y="25"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="main_form.pas"/>
@@ -18,17 +19,20 @@
         <ComponentName Value="Main"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="18" Y="236"/>
-        <UsageCount Value="28"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="220"/>
+        <CursorPos Y="7"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="default_config_vars.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="251"/>
-        <CursorPos Y="214"/>
-        <UsageCount Value="28"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="254"/>
+        <CursorPos X="62" Y="220"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="about_form.pas"/>
@@ -36,25 +40,29 @@
         <ComponentName Value="About"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="41"/>
-        <UsageCount Value="28"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="33"/>
+        <CursorPos X="29" Y="60"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="us_common_functions.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="337"/>
-        <CursorPos Y="131"/>
-        <UsageCount Value="28"/>
+        <CursorPos Y="8"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="us_common_procedures.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="575"/>
-        <CursorPos X="28" Y="356"/>
-        <UsageCount Value="28"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="572"/>
+        <CursorPos X="4" Y="8"/>
+        <UsageCount Value="29"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="C:\Lazarus\lcl\dialogs.pp"/>
@@ -68,10 +76,9 @@
         <Filename Value="about_form.lfm"/>
         <HasResources Value="True"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="214"/>
         <CursorPos X="15" Y="3"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit7>
       <Unit8>
@@ -79,9 +86,10 @@
         <ComponentName Value="Main"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="242"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="341"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit8>
       <Unit9>
@@ -98,10 +106,28 @@
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit10>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="5" HistoryIndex="4">
+      <Position1>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="221" Column="62" TopLine="246"/>
+      </Position1>
+      <Position2>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="46" Column="111" TopLine="23"/>
+      </Position2>
+      <Position3>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="72" Column="10" TopLine="33"/>
+      </Position3>
+      <Position4>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="158" Column="51" TopLine="120"/>
+      </Position4>
+      <Position5>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="211" Column="74" TopLine="188"/>
+      </Position5>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>

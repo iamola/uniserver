@@ -4,9 +4,7 @@ unit us_common_functions;
 '# Name: us_common_functions.pas
 '# Common functions for UniService
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.0.4 25-04-2014
-'# V1.1.0 7-06-2014 - Added function RelToAbsDir 
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}

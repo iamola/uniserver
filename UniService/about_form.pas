@@ -3,9 +3,7 @@ unit about_form;
 {#############################################################################
 '# Name: about_form.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.0.4 25-04-2014
-'# Sudeep D'Souza V2.3.0 02-10-2019
+'# Web: https://www.uniformserver.com
 '#
 '# About UniService
 '#############################################################################}
@@ -53,16 +51,13 @@ begin
 
   str1:='';
   str1:= str1 + 'UniServer Zero XV '+sLineBreak;
-  str1:= str1 + 'UniService XV 2.5.0';
+  str1:= str1 + 'UniService XV 2.5.1';
   Label1.Caption := str1;
 
   str2:='';
-  str2:= str2 + 'UniService coded in Pascal and compiled with Lazarus' +sLineBreak;
-  str2:= str2 + 'Product: Uniform Server Zero XV ' +sLineBreak;
-  str2:= str2 + 'Release status: UniService XV version 2.5.0'+sLineBreak+sLineBreak;
+  str2:= str2 + 'UniService coded in Pascal and compiled with Lazarus' +sLineBreak+sLineBreak;
 
-  str2 := str2 + 'People who have contributed to Uniform Server:' + sLineBreak;
-  str2 := str2 + 'Developers:'  +sLineBreak;
+  str2 := str2 + 'People / developers who have contributed to Uniform Server:' + sLineBreak;
   str2 := str2 + '- Olajide Olaolorun (olajideolaolorun)' +sLineBreak;
   str2 := str2 + '- Mike Gleaves (Ric)' +sLineBreak;
   str2 := str2 + '- Bob Strand (BobS)'+sLineBreak;

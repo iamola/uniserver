@@ -3,8 +3,7 @@ unit main_form;
 {#############################################################################
 '# Name: main_form.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.0.4 25-04-2014
+'# Web: https://www.uniformserver.com
 '#
 '# Main UniService application.
 '#############################################################################}

@@ -3,10 +3,8 @@ unit default_config_vars;
 {#############################################################################
 '# Name: default_config_vars.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
+'# Web: https://www.uniformserver.com
 '# Mike Gleaves V1.0.6 25-04-2014
-'# V1.1.0 7-06-2014 Added support for absolute and relative doc root paths
-'# V2.3.0 2-10-2019 Removed Old PHPVersions and Added New Version - SudeepJD
 '#
 '# Default configuration for UniService
 '#############################################################################}
@@ -45,7 +43,7 @@ Var
  UENV_US_SERVERNAME   :string;  // US_SERVERNAME  Apache server name environment var
  UENV_US_ROOTF_WWW    :string;  // US_ROOTF_WWW   Apache server root folder www environment var
  UENV_US_ROOTF_SSL    :String;  // US_ROOTF_SSL   Apache server root folder ssl environment var
- UENV_PHP_SELECT      :string;  // PHP_SELECT     PHP Selected php70, php71, php72, php73, php74, php80 or php81 environment var
+ UENV_PHP_SELECT      :string;  // PHP_SELECT     PHP Selected php70, php71, php72, php73, php74, php80, php81 or php82 environment var
  UENV_PHP_INI_SELECT  :string;  // PHP_INI_SELECT PHP configuration file php_test.ini php_development.ini php_production.ini environment var
  US_MYMAR_TXT         :String;  // Display string MySQL or MariaDB - Depends on server installed
 
@@ -72,6 +70,7 @@ Var
  US_PHP74          :String;  // PHP 74 root folder
  US_PHP80          :String;  // PHP 80 root folder
  US_PHP81          :String;  // PHP 81 root folder
+ US_PHP82          :String;  // PHP 82 root folder
 
  //== FILES ===
 
@@ -157,6 +156,7 @@ begin
   US_PHP74           := UniConPath +  '\core\php74';        // PHP 74 root folder
   US_PHP80           := UniConPath +  '\core\php80';        // PHP 80 root folder
   US_PHP81           := UniConPath +  '\core\php81';        // PHP 81 root folder
+  US_PHP82           := UniConPath +  '\core\php82';        // PHP 82 root folder
 
  //== Files ===
 
@@ -200,7 +200,7 @@ begin
    Ini2 := TINIFile.Create(USF_US_USER_INI); // create object
    //*** Start ***
    //[USER]
-   UENV_PHP_SELECT      := Ini2.ReadString('USER','PHP_SELECT','php81');                   // Version selected by user
+   UENV_PHP_SELECT      := Ini2.ReadString('USER','PHP_SELECT','php82');                   // Version selected by user
    UENV_PHP_INI_SELECT  := Ini2.ReadString('USER','PHP_INI_SELECT','php_production.ini');  // PHP configuration file selected by user
    UENV_AP_PORT         := Ini2.ReadString('USER','AP_PORT','80');                         // Apache port environment var
    UENV_AP_SSL_PORT     := Ini2.ReadString('USER','AP_SSL_PORT','443');                    // Apache ssl port environment var
@@ -208,7 +208,7 @@ begin
    UENV_US_ROOTF_WWW    := Ini2.ReadString('USER','US_ROOTF_WWW',UniConPath_F+'/www');     // Apache server root folder www environment var
    UENV_US_ROOTF_SSL    := Ini2.ReadString('USER','US_ROOTF_SSL',UniConPath_F+'/ssl');     // Apache server root folder ssl environment var
 
-   //If folders php70, php71, php72, php73, php74, php80 and php81 do not exist or
+   //If folders php70, php71, php72, php73, php74, php80, php81 and php82 do not exist or
    //incorrect PHP_SELECT value override user config. Set var PHP_SELECT to None.
    php_valid := False; // Assume PHP not installed
    If (DirectoryExists(US_PHP70) And (UENV_PHP_SELECT ='php70')) Then php_valid := True;
@@ -218,6 +218,7 @@ begin
    If (DirectoryExists(US_PHP74) And (UENV_PHP_SELECT ='php74')) Then php_valid := True;
    If (DirectoryExists(US_PHP80) And (UENV_PHP_SELECT ='php80')) Then php_valid := True;
    If (DirectoryExists(US_PHP81) And (UENV_PHP_SELECT ='php81')) Then php_valid := True;
+   If (DirectoryExists(US_PHP82) And (UENV_PHP_SELECT ='php82')) Then php_valid := True;
    If Not php_valid Then UENV_PHP_SELECT :='None';
 
    //Convert absolute/relative root paths to absolute paths.
