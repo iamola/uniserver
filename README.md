@@ -11,7 +11,7 @@ No installation required! No registry dust! Just unpack and fire up!
 
 The base version which is suitable for most users is the 15_x_x_ZeroXV.exe that contains the following:
 
- * Unicontroller 2.5.1 - The Uniform Server Controller
+ * Unicontroller 2.5.2 - The Uniform Server Controller
  * Apache
  * PHP
  * MySQL
