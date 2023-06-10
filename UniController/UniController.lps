@@ -8,10 +8,11 @@
       <Unit0>
         <Filename Value="UniController.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="10"/>
-        <CursorPos Y="48"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="2"/>
+        <CursorPos X="75" Y="37"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="main_unit.pas"/>
@@ -27,10 +28,11 @@
       <Unit2>
         <Filename Value="default_config_vars.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="735"/>
-        <CursorPos X="62" Y="760"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="823"/>
+        <CursorPos X="34" Y="19"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="us_common_procedures.pas"/>
@@ -54,11 +56,11 @@
         <ComponentName Value="About"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="31"/>
-        <CursorPos Y="59"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="23"/>
+        <CursorPos X="60" Y="53"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="us_server_state.pas"/>
@@ -353,9 +355,11 @@
       </Unit34>
       <Unit35>
         <Filename Value="about_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="239"/>
         <CursorPos X="22" Y="15"/>
         <UsageCount Value="14"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit35>
       <Unit36>
@@ -493,10 +497,16 @@
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit52>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="2" HistoryIndex="1">
+      <Position1>
+        <Filename Value="about_form.pas"/>
+        <Caret Line="53" Column="60" TopLine="37"/>
+      </Position1>
+      <Position2>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="760" Column="62" TopLine="735"/>
+      </Position2>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode="default"/>
