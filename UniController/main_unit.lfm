@@ -16,7 +16,7 @@ object Main: TMain
   OnWindowStateChange = FormWindowStateChange
   Position = poScreenCenter
   ShowHint = True
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.2'
   object Bevel1: TBevel
     Left = 10
     Height = 85
@@ -764,6 +764,10 @@ object Main: TMain
           Caption = 'PHP version 81'
           OnClick = MMSS_php81Click
         end
+        object MMSS_php82: TMenuItem
+          Caption = 'PHP version 82'
+          OnClick = MMSS_php82Click
+        end
       end
       object MMS_select_php_config: TMenuItem
         Caption = 'Select PHP configuration file'
@@ -782,7 +786,7 @@ object Main: TMain
         end
       end
       object MMS_edit_selected_php_config: TMenuItem
-        Caption = 'Edited selected configuration file'
+        Caption = 'Edit selected configuration file'
         ImageIndex = 4
         OnClick = MMS_edit_selected_php_configClick
       end

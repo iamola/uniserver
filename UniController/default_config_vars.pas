@@ -16,7 +16,7 @@ uses
 {global vars}
 
 const
-  UNICONTROLLER_VERSION = 'v2.5.2';
+  UNICONTROLLER_VERSION = 'v2.5.3';
   ZENDOPCACHE_DLL       = 'php_opcache.dll';
 
   Btn_text_enable_ssl   = 'Enable SSL (Currently Disabled)';
