@@ -3,9 +3,7 @@ unit us_common_procedures;
 {#############################################################################
 '# Name: us_common_procedures.inc
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
-'#
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}
@@ -122,6 +120,7 @@ uses
    TMain.MMSS_php74Click
    TMain.MMSS_php80Click
    TMain.MMSS_php81Click
+   TMain.MMSS_php82Click
 
   ORIGINAL_ENV_PATH - Original environment path when controller started
 
@@ -1212,8 +1211,8 @@ begin
   Writeln(FileVar1, 'FLUSH PRIVILEGES;');
   If (US_MYMAR_TXT = 'MySQL') Then
    Begin
-    Writeln(FileVar1, 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
-    Writeln(FileVar1, 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH mysql_native_password BY '''+new_password+''';');
+    Writeln(FileVar1, 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH caching_sha2_password BY '''+new_password+''';');
+    Writeln(FileVar1, 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH caching_sha2_password BY '''+new_password+''';');
    End
   Else
    Begin
@@ -1377,20 +1376,20 @@ begin
   If (US_MYMAR_TXT='MySQL') Then
    Begin
     str1 := 'use mysql;';
-    str2 := 'INSERT IGNORE INTO user SET user = ''root'', plugin = ''mysql_native_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
-    str3 := 'REPLACE INTO user SET       user = ''root'', plugin = ''mysql_native_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'' ;';
-    str4 := 'INSERT IGNORE INTO user SET user = ''pma'', plugin = ''mysql_native_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
-    str5 := 'REPLACE INTO user SET       user = ''pma'', plugin = ''mysql_native_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
+    str2 := 'INSERT IGNORE INTO user SET user = ''root'', plugin = ''caching_sha2_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
+    str3 := 'REPLACE INTO user SET       user = ''root'', plugin = ''caching_sha2_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''Y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'' ;';
+    str4 := 'INSERT IGNORE INTO user SET user = ''pma'', plugin = ''caching_sha2_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
+    str5 := 'REPLACE INTO user SET       user = ''pma'', plugin = ''caching_sha2_password'', authentication_string = '''', host = ''localhost'', select_priv = ''y'', insert_priv = ''y'', update_priv = ''y'', delete_priv = ''y'', create_priv = ''y'', drop_priv = ''y'', reload_priv = ''y'', shutdown_priv = ''y'', process_priv = ''y'', file_priv = ''y'', grant_priv = ''y'', references_priv = ''y'', index_priv = ''y'', alter_priv = ''y'', show_db_priv = ''y'', super_priv = ''y'', create_tmp_table_priv = ''y'', lock_tables_priv = ''y'', execute_priv = ''y'', repl_slave_priv = ''y'', repl_client_priv = ''y'', create_view_priv = ''y'', show_view_priv = ''y'', create_routine_priv = ''y'', alter_routine_priv = ''y'', create_user_priv = ''y'', Event_priv = ''y'', Trigger_priv = ''Y'', Create_tablespace_priv = ''Y'', ssl_type = '''', ssl_cipher ='''', x509_issuer = '''', x509_subject = '''', max_questions = ''0'', max_updates = ''0'', max_connections = ''0'', max_user_connections = ''0'';';
     str6 := 'FLUSH PRIVILEGES;';
-    str7 := 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH mysql_native_password BY ''root'';';
-    str8 := 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH mysql_native_password BY ''root'';';
+    str7 := 'ALTER USER ''root''@''localhost'' IDENTIFIED WITH caching_sha2_password BY ''root'';';
+    str8 := 'ALTER USER ''pma''@''localhost'' IDENTIFIED WITH caching_sha2_password BY ''root'';';
     str9 := 'FLUSH PRIVILEGES;';
    End
   Else
    Begin
     str1 := 'use mysql;';
-    str2 := 'INSERT IGNORE INTO global_priv (Host, User, Priv) VALUES (''localhost'', ''root'', ''{"access":0,"plugin":"mysql_native_password","authentication_string":"","password_last_changed":0}'');';
-    str3 := 'INSERT IGNORE INTO global_priv (Host, User, Priv) VALUES (''localhost'', ''pma'', ''{"access":0,"plugin":"mysql_native_password","authentication_string":"","password_last_changed":0}'');';
+    str2 := 'INSERT IGNORE INTO global_priv (Host, User, Priv) VALUES (''localhost'', ''root'', ''{"access":0,"plugin":"caching_sha2_password","authentication_string":"","password_last_changed":0}'');';
+    str3 := 'INSERT IGNORE INTO global_priv (Host, User, Priv) VALUES (''localhost'', ''pma'', ''{"access":0,"plugin":"caching_sha2_password","authentication_string":"","password_last_changed":0}'');';
     str4 := 'FLUSH PRIVILEGES;';
     str5 := 'ALTER USER ''root''@''localhost'' IDENTIFIED BY ''root'';';
     str6 := 'ALTER USER ''pma''@''localhost'' IDENTIFIED BY ''root'';';
