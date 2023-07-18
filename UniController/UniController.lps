@@ -18,35 +18,38 @@
         <ComponentName Value="Main"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="16"/>
         <TopLine Value="1318"/>
         <CursorPos X="20" Y="1234"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="default_config_vars.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
+        <EditorIndex Value="10"/>
         <TopLine Value="3"/>
         <CursorPos X="35" Y="19"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="us_common_procedures.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="44"/>
         <TopLine Value="639"/>
         <CursorPos X="20" Y="122"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="us_common_functions.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="43"/>
         <TopLine Value="463"/>
         <CursorPos X="14" Y="6"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="about_form.pas"/>
@@ -54,18 +57,20 @@
         <ComponentName Value="About"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="1"/>
         <TopLine Value="38"/>
         <CursorPos X="60" Y="53"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="us_server_state.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="45"/>
         <TopLine Value="296"/>
         <CursorPos X="18" Y="565"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="server_cert_key_gen_form.pas"/>
@@ -73,10 +78,11 @@
         <ComponentName Value="server_cert_key_gen"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="40"/>
         <TopLine Value="574"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="vhost_create_form.pas"/>
@@ -84,10 +90,11 @@
         <ComponentName Value="vhost_create"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="47"/>
         <TopLine Value="242"/>
         <CursorPos X="14" Y="6"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="vhost_delete_form.pas"/>
@@ -95,10 +102,10 @@
         <ComponentName Value="vhost_delete"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="183"/>
+        <EditorIndex Value="49"/>
         <CursorPos X="14" Y="6"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="apache_modules_form.pas"/>
@@ -106,9 +113,10 @@
         <ComponentName Value="apache_modules"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="5"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="apache_basic_form.pas"/>
@@ -116,10 +124,11 @@
         <ComponentName Value="apache_basic"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="3"/>
         <TopLine Value="292"/>
         <CursorPos X="89" Y="293"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="root_www_pass_access_form.pas"/>
@@ -127,10 +136,11 @@
         <ComponentName Value="root_www_pass_access"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="38"/>
         <TopLine Value="363"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit12>
       <Unit13>
         <Filename Value="root_ssl_pass_access_form.pas"/>
@@ -138,10 +148,11 @@
         <ComponentName Value="root_ssl_pass_access"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="36"/>
         <TopLine Value="357"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="php_extensions_form.pas"/>
@@ -149,10 +160,11 @@
         <ComponentName Value="php_extensions"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="34"/>
         <TopLine Value="243"/>
         <CursorPos X="19" Y="147"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="edit_php_basic_form.pas"/>
@@ -160,10 +172,11 @@
         <ComponentName Value="edit_php_basic"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="14"/>
         <TopLine Value="579"/>
         <CursorPos X="15" Y="599"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit15>
       <Unit16>
         <Filename Value="msmtp_php_mail_form.pas"/>
@@ -171,18 +184,20 @@
         <ComponentName Value="msmtp_php_mail"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="20"/>
         <TopLine Value="217"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit16>
       <Unit17>
         <Filename Value="are_servers_runable.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="98"/>
         <CursorPos X="36" Y="172"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit17>
       <Unit18>
         <Filename Value="synapse\httpsend.pas"/>
@@ -197,10 +212,11 @@
         <ComponentName Value="server_internet_status"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="42"/>
         <TopLine Value="155"/>
         <CursorPos X="55" Y="204"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit19>
       <Unit20>
         <Filename Value="pc_win_startup_form.pas"/>
@@ -208,10 +224,11 @@
         <ComponentName Value="pc_win_startup"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="32"/>
         <TopLine Value="265"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit20>
       <Unit21>
         <Filename Value="dtdns_form.pas"/>
@@ -219,10 +236,11 @@
         <ComponentName Value="dtdns"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="12"/>
         <TopLine Value="22"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit21>
       <Unit22>
         <Filename Value="cron_form.pas"/>
@@ -230,18 +248,20 @@
         <ComponentName Value="cron"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="9"/>
         <TopLine Value="439"/>
         <CursorPos X="95" Y="129"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit22>
       <Unit23>
         <Filename Value="command_line_start_up.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="7"/>
         <TopLine Value="64"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit23>
       <Unit24>
         <Filename Value="mysql_db_create_delete_form.pas"/>
@@ -249,10 +269,11 @@
         <ComponentName Value="mysql_db_create_delete"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="28"/>
         <TopLine Value="123"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit24>
       <Unit25>
         <Filename Value="mysql_create_restricted_user_form.pas"/>
@@ -260,10 +281,11 @@
         <ComponentName Value="mysql_create_restricted_user"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="22"/>
         <TopLine Value="209"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit25>
       <Unit26>
         <Filename Value="mysql_edit_restricted_user_form.pas"/>
@@ -271,10 +293,12 @@
         <ComponentName Value="mysql_edit_restricted_user"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="30"/>
         <TopLine Value="324"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit26>
       <Unit27>
         <Filename Value="mysql_database_backup_form.pas"/>
@@ -282,10 +306,11 @@
         <ComponentName Value="mysql_database_backup"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="24"/>
         <TopLine Value="207"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit27>
       <Unit28>
         <Filename Value="mysql_database_restore_form.pas"/>
@@ -293,10 +318,11 @@
         <ComponentName Value="mysql_database_restore"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="26"/>
         <TopLine Value="134"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit28>
       <Unit29>
         <Filename Value="message_dlg_form.pas"/>
@@ -304,10 +330,11 @@
         <ComponentName Value="us_message_dlg"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="18"/>
         <TopLine Value="76"/>
         <CursorPos Y="7"/>
         <UsageCount Value="482"/>
+        <Loaded Value="True"/>
       </Unit29>
       <Unit30>
         <Filename Value="C:\Lazurus\fpc\3.2.0\source\rtl\win\wininc\ascdef.inc"/>
@@ -321,183 +348,205 @@
         <ComponentName Value="Main"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="15"/>
         <TopLine Value="76"/>
         <CursorPos X="24" Y="789"/>
         <UsageCount Value="17"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit31>
       <Unit32>
         <Filename Value="server_internet_status_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="41"/>
         <TopLine Value="325"/>
         <CursorPos X="18" Y="344"/>
         <UsageCount Value="17"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit32>
       <Unit33>
         <Filename Value="php_extensions_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="33"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit33>
       <Unit34>
         <Filename Value="message_dlg_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="17"/>
         <TopLine Value="462"/>
         <CursorPos X="22" Y="15"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit34>
       <Unit35>
         <Filename Value="about_form.lfm"/>
         <HasResources Value="True"/>
-        <EditorIndex Value="-1"/>
         <TopLine Value="9"/>
         <CursorPos X="22" Y="15"/>
         <UsageCount Value="14"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit35>
       <Unit36>
         <Filename Value="apache_basic_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="2"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit36>
       <Unit37>
         <Filename Value="apache_modules_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="4"/>
         <CursorPos X="22" Y="16"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit37>
       <Unit38>
         <Filename Value="cron_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="8"/>
         <TopLine Value="35"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit38>
       <Unit39>
         <Filename Value="dtdns_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="11"/>
         <TopLine Value="207"/>
         <CursorPos X="22" Y="15"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit39>
       <Unit40>
         <Filename Value="edit_php_basic_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="13"/>
         <TopLine Value="459"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit40>
       <Unit41>
         <Filename Value="msmtp_php_mail_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="19"/>
         <TopLine Value="109"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit41>
       <Unit42>
         <Filename Value="mysql_create_restricted_user_form.lfm"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="161"/>
+        <EditorIndex Value="21"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit42>
       <Unit43>
         <Filename Value="mysql_database_backup_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="23"/>
         <TopLine Value="42"/>
         <CursorPos X="22" Y="15"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit43>
       <Unit44>
         <Filename Value="mysql_database_restore_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="25"/>
         <TopLine Value="16"/>
         <CursorPos X="22" Y="15"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit44>
       <Unit45>
         <Filename Value="mysql_db_create_delete_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="27"/>
         <TopLine Value="57"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit45>
       <Unit46>
         <Filename Value="mysql_edit_restricted_user_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="29"/>
         <TopLine Value="163"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit46>
       <Unit47>
         <Filename Value="pc_win_startup_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="31"/>
         <TopLine Value="25"/>
         <CursorPos X="22" Y="15"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit47>
       <Unit48>
         <Filename Value="root_ssl_pass_access_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="35"/>
         <TopLine Value="108"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit48>
       <Unit49>
         <Filename Value="root_www_pass_access_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="37"/>
         <TopLine Value="108"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit49>
       <Unit50>
         <Filename Value="server_cert_key_gen_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="39"/>
         <TopLine Value="270"/>
         <CursorPos X="22" Y="16"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit50>
       <Unit51>
         <Filename Value="vhost_create_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="46"/>
         <TopLine Value="52"/>
         <CursorPos X="22" Y="14"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit51>
       <Unit52>
         <Filename Value="vhost_delete_form.lfm"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="48"/>
         <TopLine Value="12"/>
         <CursorPos X="22" Y="15"/>
         <UsageCount Value="13"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit52>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="vhost_delete_form.pas"/>
+        <Caret Line="6" Column="14"/>
+      </Position1>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode="default"/>
