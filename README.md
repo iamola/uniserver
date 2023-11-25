@@ -33,7 +33,7 @@ The following are the optional plugins that can be used to enhance the Uniform S
 
 ### PHP
 
- * PHP 7.0 to 8.2
+ * PHP 7.0 to 8.3
 
 ### Database
 
