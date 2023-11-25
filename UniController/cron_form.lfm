@@ -11,13 +11,13 @@ object cron: Tcron
   OnCreate = FormCreate
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '2.0.2.0'
+  LCLVersion = '2.2.2'
   object GB1_cron_config_view_log: TGroupBox
     Left = 28
     Height = 65
     Top = 16
     Width = 274
-    Caption = 'Configutation and Log'
+    Caption = 'Configuration and Log'
     ClientHeight = 45
     ClientWidth = 270
     TabOrder = 0

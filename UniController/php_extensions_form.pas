@@ -3,10 +3,8 @@ unit php_extensions_form;
 {#############################################################################
 '# Name:  php_extensions_form.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
-'# V1.1.2 2-05-2014 Added PHP 56 selected section
-'#                  Allow comments adjacent to extentions in php.ini configs.
+'# Web: https://www.uniformserver.com
+'#
 '# This form lists all PHP extensions and shows extentions selected.
 '# for the currently select PHP configuration file
 '# A user can select or deselect extension. The currently selected PHP configuration
@@ -147,6 +145,28 @@ procedure Tphp_extensions.FormShow(Sender: TObject);
      If UENV_PHP_INI_SELECT ='php_production.ini'  Then USF_PHP_INI_PATH := USF_PHP_INI_PROD_81; // php_production.ini
     end;
     //--End PHP 81  selected
+
+    //--PHP 82  selected
+    If UENV_PHP_SELECT ='php82' Then
+    begin
+     str_version := str_version + 'php82';
+     US_PHP_EXTEN  := US_PHP82_EXT;  // PHP extensions folder
+     If UENV_PHP_INI_SELECT ='php_test.ini'        Then USF_PHP_INI_PATH := USF_PHP_INI_TEST_82; // config php_test.ini
+     If UENV_PHP_INI_SELECT ='php_development.ini' Then USF_PHP_INI_PATH := USF_PHP_INI_DEV_82;  // config php_development.ini
+     If UENV_PHP_INI_SELECT ='php_production.ini'  Then USF_PHP_INI_PATH := USF_PHP_INI_PROD_82; // php_production.ini
+    end;
+    //--End PHP 82  selected
+
+    //--PHP 83  selected
+    If UENV_PHP_SELECT ='php83' Then
+    begin
+     str_version := str_version + 'php83';
+     US_PHP_EXTEN  := US_PHP83_EXT;  // PHP extensions folder
+     If UENV_PHP_INI_SELECT ='php_test.ini'        Then USF_PHP_INI_PATH := USF_PHP_INI_TEST_83; // config php_test.ini
+     If UENV_PHP_INI_SELECT ='php_development.ini' Then USF_PHP_INI_PATH := USF_PHP_INI_DEV_83;  // config php_development.ini
+     If UENV_PHP_INI_SELECT ='php_production.ini'  Then USF_PHP_INI_PATH := USF_PHP_INI_PROD_83; // php_production.ini
+    end;
+    //--End PHP 83  selected
 
     //Display text
     Lbl_verson.Caption := str_version;                             //Dispaly currently selected PHP series

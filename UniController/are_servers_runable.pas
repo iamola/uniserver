@@ -3,8 +3,7 @@ unit are_servers_runable;
 {#############################################################################
 '# Name: are_servers_runable.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}
@@ -111,9 +110,9 @@ begin
   If Pos(' ',path) <> 0 then //Check for space
   begin
    str_title := 'Error in path';
-   str  :=      'A space in the path to this application was detected'+ sLineBreak + sLineBreak;
-   str  :=      'Spaces are not allowed please corect and run the application again.'+ sLineBreak + sLineBreak;
-   str  := str+ 'To prevent problems UniController will close.';
+   str  :=      'A space in the path to this application was detected. Spaces are not allowed.'+ sLineBreak + sLineBreak;
+   str  :=      'Please move folder UniServerZ, making sure new path does not contain spaces.'+ sLineBreak + sLineBreak;
+   str  := str+ 'To prevent problems, UniController will close.';
 
    //--Inform user a space was detected
    Application.ShowMainForm  := False;            // Hide application
@@ -125,9 +124,9 @@ begin
   //Reference file for location, us_config.ini is a good choice to use 
   if not FileExists(ExtractFilePath(Application.ExeName)+'home\us_config\us_config.ini') Then
     begin
-     str_title := 'Error incorrect location!';
-     str       :=      'Incorrect location! Move UniController to folder UniServerZ'+ sLineBreak + sLineBreak;
-     str       := str+ 'To prevent problems UniController will close.';
+     str_title := 'Error: Incorrect location!';
+     str       :=      'Incorrect location! Move UniController to folder UniServerZ.'+ sLineBreak + sLineBreak;
+     str       := str+ 'To prevent problems, UniController will close.';
 
      //--Inform User inorrect location of this application
      Application.ShowMainForm  := False;            // Hide application
@@ -170,10 +169,10 @@ var
         begin
           If us_IsProcessRunning('zatray.exe') Then
             begin
-              str_title := 'Warning ZoneAlarm detected';
+              str_title := 'Warning: ZoneAlarm detected';
               str :=      'The ZoneAlarm application may conflict with the Apache Server'+ sLineBreak;
               str := str+ 'and produce a blue screen of death when Apache is closed.'      + sLineBreak + sLineBreak;
-              str := str+ 'Recommendation EXIT ZoneAlarm before closing Apache'          + sLineBreak;
+              str := str+ 'Recommendation: EXIT ZoneAlarm before closing Apache'          + sLineBreak;
               str := str+ 'or preferably upgrade ZoneAlarm.';
 
               us_MessageDlg(str_title, str, mtWarning,[mbOk],0) ;
@@ -182,12 +181,12 @@ var
     end;
 
   //=== Check ports in use
-  str_title := 'Warning ports in use by another application';
+  str_title := 'Warning: ports in use by another application';
   str       :='';
   str       := str + 'The following ports are in use by another application.' + sLineBreak ;
-  str       := str + 'In order to start the servers these ports must be free.' + sLineBreak ;
-  str       := str + 'Preferably stop the application and or change the port.'+ sLineBreak + sLineBreak ;
-  str       := str + 'Alternatively you can change the UniServer ports.';
+  str       := str + 'In order to start the servers, these ports must be free.' + sLineBreak ;
+  str       := str + 'Preferably stop the application and/or change the ports.'+ sLineBreak + sLineBreak ;
+  str       := str + 'Alternatively, you can change the UniServer ports.';
 
   appname   := '';  //Set initial value
 

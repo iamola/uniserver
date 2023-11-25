@@ -16,7 +16,7 @@ uses
 {global vars}
 
 const
-  UNICONTROLLER_VERSION = 'v2.5.4';
+  UNICONTROLLER_VERSION = 'v2.5.5';
   ZENDOPCACHE_DLL       = 'php_opcache.dll';
 
   Btn_text_enable_ssl   = 'Enable SSL (Currently Disabled)';
@@ -45,7 +45,7 @@ Var
    UENV_US_ROOTF_SSL   :String;  // US_ROOTF_SSL   Apache server root folder ssl environment var
 
    UENV_MYSQL_TCP_PORT :string;  // MYSQL_TCP_PORT MySQL port environment var
-   UENV_PHP_SELECT     :string;  // PHP_SELECT     PHP Selected php70, php71, php72, php73, php74, php80, php81, php82 environment var
+   UENV_PHP_SELECT     :string;  // PHP_SELECT     PHP Selected php70, php71, php72, php73, php74, php80, php81, php82, php83 environment var
    UENV_PHP_INI_SELECT :string;  // PHP_INI_SELECT PHP configuration file php_test.ini php_development.ini php_production.ini environment var
 
   //==== End User Config and Enironment variables
@@ -110,7 +110,7 @@ Var
    USC_ZA_CHECK               : Boolean; // ZoneAlarmCheck. If user wants to disables the ZA check.
 
    //[UNIQUE]
-   UNIQUE_TEXT_IN_TITLE_BAR   : String;  // Reference HTML page title e.g UniServer Zero 11 Pale Moon
+   UNIQUE_TEXT_IN_TITLE_BAR   : String;  // Reference HTML page title e.g UniServer Zero
 
    //[HOSTS]
    USC_EditHostsFileEnabled   : Boolean; // Enable/Disable Edit Windows hosts file true/false  Default true
@@ -176,6 +176,7 @@ Var
  US_PHP80          :String;  // PHP 80 root folder
  US_PHP81          :String;  // PHP 81 root folder
  US_PHP82          :String;  // PHP 82 root folder
+ US_PHP83          :String;  // PHP 83 root folder
 
  US_PHP70_EXT      :String;  // PHP 70 extensions folder
  US_PHP71_EXT      :String;  // PHP 71 extensions folder
@@ -185,6 +186,7 @@ Var
  US_PHP80_EXT      :String;  // PHP 80 extensions folder
  US_PHP81_EXT      :String;  // PHP 81 extensions folder
  US_PHP82_EXT      :String;  // PHP 82 extensions folder
+ US_PHP83_EXT      :String;  // PHP 83 extensions folder
 
  US_PERL           :String;  // Perl main folder
  US_PERL_BIN       :String;  // Perl binary folder
@@ -282,6 +284,11 @@ Var
  USF_PHP_INI_PROD_82  :String;   // PHP 8.2.* configuration production
  USF_PHP_INI_DEV_82   :String;   // PHP 8.2.* configuration development
  USF_PHP_INI_CLI_82   :String;   // PHP 8.2.* command line config
+
+ USF_PHP_INI_TEST_83  :String;   // PHP 8.3.* configuration
+ USF_PHP_INI_PROD_83  :String;   // PHP 8.3.* configuration production
+ USF_PHP_INI_DEV_83   :String;   // PHP 8.3.* configuration development
+ USF_PHP_INI_CLI_83   :String;   // PHP 8.3.* command line config
 
  //-- msmtp configuration
  USF_MSMTP_EXE          :String;  // MSMTP executable
@@ -422,6 +429,7 @@ begin
   US_PHP80           := UniConPath +  '\core\php80';        // PHP 80 root folder
   US_PHP81           := UniConPath +  '\core\php81';        // PHP 81 root folder
   US_PHP82           := UniConPath +  '\core\php82';        // PHP 82 root folder
+  US_PHP83           := UniConPath +  '\core\php83';        // PHP 83 root folder
 
   US_PHP70_EXT       := UniConPath +  '\core\php70\extensions'; // PHP 70 extensions folder
   US_PHP71_EXT       := UniConPath +  '\core\php71\extensions'; // PHP 71 extensions folder
@@ -431,6 +439,7 @@ begin
   US_PHP80_EXT       := UniConPath +  '\core\php80\extensions'; // PHP 80 extensions folder
   US_PHP81_EXT       := UniConPath +  '\core\php81\extensions'; // PHP 81 extensions folder
   US_PHP82_EXT       := UniConPath +  '\core\php82\extensions'; // PHP 82 extensions folder
+  US_PHP83_EXT       := UniConPath +  '\core\php83\extensions'; // PHP 83 extensions folder
 
   US_PERL            := UniConPath +  '\core\perl';         // Perl main folder
   US_PERL_BIN        := UniConPath +  '\core\perl\bin';     // Perl binary folder
@@ -521,6 +530,11 @@ begin
   USF_PHP_INI_PROD_82  := US_PHP82 + '\php_production.ini';  // PHP 8.2.* configuration production
   USF_PHP_INI_DEV_82   := US_PHP82 + '\php_development.ini'; // PHP 8.2.* configuration development
   USF_PHP_INI_CLI_82   := US_PHP82 + '\php-cli.ini';         // PHP 8.2.* command line config
+
+  USF_PHP_INI_TEST_83  := US_PHP83 + '\php_test.ini';        // PHP 8.3.* configuration
+  USF_PHP_INI_PROD_83  := US_PHP83 + '\php_production.ini';  // PHP 8.3.* configuration production
+  USF_PHP_INI_DEV_83   := US_PHP83 + '\php_development.ini'; // PHP 8.3.* configuration development
+  USF_PHP_INI_CLI_83   := US_PHP83 + '\php-cli.ini';         // PHP 8.3.* command line config
 
   //-- msmtp configuration
   USF_MSMTP_EXE          := US_MSMTP + '\msmtp.exe';            // MSMTP executable
@@ -658,7 +672,7 @@ begin
    //*** Start ***
    //[APP]
    USC_AppNumber       := Ini1.ReadString('APP','AppNumber','1');                          // Application number
-   USC_AppVersion      := Ini1.ReadString('APP','AppVersion','15.0.1');                    // Version
+   USC_AppVersion      := Ini1.ReadString('APP','AppVersion','15.0.2');                    // Version
    USC_ServerType      := Ini1.ReadString('APP','ServerType','WAMP0');                     // Default=WAMP APS=Apache standalone server MYS=MySQL  standalone server
    USC_ServerTypeText1 := Ini1.ReadString('APP','ServerTypeText1','Uniform Server Zero');  // TrayIcon hover text
    USC_ServerTypeText2 := Ini1.ReadString('APP','ServerTypeText2','Portable WAMP Server'); // TrayIcon hover text
@@ -746,10 +760,10 @@ begin
 
    UENV_MYSQL_TCP_PORT := Ini2.ReadString('USER','MYSQL_TCP_PORT','3306');
 
-   UENV_PHP_SELECT := Ini2.ReadString('USER','PHP_SELECT','php82');          // Get user selected PHP version
+   UENV_PHP_SELECT := Ini2.ReadString('USER','PHP_SELECT','php83');          // Get user selected PHP version
 
-   //If folders php70, php71, php72, php73, php74, php80, php81, php82 do not exist or
-   //incorrect PHP_SELECT value override user config. Set var PHP_SELECT to None.
+   //If folders php70, php71, php72, php73, php74, php80, php81, php82 or php83 do not exist
+   //or incorrect PHP_SELECT value, override user config. Set var PHP_SELECT to None.
    php_valid := False; // Assume PHP not installed
    If (DirectoryExists(US_PHP70) And (UENV_PHP_SELECT ='php70')) Then php_valid := True;
    If (DirectoryExists(US_PHP71) And (UENV_PHP_SELECT ='php71')) Then php_valid := True;
@@ -759,6 +773,7 @@ begin
    If (DirectoryExists(US_PHP80) And (UENV_PHP_SELECT ='php80')) Then php_valid := True;
    If (DirectoryExists(US_PHP81) And (UENV_PHP_SELECT ='php81')) Then php_valid := True;
    If (DirectoryExists(US_PHP82) And (UENV_PHP_SELECT ='php82')) Then php_valid := True;
+   If (DirectoryExists(US_PHP83) And (UENV_PHP_SELECT ='php83')) Then php_valid := True;
    If Not php_valid Then UENV_PHP_SELECT :='None';
 
    UENV_PHP_INI_SELECT := Ini2.ReadString('USER','PHP_INI_SELECT','php_test.ini');

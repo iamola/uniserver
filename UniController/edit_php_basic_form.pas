@@ -3,10 +3,7 @@ unit edit_php_basic_form;
 {#############################################################################
 '# Name: edit_php_basic_form.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
-'#
-'#
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}
@@ -600,6 +597,24 @@ If UENV_PHP_SELECT ='php81' then
   USF_PHP_INI_PROD := USF_PHP_INI_PROD_81; // php_production.ini
  end;
 //--End PHP 81  selected
+
+//--PHP 82  selected
+If UENV_PHP_SELECT ='php82' then
+ begin
+  USF_PHP_INI      := USF_PHP_INI_TEST_82; // config php_test.ini
+  USF_PHP_INI_DEV  := USF_PHP_INI_DEV_82;  // config php_development.ini
+  USF_PHP_INI_PROD := USF_PHP_INI_PROD_82; // php_production.ini
+ end;
+//--End PHP 82  selected
+
+//--PHP 83  selected
+If UENV_PHP_SELECT ='php83' then
+ begin
+  USF_PHP_INI      := USF_PHP_INI_TEST_83; // config php_test.ini
+  USF_PHP_INI_DEV  := USF_PHP_INI_DEV_83;  // config php_development.ini
+  USF_PHP_INI_PROD := USF_PHP_INI_PROD_83; // php_production.ini
+ end;
+//--End PHP 83  selected
 
     //=== Get data from configuration file php_test.ini
    if FileExists(USF_PHP_INI) Then

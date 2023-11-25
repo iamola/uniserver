@@ -3,10 +3,7 @@ unit us_server_state;
 {#############################################################################
 '# Name: us_server_state.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
-'#
-'#
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}
@@ -317,7 +314,7 @@ begin
 
 
    //---Set PHP drop-down menu state one or other must exist
-   If (DirectoryExists(US_PHP70) or DirectoryExists(US_PHP71) or DirectoryExists(US_PHP72) or DirectoryExists(US_PHP73) or DirectoryExists(US_PHP74) or DirectoryExists(US_PHP80) or DirectoryExists(US_PHP81)) Then
+   If (DirectoryExists(US_PHP70) or DirectoryExists(US_PHP71) or DirectoryExists(US_PHP72) or DirectoryExists(US_PHP73) or DirectoryExists(US_PHP74) or DirectoryExists(US_PHP80) or DirectoryExists(US_PHP81) or DirectoryExists(US_PHP82) or DirectoryExists(US_PHP83)) Then
     begin
       Main.MM_php.Enabled := true;  // Enable drop-down menu
 
@@ -369,6 +366,20 @@ begin
       Else                                    // Does not exist
          Main.MMSS_php81.Enabled := false;    // Select version
       //--END PHP 81
+
+      //--PHP 82
+      If DirectoryExists(US_PHP82) Then
+         Main.MMSS_php82.Enabled := true      // Select version
+      Else                                    // Does not exist
+         Main.MMSS_php82.Enabled := false;    // Select version
+      //--END PHP 82
+
+      //--PHP 83
+      If DirectoryExists(US_PHP83) Then
+         Main.MMSS_php83.Enabled := true      // Select version
+      Else                                    // Does not exist
+         Main.MMSS_php83.Enabled := false;    // Select version
+      //--END PHP 83
 
     end
 
@@ -559,6 +570,58 @@ begin
    Else
       Main.MMSS_php81.Checked:=false;
    //===End PHP81
+
+   //===PHP82
+   If UENV_PHP_SELECT = 'php82' Then
+    begin
+      Main.MMSS_php82.Checked:=true;
+      //php ini
+      If FileExists(USF_PHP_INI_TEST_82) Then
+         Main.MMSS_php_ini.Enabled:=true
+      Else
+         Main.MMSS_php_ini.Enabled:=false;
+
+      //php development
+      If FileExists(USF_PHP_INI_DEV_82) Then
+         Main.MMSS_php_development.Enabled:=true
+      Else
+         Main.MMSS_php_development.Enabled:=false;
+
+      //php production
+      If FileExists(USF_PHP_INI_PROD_82) Then
+         Main.MMSS_php_production.Enabled:=true
+      Else
+         Main.MMSS_php_production.Enabled:=false;
+    end
+   Else
+      Main.MMSS_php82.Checked:=false;
+   //===End PHP82
+
+   //===PHP83
+   If UENV_PHP_SELECT = 'php83' Then
+    begin
+      Main.MMSS_php83.Checked:=true;
+      //php ini
+      If FileExists(USF_PHP_INI_TEST_83) Then
+         Main.MMSS_php_ini.Enabled:=true
+      Else
+         Main.MMSS_php_ini.Enabled:=false;
+
+      //php development
+      If FileExists(USF_PHP_INI_DEV_83) Then
+         Main.MMSS_php_development.Enabled:=true
+      Else
+         Main.MMSS_php_development.Enabled:=false;
+
+      //php production
+      If FileExists(USF_PHP_INI_PROD_83) Then
+         Main.MMSS_php_production.Enabled:=true
+      Else
+         Main.MMSS_php_production.Enabled:=false;
+    end
+   Else
+      Main.MMSS_php83.Checked:=false;
+   //===End PHP83
 
    //---PHP Information menu button.
     If AP and Not(UENV_PHP_SELECT = 'None') Then

@@ -424,7 +424,7 @@ object Main: TMain
         Caption = '-'
       end
       object MMS_clean_up: TMenuItem
-        Caption = 'Clean-Up  delete logs'
+        Caption = 'Clean-Up/Delete logs'
         ImageIndex = 25
         OnClick = MMS_clean_upClick
       end
@@ -436,7 +436,7 @@ object Main: TMain
         OnClick = MMS_select_portable_browserClick
       end
       object MMS_select_default_browser: TMenuItem
-        Caption = 'Default  browser'
+        Caption = 'Default browser'
         OnClick = MMS_select_default_browserClick
       end
     end
@@ -767,6 +767,10 @@ object Main: TMain
         object MMSS_php82: TMenuItem
           Caption = 'PHP version 82'
           OnClick = MMSS_php82Click
+        end
+        object MMSS_php83: TMenuItem
+          Caption = 'PHP version 83'
+          OnClick = MMSS_php83Click
         end
       end
       object MMS_select_php_config: TMenuItem
