@@ -3,8 +3,7 @@ unit root_www_pass_access_form;
 {#############################################################################
 '# Name: root_www_pass_access_form.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}

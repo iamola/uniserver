@@ -13,7 +13,7 @@ object server_cert_key_gen: Tserver_cert_key_gen
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '2.2.2'
   object Label1: TLabel
     Left = 5
     Height = 13

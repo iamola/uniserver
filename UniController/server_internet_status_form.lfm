@@ -11,7 +11,7 @@ object server_internet_status: Tserver_internet_status
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '2.2.2'
   object Image1: TImage
     Left = 16
     Height = 54

@@ -11,7 +11,7 @@ object mysql_edit_restricted_user: Tmysql_edit_restricted_user
   OnShow = FormShow
   Position = poScreenCenter
   ShowInTaskBar = stNever
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '2.2.2'
   object GB_edit: TGroupBox
     Left = 8
     Height = 184

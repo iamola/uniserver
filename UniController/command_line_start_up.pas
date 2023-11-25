@@ -3,10 +3,7 @@ unit command_line_start_up;
 {#############################################################################
 '# Name: command_line_start_up.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
-'#
-'#
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}

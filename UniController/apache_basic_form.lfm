@@ -11,7 +11,7 @@ object apache_basic: Tapache_basic
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '2.2.2'
   object GroupBox1: TGroupBox
     Left = 8
     Height = 272

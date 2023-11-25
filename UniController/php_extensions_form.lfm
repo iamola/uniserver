@@ -11,7 +11,7 @@ object php_extensions: Tphp_extensions
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '2.0.4.0'
+  LCLVersion = '2.2.2'
   object PHP_Extensions_CheckListBox: TCheckListBox
     Left = 0
     Height = 351

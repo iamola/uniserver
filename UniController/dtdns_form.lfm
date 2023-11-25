@@ -12,7 +12,7 @@ object dtdns: Tdtdns
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '2.2.2'
   object GB1: TGroupBox
     Left = 8
     Height = 208

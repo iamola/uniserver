@@ -12,7 +12,7 @@ object mysql_database_backup: Tmysql_database_backup
   OnShow = FormShow
   Position = poScreenCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.12.0'
+  LCLVersion = '2.2.2'
   object GroupBox1: TGroupBox
     Left = 8
     Height = 217

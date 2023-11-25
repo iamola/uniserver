@@ -11,7 +11,7 @@ object vhost_create: Tvhost_create
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '2.2.2'
   object Btn_create_vhost: TButton
     Left = 110
     Height = 25

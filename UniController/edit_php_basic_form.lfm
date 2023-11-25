@@ -11,7 +11,7 @@ object edit_php_basic: Tedit_php_basic
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.8.0'
+  LCLVersion = '2.2.2'
   object Gb_production: TGroupBox
     Left = 216
     Height = 320

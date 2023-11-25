@@ -3,10 +3,7 @@ unit cron_form;
 {#############################################################################
 '# Name: cron_form.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
-'#
-'#
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}
@@ -129,7 +126,7 @@ var
 begin
 
   //--Set paths
-  // UENV_PHP_SELECT - PHP version selected php 70, php71, php 72, php 73, php80, php81
+  // UENV_PHP_SELECT - PHP version selected php 70, php71, php 72, php 73, php80, php81, php82
   USF_PHP_EXE      :=  UniConPath + '\core\'+ UENV_PHP_SELECT +'\php.exe';     // PHP command executable
   USF_PHP_INI_CLI  :=  UniConPath + '\core\'+ UENV_PHP_SELECT +'\php-cli.ini'; // PHP command line config
 

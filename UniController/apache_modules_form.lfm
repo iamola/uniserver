@@ -13,7 +13,7 @@ object apache_modules: Tapache_modules
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.8.0'
+  LCLVersion = '2.2.2'
   object Apache_Modules_CheckListBox: TCheckListBox
     Left = 0
     Height = 400

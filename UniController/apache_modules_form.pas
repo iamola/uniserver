@@ -3,9 +3,7 @@ unit apache_modules_form;
 {#############################################################################
 '# Name: default_config_vars.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
-'#
+'# Web: https://www.uniformserver.com
 '#
 '# This form lists all Apache modules and shows modules selected.
 '# A user can select or deselect modules. The Apache

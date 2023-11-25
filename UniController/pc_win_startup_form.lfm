@@ -12,7 +12,7 @@ object pc_win_startup: Tpc_win_startup
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '2.2.2'
   object GB_pc_win_startup: TGroupBox
     Left = 32
     Height = 80

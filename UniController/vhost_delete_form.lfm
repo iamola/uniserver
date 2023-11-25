@@ -12,7 +12,7 @@ object vhost_delete: Tvhost_delete
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '2.2.2'
   object Btn_delete_vhost: TButton
     Left = 158
     Height = 25

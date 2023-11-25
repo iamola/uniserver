@@ -3,10 +3,7 @@ unit us_common_functions;
 {#############################################################################
 '# Name: us_common_functions.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
-'# V1.1.2 11-05-2014 valid_admin_email updated ExecRegExpr
-'#
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}

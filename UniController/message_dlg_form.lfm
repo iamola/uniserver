@@ -12,7 +12,7 @@ object us_message_dlg: Tus_message_dlg
   FormStyle = fsStayOnTop
   OnClose = FormClose
   OnShow = FormShow
-  LCLVersion = '1.2.2.0'
+  LCLVersion = '2.2.2'
   object Panel1: TPanel
     Left = 0
     Height = 87

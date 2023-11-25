@@ -12,7 +12,7 @@ object About: TAbout
   OnCreate = FormCreate
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '2.0.10.0'
+  LCLVersion = '2.2.2'
   object Image1: TImage
     Left = 20
     Height = 68

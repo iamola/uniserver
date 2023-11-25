@@ -3,10 +3,7 @@ unit message_dlg_form;
 {#############################################################################
 '# Name: message_dlg_form.pas
 '# Developed By: The Uniform Server Development Team
-'# Web: http://www.uniformserver.com
-'# Mike Gleaves V1.1.1 25-04-2014
-'#
-'# Replaced  DividerBevel with Panel4 - Artifact when using DividerBevel
+'# Web: https://www.uniformserver.com
 '#############################################################################}
 
 {$mode objfpc}{$H+}

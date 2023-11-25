@@ -11,7 +11,7 @@ object root_www_pass_access: Troot_www_pass_access
   OnShow = FormShow
   Position = poOwnerFormCenter
   ShowInTaskBar = stNever
-  LCLVersion = '1.2.2.0'
+  LCLVersion = '2.2.2'
   object GBox_enter_name_password: TGroupBox
     Left = 8
     Height = 169
