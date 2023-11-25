@@ -4,6 +4,7 @@ unit us_common_functions;
 '# Name: us_common_functions.pas
 '# Common functions for UniService
 '# Developed By: The Uniform Server Development Team
+'#
 '# Web: https://www.uniformserver.com
 '#############################################################################}
 

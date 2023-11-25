@@ -51,7 +51,7 @@ begin
 
   str1:='';
   str1:= str1 + 'UniServer Zero XV '+sLineBreak;
-  str1:= str1 + 'UniService XV 2.5.1';
+  str1:= str1 + 'UniService XV 2.5.2';
   Label1.Caption := str1;
 
   str2:='';

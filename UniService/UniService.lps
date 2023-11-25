@@ -20,7 +20,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="220"/>
+        <TopLine Value="212"/>
         <CursorPos Y="7"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
@@ -28,9 +28,9 @@
       <Unit2>
         <Filename Value="default_config_vars.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="254"/>
-        <CursorPos X="62" Y="220"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="22"/>
+        <CursorPos X="118" Y="45"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -40,26 +40,25 @@
         <ComponentName Value="About"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="33"/>
-        <CursorPos X="29" Y="60"/>
+        <TopLine Value="23"/>
+        <CursorPos X="37" Y="54"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="us_common_functions.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="337"/>
-        <CursorPos Y="8"/>
+        <CursorPos X="4" Y="7"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="us_common_procedures.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="572"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="564"/>
         <CursorPos X="4" Y="8"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
@@ -74,9 +73,12 @@
       </Unit6>
       <Unit7>
         <Filename Value="about_form.lfm"/>
+        <ComponentName Value="About"/>
         <HasResources Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <CursorPos X="15" Y="3"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="4"/>
+        <CursorPos X="17" Y="27"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
@@ -86,8 +88,9 @@
         <ComponentName Value="Main"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="341"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="332"/>
+        <CursorPos X="25" Y="339"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
@@ -106,27 +109,71 @@
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit10>
     </Units>
-    <JumpHistory Count="5" HistoryIndex="4">
+    <JumpHistory Count="16" HistoryIndex="15">
       <Position1>
         <Filename Value="default_config_vars.pas"/>
-        <Caret Line="221" Column="62" TopLine="246"/>
+        <Caret Line="223" Column="62" TopLine="248"/>
       </Position1>
       <Position2>
         <Filename Value="default_config_vars.pas"/>
-        <Caret Line="46" Column="111" TopLine="23"/>
+        <Caret Line="45" Column="118" TopLine="22"/>
       </Position2>
       <Position3>
         <Filename Value="default_config_vars.pas"/>
-        <Caret Line="72" Column="10" TopLine="33"/>
+        <Caret Line="72" Column="39" TopLine="33"/>
       </Position3>
       <Position4>
         <Filename Value="default_config_vars.pas"/>
-        <Caret Line="158" Column="51" TopLine="120"/>
+        <Caret Line="159" Column="70" TopLine="121"/>
       </Position4>
       <Position5>
         <Filename Value="default_config_vars.pas"/>
-        <Caret Line="211" Column="74" TopLine="188"/>
+        <Caret Line="212" Column="71" TopLine="174"/>
       </Position5>
+      <Position6>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="222" Column="62" TopLine="184"/>
+      </Position6>
+      <Position7>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="45" Column="118" TopLine="22"/>
+      </Position7>
+      <Position8>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="72" Column="39" TopLine="33"/>
+      </Position8>
+      <Position9>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="159" Column="70" TopLine="121"/>
+      </Position9>
+      <Position10>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="212" Column="71" TopLine="174"/>
+      </Position10>
+      <Position11>
+        <Filename Value="default_config_vars.pas"/>
+        <Caret Line="222" Column="62" TopLine="184"/>
+      </Position11>
+      <Position12>
+        <Filename Value="main_form.lfm"/>
+        <Caret TopLine="333"/>
+      </Position12>
+      <Position13>
+        <Filename Value="main_form.lfm"/>
+        <Caret Line="118" Column="17" TopLine="95"/>
+      </Position13>
+      <Position14>
+        <Filename Value="about_form.lfm"/>
+        <Caret Line="3" Column="15"/>
+      </Position14>
+      <Position15>
+        <Filename Value="about_form.lfm"/>
+        <Caret Line="249" Column="32" TopLine="236"/>
+      </Position15>
+      <Position16>
+        <Filename Value="about_form.lfm"/>
+        <Caret Line="252" Column="51" TopLine="232"/>
+      </Position16>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
